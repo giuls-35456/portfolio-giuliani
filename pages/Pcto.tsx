@@ -169,8 +169,8 @@ const Pcto: React.FC = () => {
     <>
       <style>
         {`
-          /* Nasconde la navbar quando il report è aperto */
-          ${isReportOpen ? 'nav { display: none !important; }' : ''}
+          /* Nasconde la navbar quando un modal (foto o report) è aperto */
+          ${(isReportOpen || selectedImage) ? 'nav { display: none !important; }' : ''}
           
           @media print {
             body * {
@@ -309,15 +309,15 @@ const Pcto: React.FC = () => {
               onClick={() => setSelectedImage(null)}
             >
               <div className="max-w-5xl w-full relative z-[10000] m-4" onClick={e => e.stopPropagation()}>
-                {/* Pulsante di chiusura - Posizionato internamente per non essere tagliato */}
-                <div className="absolute top-4 right-4 z-[10001]">
+                {/* Pulsante di chiusura - Posizionato più internamente con margine di sicurezza */}
+                <div className="absolute top-6 right-6 md:top-8 md:right-8 z-[10001]">
                   <button 
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
                       setSelectedImage(null);
                     }} 
-                    className="p-3 md:p-4 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-2xl border-4 border-white hover:scale-110 active:scale-95 cursor-pointer"
+                    className="p-3 md:p-4 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(0,0,0,0.5)] border-4 border-white hover:scale-110 active:scale-95 cursor-pointer"
                     style={{ pointerEvents: 'auto' }}
                     title="Chiudi"
                   >
