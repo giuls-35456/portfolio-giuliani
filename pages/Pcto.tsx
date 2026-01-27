@@ -302,14 +302,19 @@ const Pcto: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] bg-slate-900/90 backdrop-blur-md flex items-center justify-center p-4 md:p-10"
+              className="fixed inset-0 z-[9999] bg-slate-900/90 backdrop-blur-md flex items-center justify-center p-4 md:p-10"
               onClick={() => setSelectedImage(null)}
             >
-              <div className="max-w-5xl w-full relative z-[110]" onClick={e => e.stopPropagation()}>
-                {/* Pulsante di chiusura galleggiante assoluto */}
+              <div className="max-w-5xl w-full relative z-[10000]" onClick={e => e.stopPropagation()}>
+                {/* Pulsante di chiusura galleggiante assoluto - Spostato leggermente all'interno per evitare conflitti con i bordi dello schermo */}
                 <button 
-                  onClick={() => setSelectedImage(null)} 
-                  className="absolute -top-4 -right-4 md:-top-6 md:-right-6 z-[300] p-4 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.5)] border-4 border-white hover:scale-110 active:scale-95"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setSelectedImage(null);
+                  }} 
+                  className="absolute top-4 right-4 md:top-6 md:right-6 z-[10001] p-4 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(220,38,38,0.8)] border-4 border-white hover:scale-110 active:scale-95 cursor-pointer"
+                  style={{ pointerEvents: 'auto' }}
                   title="Chiudi"
                 >
                   <X size={32} strokeWidth={4} />
@@ -340,14 +345,19 @@ const Pcto: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] bg-slate-900/95 backdrop-blur-xl overflow-y-auto p-4 md:p-10"
+              className="fixed inset-0 z-[9999] bg-slate-900/95 backdrop-blur-xl overflow-y-auto p-4 md:p-10"
             >
-              <div className="max-w-4xl mx-auto relative z-[110]">
-                {/* Pulsanti di controllo galleggianti - Posizionati relativamente al contenitore per funzionare sempre */}
-                <div className="absolute -top-4 -right-4 md:-top-6 md:-right-12 z-[300] flex flex-col gap-4 no-print">
+              <div className="max-w-4xl mx-auto relative z-[10000]">
+                {/* Pulsanti di controllo galleggianti - Posizionati assolutamente con z-index massimo */}
+                <div className="fixed top-6 right-6 md:top-10 md:right-10 z-[10001] flex flex-col gap-4 no-print">
                   <button 
-                    onClick={() => setIsReportOpen(false)} 
-                    className="p-5 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(220,38,38,0.6)] border-4 border-white hover:scale-110 active:scale-95"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setIsReportOpen(false);
+                    }} 
+                    className="p-5 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(220,38,38,0.8)] border-4 border-white hover:scale-110 active:scale-95 cursor-pointer"
+                    style={{ pointerEvents: 'auto' }}
                     title="Chiudi"
                   >
                     <X size={32} strokeWidth={4} />
