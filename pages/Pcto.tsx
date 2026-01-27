@@ -186,12 +186,43 @@ const Pcto: React.FC = () => {
             PCTO <span className="text-blue-600">2024/25</span>
           </h1>
           <p className="text-lg text-slate-500 leading-relaxed">
-            Esperienza formativa presso l'azienda <span className="font-bold text-slate-900">Apra S.p.a.</span> di Jesi, 
-            un'immersione nel mondo dell'informatica aziendale e della consulenza tecnologica.
+            L'esperienza formativa presso l'azienda <span className="font-bold text-slate-900">Apra S.p.a.</span> di Jesi ha rappresentato un momento fondamentale del mio percorso di crescita, offrendomi un'immersione profonda nel mondo dell'informatica aziendale e della consulenza tecnologica di alto livello. 
+            Durante questo periodo, ho avuto l'opportunità di confrontarmi con professionisti del settore, comprendendo non solo le dinamiche tecniche dello sviluppo software e della gestione sistemistica, ma anche l'importanza della Business Intelligence e della progettazione avanzata. 
+            Questa esperienza mi ha permesso di applicare sul campo le competenze maturate a scuola, trasformando la teoria in pratica all'interno di una delle realtà tecnologiche più significative del territorio.
           </p>
         </div>
 
-        {/* Sezione Report Finale */}
+        {/* Galleria Attività - Spostata sopra la relazione */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {galleryImages.map((item, i) => (
+            <motion.div 
+              key={i}
+              whileHover={{ y: -8 }}
+              onClick={() => setSelectedImage(item)}
+              className="bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all cursor-pointer group"
+            >
+              <div className="aspect-video overflow-hidden relative bg-slate-50">
+                {item.type === 'image' ? (
+                  <img src={item.url} alt={item.caption} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                ) : (
+                  <div className="w-full h-full group-hover:scale-105 transition-transform duration-700">
+                    {item.thumbnail}
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/10 transition-colors"></div>
+                <div className="absolute bottom-6 right-6 p-4 bg-white/90 backdrop-blur-md rounded-2xl text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity shadow-xl">
+                  <ImageIcon size={24} />
+                </div>
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">{item.caption}</h3>
+                <p className="text-slate-500 leading-relaxed">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </section>
+
+        {/* Sezione Report Finale - Spostata sotto le foto */}
         <section className="bg-slate-900 rounded-[3rem] p-8 md:p-16 text-white relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 blur-[120px] opacity-20 -translate-y-1/2 translate-x-1/2"></div>
           
@@ -233,36 +264,6 @@ const Pcto: React.FC = () => {
               </div>
             </div>
           </div>
-        </section>
-
-        {/* Galleria Attività - Ripristinata originale */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {galleryImages.map((item, i) => (
-            <motion.div 
-              key={i}
-              whileHover={{ y: -8 }}
-              onClick={() => setSelectedImage(item)}
-              className="bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all cursor-pointer group"
-            >
-              <div className="aspect-video overflow-hidden relative bg-slate-50">
-                {item.type === 'image' ? (
-                  <img src={item.url} alt={item.caption} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                ) : (
-                  <div className="w-full h-full group-hover:scale-105 transition-transform duration-700">
-                    {item.thumbnail}
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/10 transition-colors"></div>
-                <div className="absolute bottom-6 right-6 p-4 bg-white/90 backdrop-blur-md rounded-2xl text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity shadow-xl">
-                  <ImageIcon size={24} />
-                </div>
-              </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">{item.caption}</h3>
-                <p className="text-slate-500 leading-relaxed">{item.desc}</p>
-              </div>
-            </motion.div>
-          ))}
         </section>
 
         {/* Modal Immagine - Ripristinato layout originale */}
