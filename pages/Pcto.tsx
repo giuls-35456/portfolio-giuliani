@@ -337,7 +337,7 @@ const Pcto: React.FC = () => {
               className="fixed inset-0 z-[100] bg-slate-900/95 backdrop-blur-xl overflow-y-auto p-4 md:p-10"
             >
               <div className="max-w-4xl mx-auto">
-                <div className="flex justify-between items-center mb-8 no-print sticky top-0 bg-slate-900/80 p-4 rounded-xl z-10">
+                <div className="flex justify-between items-center mb-8 no-print sticky top-0 bg-slate-900/95 p-4 rounded-xl z-[200] backdrop-blur-xl shadow-2xl">
                   <div className="text-white">
                     <h3 className="text-xl font-bold">Relazione Finale PCTO</h3>
                     <p className="text-xs text-slate-400 italic">Anteprima Documento</p>
@@ -348,10 +348,10 @@ const Pcto: React.FC = () => {
                     </button>
                     <button 
                       onClick={() => setIsReportOpen(false)} 
-                      className="p-3 bg-white/10 text-white hover:bg-red-500 transition-all duration-300 rounded-xl flex items-center justify-center shadow-lg border border-white/20"
+                      className="p-3 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-xl flex items-center justify-center shadow-lg border-2 border-white/30 hover:scale-110 relative z-[250]"
                       title="Chiudi"
                     >
-                      <X size={28} />
+                      <X size={28} strokeWidth={2.5} />
                     </button>
                   </div>
                 </div>
