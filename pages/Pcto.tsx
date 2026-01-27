@@ -306,13 +306,17 @@ const Pcto: React.FC = () => {
               onClick={() => setSelectedImage(null)}
             >
               <div className="max-w-5xl w-full space-y-6" onClick={e => e.stopPropagation()}>
-                <div className="flex justify-between items-center text-white">
+                <div className="flex justify-between items-center text-white bg-slate-900/40 p-4 rounded-2xl backdrop-blur-sm border border-white/10">
                   <div>
                     <h3 className="text-2xl font-bold">{selectedImage.caption}</h3>
                     <p className="text-slate-400">{selectedImage.desc}</p>
                   </div>
-                  <button onClick={() => setSelectedImage(null)} className="p-2 hover:bg-white/10 rounded-full transition-colors">
-                    <X size={32} />
+                  <button 
+                    onClick={() => setSelectedImage(null)} 
+                    className="p-3 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-xl flex items-center justify-center shadow-lg border-2 border-white/30 hover:scale-110 relative z-[250]"
+                    title="Chiudi"
+                  >
+                    <X size={32} strokeWidth={3} />
                   </button>
                 </div>
                 <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video flex items-center justify-center">
@@ -337,21 +341,21 @@ const Pcto: React.FC = () => {
               className="fixed inset-0 z-[100] bg-slate-900/95 backdrop-blur-xl overflow-y-auto p-4 md:p-10"
             >
               <div className="max-w-4xl mx-auto">
-                <div className="flex justify-between items-center mb-8 no-print sticky top-0 bg-slate-900/95 p-4 rounded-xl z-[200] backdrop-blur-xl shadow-2xl">
+                <div className="flex justify-between items-center mb-8 no-print sticky top-0 bg-slate-900/60 p-4 rounded-xl z-[200] backdrop-blur-md shadow-xl border border-white/10">
                   <div className="text-white">
                     <h3 className="text-xl font-bold">Relazione Finale PCTO</h3>
-                    <p className="text-xs text-slate-400 italic">Anteprima Documento</p>
+                    <p className="text-xs text-slate-200 italic font-medium">Anteprima Documento</p>
                   </div>
                   <div className="flex gap-4">
-                    <button onClick={handlePrint} className="flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-500 transition-colors">
+                    <button onClick={handlePrint} className="flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-500 transition-colors shadow-lg">
                       <Printer size={20} /> Stampa / PDF
                     </button>
                     <button 
                       onClick={() => setIsReportOpen(false)} 
-                      className="p-3 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-xl flex items-center justify-center shadow-lg border-2 border-white/30 hover:scale-110 relative z-[250]"
+                      className="p-3 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-xl flex items-center justify-center shadow-2xl border-2 border-white/40 hover:scale-110 relative z-[250]"
                       title="Chiudi"
                     >
-                      <X size={28} strokeWidth={2.5} />
+                      <X size={32} strokeWidth={3} />
                     </button>
                   </div>
                 </div>
