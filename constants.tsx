@@ -1,10 +1,10 @@
-
 import { User, Briefcase, BookOpen, Cpu, Scale, Mail } from 'lucide-react';
+import { PersonalInfo, RouteConfig } from './types';
 
 /**
  * Informazioni personali principali
  */
-export const INFO = {
+export const INFO: PersonalInfo = {
   nome: "Riccardo",
   cognome: "Giuliani",
   scuola: "IIS Marconi Pieralisi",
@@ -18,15 +18,15 @@ export const INFO = {
 /**
  * Alias per le informazioni personali per i componenti che si aspettano PERSONAL_INFO
  */
-export const PERSONAL_INFO = {
+export const PERSONAL_INFO: PersonalInfo = {
   ...INFO,
   pctoCompany: INFO.aziendaPcto
 };
 
 /**
- * Configurazione dei percorsi di navigazione (Updated with standard property names)
+ * Configurazione dei percorsi di navigazione
  */
-export const ROUTES = [
+export const ROUTES: RouteConfig[] = [
   { path: '/', label: 'Home', icon: User, color: 'text-teal-500' },
   { path: '/pcto', label: 'PCTO', icon: Briefcase, color: 'text-blue-500' },
   { path: '/umanistica', label: 'Area Umanistica', icon: BookOpen, color: 'text-rose-500' },
