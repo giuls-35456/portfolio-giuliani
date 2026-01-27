@@ -49,6 +49,9 @@ const Umanistica: React.FC = () => {
       className="space-y-20 py-10"
     >
       <style>{`
+        /* Nasconde la navbar quando il PDF è aperto */
+        ${openPdf ? 'nav { display: none !important; }' : ''}
+
         @media print {
           body * { visibility: hidden; }
           #printable-pdf, #printable-pdf * { visibility: visible; }
@@ -57,8 +60,8 @@ const Umanistica: React.FC = () => {
       `}</style>
 
       {/* Header Sezione */}
-      <header className="flex flex-col lg:flex-row gap-12 items-start">
-        <div className="lg:w-1/3 space-y-4 border-l-4 border-rose-500 pl-8">
+      <header className="flex flex-col lg:flex-row-reverse gap-12 items-start">
+        <div className="lg:w-1/3 space-y-4 border-r-4 border-rose-500 pr-8 text-right">
           <span className="text-rose-500 font-bold uppercase tracking-widest text-sm">Visione Critica</span>
           <h2 className="text-5xl font-bold text-slate-900 leading-tight">
             Le radici del <br/><span className="text-rose-600">Pensiero Moderno</span>
@@ -133,28 +136,30 @@ const Umanistica: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-slate-900/95 backdrop-blur-xl overflow-y-auto p-4 md:p-10"
+            className="fixed inset-0 z-[9999] bg-slate-900/95 backdrop-blur-xl overflow-y-auto p-4 md:p-10"
           >
-            <div className="max-w-4xl mx-auto">
-              <div className="flex justify-between items-center mb-8 sticky top-0 bg-slate-900/80 backdrop-blur-md p-6 rounded-2xl z-10 border border-white/10">
-                <div className="text-white">
-                  <h3 className="text-2xl font-bold">{openPdf.title}</h3>
-                  <p className="text-sm text-slate-400">Anteprima Documento</p>
-                </div>
-                <div className="flex gap-4">
-                  <button 
-                    onClick={handlePrint} 
-                    className="flex items-center gap-2 bg-rose-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-rose-500 transition-colors shadow-lg shadow-rose-900/20"
-                  >
-                    <Printer size={20} /> Stampa / PDF
-                  </button>
-                  <button 
-                    onClick={() => setOpenPdf(null)} 
-                    className="p-3 text-white hover:bg-white/10 rounded-xl transition-colors"
-                  >
-                    <X size={28} />
-                  </button>
-                </div>
+            <div className="max-w-4xl mx-auto relative z-[10000]">
+              {/* Pulsanti di controllo galleggianti */}
+              <div className="fixed top-4 right-4 md:top-8 md:right-8 z-[10001] flex flex-col gap-4 no-print">
+                <button 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setOpenPdf(null);
+                  }} 
+                  className="p-4 md:p-5 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-2xl border-4 border-white hover:scale-110 active:scale-95 cursor-pointer"
+                  style={{ pointerEvents: 'auto' }}
+                  title="Chiudi"
+                >
+                  <X size={32} strokeWidth={4} />
+                </button>
+                <button 
+                  onClick={handlePrint} 
+                  className="p-4 bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-xl border-4 border-white hover:scale-110 active:scale-95"
+                  title="Stampa / PDF"
+                >
+                  <Printer size={24} />
+                </button>
               </div>
               
               <div id="printable-pdf" className="bg-white shadow-2xl rounded-sm min-h-[297mm] overflow-hidden">

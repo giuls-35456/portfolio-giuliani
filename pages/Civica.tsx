@@ -56,6 +56,11 @@ const Civica: React.FC = () => {
       exit={{ opacity: 0, x: -20 }}
       className="space-y-16"
     >
+      <style>{`
+        /* Nasconde la navbar quando la presentazione è aperta */
+        ${openPres ? 'nav { display: none !important; }' : ''}
+      `}</style>
+
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center justify-center p-3 bg-emerald-50 text-emerald-600 rounded-2xl mb-4">
           <Scale size={32} />
@@ -96,18 +101,34 @@ const Civica: React.FC = () => {
       {/* Modal Presentazione */}
       <AnimatePresence>
         {openPres && (
-          <motion.div className="fixed inset-0 z-[100] bg-slate-900/98 overflow-y-auto p-4 md:p-10">
-            <div className="max-w-6xl mx-auto">
-              <div className="flex justify-between items-center mb-10 no-print">
-                <h3 className="text-white font-bold text-2xl">{openPres.title}</h3>
-                <div className="flex gap-4">
-                  <button onClick={() => window.print()} className="bg-emerald-600 text-white px-6 py-2 rounded-xl font-bold flex items-center gap-2 hover:bg-emerald-500">
-                    <Printer size={20} /> Stampa / PDF
-                  </button>
-                  <button onClick={() => setOpenPres(null)} className="text-white p-2 hover:bg-white/10 rounded-full">
-                    <X size={32} />
-                  </button>
-                </div>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[9999] bg-slate-900/98 overflow-y-auto p-4 md:p-10"
+          >
+            <div className="max-w-6xl mx-auto relative z-[10000]">
+              {/* Pulsanti di controllo galleggianti */}
+              <div className="fixed top-4 right-4 md:top-8 md:right-8 z-[10001] flex flex-col gap-4 no-print">
+                <button 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setOpenPres(null);
+                  }} 
+                  className="p-4 md:p-5 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-2xl border-4 border-white hover:scale-110 active:scale-95 cursor-pointer"
+                  style={{ pointerEvents: 'auto' }}
+                  title="Chiudi"
+                >
+                  <X size={32} strokeWidth={4} />
+                </button>
+                <button 
+                  onClick={() => window.print()} 
+                  className="p-4 bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-xl border-4 border-white hover:scale-110 active:scale-95"
+                  title="Stampa / PDF"
+                >
+                  <Printer size={24} />
+                </button>
               </div>
 
               <div id="presentation-viewer" className="space-y-20">
