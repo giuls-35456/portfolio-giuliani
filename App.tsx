@@ -1,26 +1,27 @@
-
 import React from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Sfondo from './components/Sfondo';
-import Cursore from './components/Cursore';
 
-// Pagine
+// Pagine con caricamento statico per ora, ottimizzabile con lazy loading in seguito
 import Home from './pages/Home';
-// Fix: Corrected casing to match 'pages/Pcto.tsx' instead of 'pages/PCTO.tsx' to resolve casing mismatch error
 import Pcto from './pages/Pcto';
 import Contatti from './pages/Contatti';
 import Umanistica from './pages/Umanistica';
 import Professionale from './pages/Professionale';
 import Civica from './pages/Civica';
 
-// Componente per le rotte animate
-const RotteAnimate = () => {
+/**
+ * Gestisce le transizioni animate tra le rotte.
+ * Utilizza useLocation per permettere ad AnimatePresence di rilevare il cambio pagina.
+ */
+const RotteAnimate: React.FC = () => {
   const location = useLocation();
+  
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location}>
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/pcto" element={<Pcto />} />
         <Route path="/umanistica" element={<Umanistica />} />
@@ -32,15 +33,18 @@ const RotteAnimate = () => {
   );
 };
 
+/**
+ * Componente Root dell'applicazione.
+ * Definisce il layout globale e il sistema di routing.
+ */
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="min-h-screen text-slate-800 selection:bg-teal-200">
+      <div className="min-h-screen bg-white text-slate-800 selection:bg-teal-200 antialiased">
         <Sfondo />
-        <Cursore />
         <Navbar />
         
-        <main className="container mx-auto px-6 pt-32 pb-20 max-w-6xl">
+        <main id="main-content" className="container mx-auto px-6 pt-32 pb-20 max-w-6xl relative z-10">
           <RotteAnimate />
         </main>
       </div>
