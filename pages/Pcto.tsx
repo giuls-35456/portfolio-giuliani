@@ -305,14 +305,14 @@ const Pcto: React.FC = () => {
               className="fixed inset-0 z-[100] bg-slate-900/90 backdrop-blur-md flex items-center justify-center p-4 md:p-10"
               onClick={() => setSelectedImage(null)}
             >
-              <div className="max-w-5xl w-full relative" onClick={e => e.stopPropagation()}>
+              <div className="max-w-5xl w-full relative z-[110]" onClick={e => e.stopPropagation()}>
                 {/* Pulsante di chiusura galleggiante assoluto */}
                 <button 
                   onClick={() => setSelectedImage(null)} 
-                  className="fixed top-6 right-6 z-[300] p-4 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.5)] border-4 border-white hover:scale-110 active:scale-95"
+                  className="absolute -top-4 -right-4 md:-top-6 md:-right-6 z-[300] p-4 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.5)] border-4 border-white hover:scale-110 active:scale-95"
                   title="Chiudi"
                 >
-                  <X size={36} strokeWidth={4} />
+                  <X size={32} strokeWidth={4} />
                 </button>
 
                 <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video flex items-center justify-center">
@@ -321,6 +321,12 @@ const Pcto: React.FC = () => {
                   ) : (
                     selectedImage.component
                   )}
+                </div>
+                
+                {/* Ripristino Descrizione Immagine */}
+                <div className="bg-slate-900/60 backdrop-blur-md p-6 rounded-3xl border border-white/10 text-white">
+                  <h3 className="text-2xl font-bold mb-1">{selectedImage.caption}</h3>
+                  <p className="text-slate-300">{selectedImage.desc}</p>
                 </div>
               </div>
             </motion.div>
@@ -336,22 +342,22 @@ const Pcto: React.FC = () => {
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-[100] bg-slate-900/95 backdrop-blur-xl overflow-y-auto p-4 md:p-10"
             >
-              <div className="max-w-4xl mx-auto relative">
-                {/* Pulsanti di controllo galleggianti */}
-                <div className="fixed top-6 right-6 z-[300] flex flex-col gap-4 no-print">
+              <div className="max-w-4xl mx-auto relative z-[110]">
+                {/* Pulsanti di controllo galleggianti - Posizionati relativamente al contenitore per funzionare sempre */}
+                <div className="absolute -top-4 -right-4 md:-top-6 md:-right-12 z-[300] flex flex-col gap-4 no-print">
                   <button 
                     onClick={() => setIsReportOpen(false)} 
                     className="p-5 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(220,38,38,0.6)] border-4 border-white hover:scale-110 active:scale-95"
                     title="Chiudi"
                   >
-                    <X size={40} strokeWidth={4} />
+                    <X size={32} strokeWidth={4} />
                   </button>
                   <button 
                     onClick={handlePrint} 
                     className="p-4 bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-xl border-4 border-white hover:scale-110 active:scale-95"
                     title="Stampa / PDF"
                   >
-                    <Printer size={28} />
+                    <Printer size={24} />
                   </button>
                 </div>
 
