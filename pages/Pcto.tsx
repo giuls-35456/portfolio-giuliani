@@ -183,7 +183,7 @@ const Pcto: React.FC = () => {
             <Briefcase size={32} />
           </div>
           <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight">
-            PCTO <span className="text-blue-600">2024/25</span>
+            PCTO <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 animate-gradient">2025/26</span>
           </h1>
           <p className="text-lg text-slate-500 leading-relaxed">
             L'esperienza formativa presso l'azienda <span className="font-bold text-slate-900">Apra S.p.a.</span> di Jesi ha rappresentato un momento fondamentale del mio percorso di crescita, offrendomi un'immersione profonda nel mondo dell'informatica aziendale e della consulenza tecnologica di alto livello. 
@@ -222,9 +222,10 @@ const Pcto: React.FC = () => {
           ))}
         </section>
 
-        {/* Sezione Report Finale - Spostata sotto le foto */}
-        <section className="bg-slate-900 rounded-[3rem] p-8 md:p-16 text-white relative overflow-hidden shadow-2xl">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 blur-[120px] opacity-20 -translate-y-1/2 translate-x-1/2"></div>
+        {/* Sezione Report Finale - Spostata sotto le foto con effetto wow */}
+        <section className="bg-slate-900 rounded-[3rem] p-8 md:p-16 text-white relative overflow-hidden shadow-2xl group">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 blur-[150px] opacity-20 -translate-y-1/2 translate-x-1/2 group-hover:opacity-30 transition-opacity duration-700"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-600 blur-[120px] opacity-10 translate-y-1/2 -translate-x-1/2"></div>
           
           <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
             <div className="flex-1 space-y-6">
@@ -236,7 +237,7 @@ const Pcto: React.FC = () => {
               <div className="flex flex-wrap gap-4">
                 <button 
                   onClick={() => setIsReportOpen(true)}
-                  className="bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold flex items-center gap-3 hover:bg-blue-50 transition-all"
+                  className="bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold flex items-center gap-3 hover:bg-blue-50 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-white/5"
                 >
                   <FileText size={24} /> Sfoglia Relazione
                 </button>
@@ -251,10 +252,10 @@ const Pcto: React.FC = () => {
             
             <div 
               onClick={() => setIsReportOpen(true)}
-              className="w-full md:w-64 aspect-[3/4] bg-white rounded-xl shadow-2xl cursor-pointer group relative overflow-hidden"
+              className="w-full md:w-64 aspect-[3/4] bg-white rounded-xl shadow-2xl cursor-pointer group relative overflow-hidden hover:rotate-2 transition-transform duration-500"
             >
               <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-all z-10"></div>
-              <div className="p-6 h-full flex flex-col items-center justify-center text-center space-y-4 text-slate-900">
+              <div className="p-6 h-full flex flex-col items-center justify-center text-center space-y-4 text-slate-900 group-hover:scale-105 transition-transform duration-500">
                 <div className="w-12 h-1 bg-blue-600"></div>
                 <h3 className="text-xl font-black uppercase tracking-tighter">Report<br/>Finale</h3>
                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Riccardo Giuliani</p>
