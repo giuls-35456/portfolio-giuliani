@@ -366,7 +366,7 @@ const Pcto: React.FC = () => {
                             <p className="text-2xl font-serif italic">Presentata da:</p>
                             <p className="text-4xl font-bold text-slate-900">{page.student}</p>
                           </div>
-                          <p className="text-lg font-medium text-slate-400 uppercase tracking-widest pt-20">{page.city}, 2024</p>
+                          <p className="text-lg font-medium text-slate-400 uppercase tracking-widest pt-20">{page.city}, 2025</p>
                         </div>
                       ) : (
                         <div className="space-y-12">
