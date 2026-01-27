@@ -80,8 +80,7 @@ const Home: React.FC = () => {
             alt={`Ritratto di ${INFO.nome} ${INFO.cognome}`} 
             loading="eager"
             fetchPriority="high"
-            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-            style={{ objectPosition: 'center 20%' }}
+            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
           />
           
           {/* Overlay gradiente protettivo */}

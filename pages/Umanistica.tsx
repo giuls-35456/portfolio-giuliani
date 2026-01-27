@@ -93,7 +93,7 @@ const Umanistica: React.FC = () => {
                   src={doc.image} 
                   alt={`Copertina progetto ${doc.title}`}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 brightness-[1.02] contrast-[1.02]" 
                 />
                 <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-5 py-2 rounded-full text-xs font-bold text-rose-600 uppercase tracking-widest shadow-sm">
                   {doc.tag}
