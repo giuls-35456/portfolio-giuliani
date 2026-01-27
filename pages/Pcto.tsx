@@ -40,7 +40,7 @@ const PDF_PAGES = [
   // PAGINA 4: 3° SETTIMANA
   {
     type: 'content',
-    image: "https://images.unsplash.com/photo-1558494949-ef2bb6db8744?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     weekTitle: "3° SETTIMANA",
     contentTitle: "Introduzione alla BI",
     text: `Durante la terza settimana siamo stati introdotti a un nuovo reparto dell'azienda, chiamato BI (Business Intelligence). Ci è stata fornita una panoramica generale sul ruolo di questo reparto, che si occupa principalmente dell'analisi dei dati aziendali.
@@ -152,7 +152,12 @@ const Pcto: React.FC = () => {
 
   const handleDownload = (docId: string) => {
     if (docId === 'relazione-finale') {
+      // Per simulare il download di un PDF generato dinamicamente, usiamo la funzione di stampa del browser
+      // che permette di salvare come PDF. In alternativa, attiviamo la visualizzazione per permettere all'utente di stampare.
       setIsReportOpen(true);
+      setTimeout(() => {
+        window.print();
+      }, 500);
     }
   };
 
