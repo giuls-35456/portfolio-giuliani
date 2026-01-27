@@ -66,6 +66,7 @@ const Umanistica: React.FC = () => {
           <p className="text-slate-500 italic font-serif text-xl">"La storia è testimone dei tempi, luce della verità, vita della memoria."</p>
           <p className="text-lg text-slate-600 leading-relaxed font-light">
             Il percorso nell'area umanistica mi ha permesso di esplorare la complessità dell'animo umano attraverso la letteratura e le grandi dinamiche geopolitiche della storia. 
+            Ho scelto personalmente di includere queste presentazioni nel mio portfolio perché mi hanno appassionato profondamente e rappresentano al meglio il mio interesse per queste materie.
           </p>
         </div>
         
