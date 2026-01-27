@@ -288,7 +288,7 @@ const Pcto: React.FC = () => {
           </div>
         </section>
 
-        {/* Modal Immagine */}
+        {/* Modal Immagine - Ripristinato layout originale */}
         <AnimatePresence>
           {selectedImage && (
             <motion.div 
@@ -298,23 +298,13 @@ const Pcto: React.FC = () => {
               className="fixed inset-0 z-[9999] bg-slate-900/90 backdrop-blur-md flex items-center justify-center p-4 md:p-10"
               onClick={() => setSelectedImage(null)}
             >
-              <div className="max-w-5xl w-full relative z-[10000] m-4" onClick={e => e.stopPropagation()}>
-                {/* Pulsante di chiusura - Posizionato più internamente con margine di sicurezza */}
-                <div className="absolute top-6 right-6 md:top-8 md:right-8 z-[10001]">
-                  <button 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      setSelectedImage(null);
-                    }} 
-                    className="p-3 md:p-4 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(0,0,0,0.5)] border-4 border-white hover:scale-110 active:scale-95 cursor-pointer"
-                    style={{ pointerEvents: 'auto' }}
-                    title="Chiudi"
-                  >
-                    <X size={32} strokeWidth={4} />
-                  </button>
-                </div>
-
+              <div className="max-w-5xl w-full relative z-[10000]" onClick={e => e.stopPropagation()}>
+                <button 
+                  onClick={() => setSelectedImage(null)} 
+                  className="absolute -top-16 right-0 text-white hover:text-blue-400 transition-colors"
+                >
+                  <X size={40} />
+                </button>
                 <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video flex items-center justify-center">
                   {selectedImage.type === 'image' ? (
                     <img src={selectedImage.url} alt={selectedImage.caption} className="w-full h-full object-cover" />
@@ -322,11 +312,9 @@ const Pcto: React.FC = () => {
                     selectedImage.component
                   )}
                 </div>
-                
-                {/* Ripristino Descrizione Immagine */}
-                <div className="bg-slate-900/60 backdrop-blur-md p-6 rounded-3xl border border-white/10 text-white">
-                  <h3 className="text-2xl font-bold mb-1">{selectedImage.caption}</h3>
-                  <p className="text-slate-300">{selectedImage.desc}</p>
+                <div className="mt-6 text-center text-white">
+                  <h3 className="text-2xl font-bold mb-2">{selectedImage.caption}</h3>
+                  <p className="text-slate-400">{selectedImage.desc}</p>
                 </div>
               </div>
             </motion.div>
