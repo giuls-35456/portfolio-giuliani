@@ -1,10 +1,7 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import TextReveal from '../components/TextReveal';
 import { 
-  Scale, Globe, ShieldCheck, Users, FileText, ChevronRight, X, Printer, 
-  Download, History, Cpu, Landmark, Compass, BrainCircuit, Globe2
+  Scale, X, Printer, ChevronRight, History, BrainCircuit, Globe2
 } from 'lucide-react';
 
 const Civica: React.FC = () => {
@@ -64,9 +61,9 @@ const Civica: React.FC = () => {
           <Scale size={32} />
         </div>
         <h1 className="text-4xl md:text-5xl font-bold text-slate-800">Educazione Civica</h1>
-        <TextReveal className="text-xl text-slate-500 justify-center">
+        <p className="text-xl text-slate-500 text-center max-w-3xl mx-auto">
           Cittadinanza Digitale e Consapevolezza Storica
-        </TextReveal>
+        </p>
       </div>
 
       {/* Sezione Presentazioni */}

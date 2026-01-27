@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import TextReveal from '../components/TextReveal';
 import { Cpu, Code2, Database, Network } from 'lucide-react';
 
 const Professionale: React.FC = () => {
@@ -17,9 +16,9 @@ const Professionale: React.FC = () => {
           <Cpu size={32} />
         </div>
         <h1 className="text-4xl md:text-5xl font-bold text-slate-800">Area Professionale</h1>
-        <TextReveal className="text-xl text-slate-500 justify-center">
+        <p className="text-xl text-slate-500 text-center max-w-3xl mx-auto">
           Scienze Applicate e Tecnologie Informatiche
-        </TextReveal>
+        </p>
       </div>
 
       <div className="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm">
