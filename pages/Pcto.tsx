@@ -98,11 +98,13 @@ const SectorsGraphic = ({ isThumbnail }: { isThumbnail: boolean }) => {
              <div className="relative">
                <item.icon 
                  strokeWidth={1.2} 
-                 size={isThumbnail ? 20 : 48} 
-                 className="text-slate-400 group-hover:text-blue-600 transition-colors" 
+                 size={isThumbnail ? 22 : 56} 
+                 className="text-slate-800 transition-colors group-hover:text-blue-600" 
                />
              </div>
-             {!isThumbnail && <span className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter leading-tight">{item.label}</span>}
+             <span className={`font-bold text-blue-700 leading-none whitespace-pre-line ${isThumbnail ? 'text-[8px]' : 'text-sm md:text-base mt-3'}`}>
+               {item.label}
+             </span>
           </div>
         ))}
       </div>
@@ -113,6 +115,23 @@ const SectorsGraphic = ({ isThumbnail }: { isThumbnail: boolean }) => {
 const Pcto: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<any>(null);
   const [isReportOpen, setIsReportOpen] = useState(false);
+
+  // Dati della galleria fotografica - Ripristinati originali
+  const galleryImages = [
+    { 
+      type: 'image',
+      url: "https://www.centropagina.it/wp-content/uploads/2021/09/Apra_sede_esterno-1280x853.jpg", 
+      caption: "Sede APRA",
+      desc: "Ingresso degli uffici dove ho svolto l'alternanza sede a Jesi."
+    },
+    { 
+      type: 'component',
+      component: <SectorsGraphic isThumbnail={false} />,
+      thumbnail: <SectorsGraphic isThumbnail={true} />,
+      caption: "Settori Strategici",
+      desc: "Wine, Agrifood, Furniture, Fashion, Oil & Gas, Manufacturing, Retail, Automotive, Pharma, Distribution & logistic, Banks & Insurance, Shipping & Logistic."
+    }
+  ];
 
   const handlePrint = () => {
     window.print();
@@ -153,53 +172,40 @@ const Pcto: React.FC = () => {
       </style>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="max-w-6xl mx-auto space-y-20 py-10"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -20 }}
+        transition={{ duration: 0.5 }}
+        className="space-y-16"
       >
-        {/* Header Sezione */}
-        <header className="flex flex-col md:flex-row gap-12 items-center">
-          <div className="flex-1 space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-bold uppercase tracking-widest">
-              <Briefcase size={18} /> Esperienza Professionale
-            </div>
-            <h1 className="text-5xl md:text-6xl font-black text-slate-900 leading-tight">
-              Percorsi per le <br/>
-              <span className="text-blue-600">Competenze Trasversali</span>
-            </h1>
-            <p className="text-xl text-slate-500 leading-relaxed font-light max-w-2xl">
-              Un'immersione nel mondo del lavoro presso <span className="font-bold text-slate-900">Apra S.p.a.</span>, 
-              dove ho potuto applicare le mie conoscenze informatiche in un contesto aziendale reale e dinamico.
-            </p>
+        <div className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="inline-flex items-center justify-center p-3 bg-blue-50 text-blue-600 rounded-2xl mb-4">
+            <Briefcase size={32} />
           </div>
-          <div className="w-full md:w-1/3 aspect-square bg-slate-100 rounded-[3rem] overflow-hidden relative group shadow-2xl">
-            <img 
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-              alt="Ufficio Apra" 
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition-colors"></div>
-          </div>
-        </header>
+          <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight">
+            PCTO <span className="text-blue-600">2024/25</span>
+          </h1>
+          <p className="text-lg text-slate-500 leading-relaxed">
+            Esperienza formativa presso l'azienda <span className="font-bold text-slate-900">Apra S.p.a.</span> di Jesi, 
+            un'immersione nel mondo dell'informatica aziendale e della consulenza tecnologica.
+          </p>
+        </div>
 
         {/* Sezione Report Finale */}
-        <section className="bg-slate-900 rounded-[4rem] p-10 md:p-20 text-white relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 blur-[150px] opacity-20 -translate-y-1/2 translate-x-1/2"></div>
+        <section className="bg-slate-900 rounded-[3rem] p-8 md:p-16 text-white relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 blur-[120px] opacity-20 -translate-y-1/2 translate-x-1/2"></div>
           
-          <div className="relative z-10 flex flex-col md:flex-row gap-16 items-center">
-            <div className="flex-1 space-y-8">
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                Relazione Finale <br/>
-                <span className="text-blue-400">PCTO 2024/25</span>
-              </h2>
-              <p className="text-slate-400 text-lg leading-relaxed">
+          <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
+            <div className="flex-1 space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold">Relazione Finale</h2>
+              <p className="text-slate-400 text-lg">
                 Documento completo che riassume le 5 settimane di attività, le competenze acquisite 
                 e i reparti aziendali esplorati durante lo stage.
               </p>
               <div className="flex flex-wrap gap-4">
                 <button 
                   onClick={() => setIsReportOpen(true)}
-                  className="bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold flex items-center gap-3 hover:bg-blue-50 transition-all shadow-xl shadow-blue-900/20"
+                  className="bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold flex items-center gap-3 hover:bg-blue-50 transition-all"
                 >
                   <FileText size={24} /> Sfoglia Relazione
                 </button>
@@ -214,78 +220,49 @@ const Pcto: React.FC = () => {
             
             <div 
               onClick={() => setIsReportOpen(true)}
-              className="w-full md:w-80 aspect-[3/4] bg-white rounded-2xl shadow-2xl cursor-pointer group relative overflow-hidden border-8 border-slate-800"
+              className="w-full md:w-64 aspect-[3/4] bg-white rounded-xl shadow-2xl cursor-pointer group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-all z-10"></div>
-              <div className="p-8 h-full flex flex-col items-center justify-center text-center space-y-6 text-slate-900">
-                <div className="w-16 h-1 bg-blue-600"></div>
-                <h3 className="text-2xl font-black uppercase tracking-tighter">Report<br/>Finale</h3>
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Riccardo Giuliani</p>
-                <div className="pt-10">
-                   <FileText size={48} className="text-blue-600 animate-pulse" />
+              <div className="p-6 h-full flex flex-col items-center justify-center text-center space-y-4 text-slate-900">
+                <div className="w-12 h-1 bg-blue-600"></div>
+                <h3 className="text-xl font-black uppercase tracking-tighter">Report<br/>Finale</h3>
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Riccardo Giuliani</p>
+                <div className="pt-6">
+                   <FileText size={40} className="text-blue-600 animate-pulse" />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Galleria Attività */}
-        <section className="space-y-12">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-6">
-            <div className="space-y-4">
-              <h2 className="text-4xl font-bold text-slate-900">Momenti e Attività</h2>
-              <p className="text-slate-500 text-lg">Una selezione visiva dei reparti e delle tecnologie utilizzate.</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { 
-                url: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", 
-                caption: "Infrastruttura di Rete", 
-                desc: "Analisi dei server e della gestione sistemistica aziendale.",
-                type: 'image'
-              },
-              { 
-                url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", 
-                caption: "Business Intelligence", 
-                desc: "Utilizzo di Power BI per l'analisi e la visualizzazione dei dati.",
-                type: 'image'
-              },
-              { 
-                url: "graphic", 
-                caption: "Settori Aziendali", 
-                desc: "I 12 settori principali in cui opera Apra S.p.a.",
-                type: 'component',
-                component: <SectorsGraphic isThumbnail={false} />
-              }
-            ].map((item, i) => (
-              <motion.div 
-                key={i}
-                whileHover={{ y: -10 }}
-                onClick={() => setSelectedImage(item)}
-                className="bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all cursor-pointer group"
-              >
-                <div className="aspect-video overflow-hidden relative bg-slate-50">
-                  {item.type === 'image' ? (
-                    <img src={item.url} alt={item.caption} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                  ) : (
-                    <div className="w-full h-full group-hover:scale-105 transition-transform duration-700">
-                      <SectorsGraphic isThumbnail={true} />
-                    </div>
-                  )}
-                  <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/10 transition-colors"></div>
-                  <div className="absolute bottom-4 right-4 p-3 bg-white/90 backdrop-blur-md rounded-2xl text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ImageIcon size={20} />
+        {/* Galleria Attività - Ripristinata originale */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {galleryImages.map((item, i) => (
+            <motion.div 
+              key={i}
+              whileHover={{ y: -8 }}
+              onClick={() => setSelectedImage(item)}
+              className="bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all cursor-pointer group"
+            >
+              <div className="aspect-video overflow-hidden relative bg-slate-50">
+                {item.type === 'image' ? (
+                  <img src={item.url} alt={item.caption} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                ) : (
+                  <div className="w-full h-full group-hover:scale-105 transition-transform duration-700">
+                    {item.thumbnail}
                   </div>
+                )}
+                <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/10 transition-colors"></div>
+                <div className="absolute bottom-6 right-6 p-4 bg-white/90 backdrop-blur-md rounded-2xl text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity shadow-xl">
+                  <ImageIcon size={24} />
                 </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{item.caption}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">{item.caption}</h3>
+                <p className="text-slate-500 leading-relaxed">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
         </section>
 
         {/* Modal Immagine - Ripristinato layout originale */}
