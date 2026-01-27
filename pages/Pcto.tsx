@@ -376,7 +376,19 @@ const Pcto: React.FC = () => {
                   </button>
                 </div>
 
-                <div id="printable-report" className="space-y-0 bg-white shadow-2xl rounded-sm">
+                <div id="printable-report" className="space-y-0 bg-white shadow-2xl rounded-sm h-[80vh] overflow-hidden">
+                  {/* Visualizzatore PDF Reale per PCTO */}
+                  <iframe 
+                    src="/documents/relazione-pcto.pdf#toolbar=0" 
+                    className="w-full h-full border-none"
+                    title="Relazione PCTO"
+                    onError={(e) => {
+                      console.log("PDF non trovato, uso fallback");
+                    }}
+                  />
+                  
+                  {/* Fallback nascosto per la stampa o se il PDF non carica */}
+                  <div className="hidden">
                   {PDF_PAGES.map((page, i) => (
                     <div key={i} className="page-break min-h-[297mm] p-16 md:p-24 flex flex-col relative overflow-hidden">
                       {page.type === 'cover' ? (
@@ -441,6 +453,7 @@ const Pcto: React.FC = () => {
                       )}
                     </div>
                   ))}
+                  </div>
                 </div>
               </div>
             </motion.div>

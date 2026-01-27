@@ -40,4 +40,5 @@ export interface Document {
   image: string;
   description: string;
   pages: DocumentPage[];
+  pdfUrl?: string;
 }

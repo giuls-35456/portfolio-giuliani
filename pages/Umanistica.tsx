@@ -24,10 +24,8 @@ const Umanistica: React.FC = () => {
       tag: 'Letteratura Italiana',
       image: '/foto-progetti/area-umanistica/italiano-01.webp',
       description: "Un'analisi profonda del pensiero leopardiano, dal pessimismo storico a quello cosmico. La riflessione sulla natura 'matrigna' e la ricerca della felicità attraverso l'immaginazione.",
-      pages: [
-        { type: 'cover', title: 'GIACOMO LEOPARDI', subtitle: 'Scheda Riassuntiva', author: 'Riccardo Giuliani' },
-        { type: 'text', title: 'La Poetica', content: "La poetica di Leopardi si fonda sul 'sistema del piacere'. L'uomo desidera un piacere infinito, ma poiché non può ottenerlo nella realtà, lo cerca nell'immaginazione attraverso il 'vago e l'indefinito'." }
-      ]
+      pdfUrl: '/documents/leopardi.pdf',
+      pages: []
     },
     {
       id: 'storia',
@@ -60,20 +58,32 @@ const Umanistica: React.FC = () => {
       `}</style>
 
       {/* Header Sezione */}
-      <header className="flex flex-col lg:flex-row-reverse gap-12 items-start">
-        <div className="lg:w-1/3 space-y-4 border-r-4 border-rose-500 pr-8 text-right">
+      <header className="flex flex-col lg:flex-row-reverse gap-12 items-center">
+        {/* Testo a Destra (grazie a row-reverse) */}
+        <div className="lg:w-1/2 space-y-6 border-r-4 border-rose-500 pr-8 text-right order-1">
           <span className="text-rose-500 font-bold uppercase tracking-widest text-sm">Visione Critica</span>
           <h2 className="text-5xl font-bold text-slate-900 leading-tight">
             Le radici del <br/><span className="text-rose-600">Pensiero Moderno</span>
           </h2>
-          <p className="text-slate-500 italic font-serif">"La storia è testimone dei tempi, luce della verità, vita della memoria."</p>
+          <p className="text-slate-500 italic font-serif text-xl">"La storia è testimone dei tempi, luce della verità, vita della memoria."</p>
+          <p className="text-lg text-slate-600 leading-relaxed font-light">
+            Il percorso nell'area umanistica mi ha permesso di esplorare la complessità dell'animo umano attraverso la letteratura e le grandi dinamiche geopolitiche della storia. 
+          </p>
         </div>
         
-        <div className="lg:w-2/3">
-          <p className="text-xl text-slate-600 leading-relaxed font-light">
-            Il percorso nell'area umanistica mi ha permesso di esplorare la complessità dell'animo umano attraverso la letteratura e le grandi dinamiche geopolitiche della storia. 
-            Dalla malinconia attiva di Leopardi alla ferocia strategica della Guerra dei Sette Anni, ogni studio ha contribuito a formare una coscienza critica indispensabile per comprendere il presente.
-          </p>
+        {/* Immagine a Sinistra (grazie a row-reverse) */}
+        <div className="lg:w-1/2 order-2">
+          <div className="relative">
+            <div className="absolute -inset-4 bg-rose-100 rounded-[3rem] rotate-3 opacity-50"></div>
+            <img 
+              src="/foto-progetti/area-umanistica/umanistica-main.webp" 
+              alt="Area Umanistica" 
+              className="relative z-10 rounded-[2.5rem] shadow-2xl w-full object-cover aspect-[4/3]"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1491841573634-28140fc7ced7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80";
+              }}
+            />
+          </div>
         </div>
       </header>
 
@@ -162,34 +172,34 @@ const Umanistica: React.FC = () => {
                 </button>
               </div>
               
-              <div id="printable-pdf" className="bg-white shadow-2xl rounded-sm min-h-[297mm] overflow-hidden">
-                <div className="p-16 md:p-24 space-y-16">
-                  {/* Copertina */}
-                  <div className="border-[16px] border-slate-900 p-12 h-[200mm] flex flex-col items-center justify-center text-center space-y-10">
-                    <div className="space-y-4">
-                      <h1 className="text-7xl font-black text-slate-900 uppercase tracking-tighter leading-none">
-                        {openPdf.pages[0].title}
-                      </h1>
-                      <div className="w-32 h-3 bg-rose-600 mx-auto"></div>
-                    </div>
-                    <h2 className="text-3xl font-bold text-slate-500 uppercase tracking-widest">
-                      {openPdf.pages[0].subtitle}
-                    </h2>
-                    <p className="pt-20 text-2xl font-serif italic text-slate-400">
-                      Redatto da: <span className="text-slate-900 font-bold not-italic">{openPdf.pages[0].author}</span>
-                    </p>
+              <div id="printable-pdf" className="bg-white shadow-2xl rounded-sm h-[80vh] overflow-hidden">
+                {openPdf.pdfUrl ? (
+                  <iframe 
+                    src={`${openPdf.pdfUrl}#toolbar=0`} 
+                    className="w-full h-full border-none"
+                    title={openPdf.title}
+                  />
+                ) : (
+                  <div className="p-16 md:p-24 space-y-16">
+                    {/* Fallback per documenti senza PDF URL */}
+                    {openPdf.pages.length > 0 ? (
+                      <>
+                        <div className="border-[16px] border-slate-900 p-12 h-[200mm] flex flex-col items-center justify-center text-center space-y-10">
+                          <h1 className="text-7xl font-black text-slate-900 uppercase tracking-tighter leading-none">{openPdf.pages[0].title}</h1>
+                          <div className="w-32 h-3 bg-rose-600 mx-auto"></div>
+                        </div>
+                        {openPdf.pages[1] && (
+                          <div className="pt-20 prose prose-slate max-w-none">
+                            <h2 className="text-4xl font-bold text-slate-900 border-b-2 border-slate-100 pb-6 mb-10">{openPdf.pages[1].title}</h2>
+                            <p className="text-2xl leading-relaxed text-slate-700 font-serif">{openPdf.pages[1].content}</p>
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <div className="flex items-center justify-center h-full text-slate-400">Documento in fase di caricamento...</div>
+                    )}
                   </div>
-
-                  {/* Pagina di Testo */}
-                  <div className="pt-20 prose prose-slate max-w-none">
-                    <h2 className="text-4xl font-bold text-slate-900 border-b-2 border-slate-100 pb-6 mb-10">
-                      {openPdf.pages[1].title}
-                    </h2>
-                    <p className="text-2xl leading-relaxed text-slate-700 font-serif">
-                      {openPdf.pages[1].content}
-                    </p>
-                  </div>
-                </div>
+                )}
               </div>
             </div>
           </motion.div>
