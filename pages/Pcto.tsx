@@ -305,20 +305,16 @@ const Pcto: React.FC = () => {
               className="fixed inset-0 z-[100] bg-slate-900/90 backdrop-blur-md flex items-center justify-center p-4 md:p-10"
               onClick={() => setSelectedImage(null)}
             >
-              <div className="max-w-5xl w-full space-y-6" onClick={e => e.stopPropagation()}>
-                <div className="flex justify-between items-center text-white bg-slate-900/40 p-4 rounded-2xl backdrop-blur-sm border border-white/10">
-                  <div>
-                    <h3 className="text-2xl font-bold">{selectedImage.caption}</h3>
-                    <p className="text-slate-400">{selectedImage.desc}</p>
-                  </div>
-                  <button 
-                    onClick={() => setSelectedImage(null)} 
-                    className="p-3 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-xl flex items-center justify-center shadow-lg border-2 border-white/30 hover:scale-110 relative z-[250]"
-                    title="Chiudi"
-                  >
-                    <X size={32} strokeWidth={3} />
-                  </button>
-                </div>
+              <div className="max-w-5xl w-full relative" onClick={e => e.stopPropagation()}>
+                {/* Pulsante di chiusura galleggiante assoluto */}
+                <button 
+                  onClick={() => setSelectedImage(null)} 
+                  className="fixed top-6 right-6 z-[300] p-4 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.5)] border-4 border-white hover:scale-110 active:scale-95"
+                  title="Chiudi"
+                >
+                  <X size={36} strokeWidth={4} />
+                </button>
+
                 <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video flex items-center justify-center">
                   {selectedImage.type === 'image' ? (
                     <img src={selectedImage.url} alt={selectedImage.caption} className="w-full h-full object-cover" />
@@ -340,24 +336,23 @@ const Pcto: React.FC = () => {
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-[100] bg-slate-900/95 backdrop-blur-xl overflow-y-auto p-4 md:p-10"
             >
-              <div className="max-w-4xl mx-auto">
-                <div className="flex justify-between items-center mb-8 no-print sticky top-0 bg-slate-900/60 p-4 rounded-xl z-[200] backdrop-blur-md shadow-xl border border-white/10">
-                  <div className="text-white">
-                    <h3 className="text-xl font-bold">Relazione Finale PCTO</h3>
-                    <p className="text-xs text-slate-200 italic font-medium">Anteprima Documento</p>
-                  </div>
-                  <div className="flex gap-4">
-                    <button onClick={handlePrint} className="flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-500 transition-colors shadow-lg">
-                      <Printer size={20} /> Stampa / PDF
-                    </button>
-                    <button 
-                      onClick={() => setIsReportOpen(false)} 
-                      className="p-3 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-xl flex items-center justify-center shadow-2xl border-2 border-white/40 hover:scale-110 relative z-[250]"
-                      title="Chiudi"
-                    >
-                      <X size={32} strokeWidth={3} />
-                    </button>
-                  </div>
+              <div className="max-w-4xl mx-auto relative">
+                {/* Pulsanti di controllo galleggianti */}
+                <div className="fixed top-6 right-6 z-[300] flex flex-col gap-4 no-print">
+                  <button 
+                    onClick={() => setIsReportOpen(false)} 
+                    className="p-5 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(220,38,38,0.6)] border-4 border-white hover:scale-110 active:scale-95"
+                    title="Chiudi"
+                  >
+                    <X size={40} strokeWidth={4} />
+                  </button>
+                  <button 
+                    onClick={handlePrint} 
+                    className="p-4 bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-xl border-4 border-white hover:scale-110 active:scale-95"
+                    title="Stampa / PDF"
+                  >
+                    <Printer size={28} />
+                  </button>
                 </div>
 
                 <div id="printable-report" className="space-y-0 bg-white shadow-2xl rounded-sm">
