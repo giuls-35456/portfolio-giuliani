@@ -54,7 +54,7 @@ const PDF_PAGES = [
     weekTitle: "4° SETTIMANA",
     contentTitle: "Software gestionale Essenzia e programmazione in Omnis nel reparto i-Wine",
     text: `Durante la quarta settimana abbiamo approfondito il funzionamento del software gestionale Essenzia, utilizzato principalmente per la gestione delle attività in tutti i settori ma in particolare nell'i-Wine, considerato il reparto principale e strategico di Apra. La mattinata è stata guidata da Daniele, che ci ha mostrato in maniera dettagliata il funzionamento di Essenzia.
-	
+		
     A metà settimana, siamo stati affiancati da un programmatore del reparto i-Wine, che ci ha mostrato il software Omnis, lo strumento utilizzato per lo sviluppo e la manutenzione del gestionale.
     
     Durante tutta la giornata, le persone che ci hanno affiancato hanno dimostrato grande passione e competenza, sottolineando più volte quanto il reparto i-Wine sia considerato il cuore pulsante dell'azienda Apra.`,
@@ -98,13 +98,11 @@ const SectorsGraphic = ({ isThumbnail }: { isThumbnail: boolean }) => {
              <div className="relative">
                <item.icon 
                  strokeWidth={1.2} 
-                 className="text-slate-800 transition-colors group-hover:text-blue-600" 
-                 size={isThumbnail ? 22 : 56} 
+                 size={isThumbnail ? 20 : 48} 
+                 className="text-slate-400 group-hover:text-blue-600 transition-colors" 
                />
              </div>
-             <span className={`font-bold text-blue-700 leading-none whitespace-pre-line ${isThumbnail ? 'text-[8px]' : 'text-sm md:text-base mt-3'}`}>
-               {item.label}
-             </span>
+             {!isThumbnail && <span className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter leading-tight">{item.label}</span>}
           </div>
         ))}
       </div>
@@ -115,51 +113,6 @@ const SectorsGraphic = ({ isThumbnail }: { isThumbnail: boolean }) => {
 const Pcto: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<any>(null);
   const [isReportOpen, setIsReportOpen] = useState(false);
-
-  // Dati della galleria fotografica
-  const galleryImages = [
-    { 
-      type: 'image',
-      url: "https://www.centropagina.it/wp-content/uploads/2021/09/Apra_sede_esterno-1280x853.jpg", 
-      caption: "Sede APRA",
-      desc: "Ingresso degli uffici dove ho svolto l'alternanza sede a Jesi."
-    },
-    { 
-      type: 'component',
-      component: <SectorsGraphic isThumbnail={false} />,
-      thumbnail: <SectorsGraphic isThumbnail={true} />,
-      caption: "Settori Strategici",
-      desc: "Wine, Agrifood, Furniture, Fashion, Oil & Gas, Manufacturing, Retail, Automotive, Pharma, Distribution & logistic, Banks & Insurance, Shipping & Logistic."
-    }
-  ];
-
-  // Dati per le relazioni
-  const documents = [
-    { 
-      id: 'relazione-finale',
-      title: "Relazione Finale PCTO", 
-      type: "PDF Document", 
-      date: "Giugno 2024",
-      description: "Documento completo con il report settimanale delle attività svolte in azienda.",
-    }
-  ];
-
-  const handleDocumentClick = (docId: string) => {
-    if (docId === 'relazione-finale') {
-      setIsReportOpen(true);
-    }
-  };
-
-  const handleDownload = (docId: string) => {
-    if (docId === 'relazione-finale') {
-      // Per simulare il download di un PDF generato dinamicamente, usiamo la funzione di stampa del browser
-      // che permette di salvare come PDF. In alternativa, attiviamo la visualizzazione per permettere all'utente di stampare.
-      setIsReportOpen(true);
-      setTimeout(() => {
-        window.print();
-      }, 500);
-    }
-  };
 
   const handlePrint = () => {
     window.print();
@@ -184,121 +137,158 @@ const Pcto: React.FC = () => {
               left: 0;
               top: 0;
               width: 100%;
-              background: white;
-              color: black;
-              padding: 0;
-              margin: 0;
-            }
-            .page-break {
-              page-break-after: always;
+              height: auto !important;
+              overflow: visible !important;
             }
             .no-print {
               display: none !important;
+            }
+            .page-break {
+              page-break-after: always;
+              height: 297mm;
+              padding: 20mm !important;
             }
           }
         `}
       </style>
 
       <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -20 }}
-        transition={{ duration: 0.5 }}
-        className="space-y-16"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="max-w-6xl mx-auto space-y-20 py-10"
       >
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center justify-center p-3 bg-blue-50 text-blue-600 rounded-2xl mb-4">
-            <Briefcase size={32} />
+        {/* Header Sezione */}
+        <header className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="flex-1 space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-bold uppercase tracking-widest">
+              <Briefcase size={18} /> Esperienza Professionale
+            </div>
+            <h1 className="text-5xl md:text-6xl font-black text-slate-900 leading-tight">
+              Percorsi per le <br/>
+              <span className="text-blue-600">Competenze Trasversali</span>
+            </h1>
+            <p className="text-xl text-slate-500 leading-relaxed font-light max-w-2xl">
+              Un'immersione nel mondo del lavoro presso <span className="font-bold text-slate-900">Apra S.p.a.</span>, 
+              dove ho potuto applicare le mie conoscenze informatiche in un contesto aziendale reale e dinamico.
+            </p>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-800">Percorso PCTO</h1>
-          <p className="text-xl text-slate-500 text-center max-w-3xl mx-auto">
-            Alternanza Scuola-Lavoro presso APRA
-          </p>
-        </div>
+          <div className="w-full md:w-1/3 aspect-square bg-slate-100 rounded-[3rem] overflow-hidden relative group shadow-2xl">
+            <img 
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              alt="Ufficio Apra" 
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition-colors"></div>
+          </div>
+        </header>
 
-        {/* Intro Section */}
-        <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-slate-100 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full -translate-y-1/2 translate-x-1/2 opacity-50"></div>
+        {/* Sezione Report Finale */}
+        <section className="bg-slate-900 rounded-[4rem] p-10 md:p-20 text-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 blur-[150px] opacity-20 -translate-y-1/2 translate-x-1/2"></div>
           
-          <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-slate-800">L'Esperienza in Azienda</h2>
-              <p className="text-slate-600 leading-relaxed text-lg">
-                Ho svolto la mia esperienza di alternanza scuola-lavoro presso <strong>{PERSONAL_INFO.pctoCompany}</strong>, 
-                un'azienda leader nel settore della consulenza informatica e dello sviluppo software. 
-                Durante questo periodo ho avuto l'opportunità di conoscere da vicino le dinamiche aziendali 
-                e di approfondire le mie competenze tecniche in un ambiente professionale stimolante.
+          <div className="relative z-10 flex flex-col md:flex-row gap-16 items-center">
+            <div className="flex-1 space-y-8">
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+                Relazione Finale <br/>
+                <span className="text-blue-400">PCTO 2024/25</span>
+              </h2>
+              <p className="text-slate-400 text-lg leading-relaxed">
+                Documento completo che riassume le 5 settimane di attività, le competenze acquisite 
+                e i reparti aziendali esplorati durante lo stage.
               </p>
               <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-bold">
-                  <CheckCircle2 size={16} /> Sistemistica
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-bold">
-                  <CheckCircle2 size={16} /> Help Desk
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-bold">
-                  <CheckCircle2 size={16} /> Business Intelligence
-                </div>
+                <button 
+                  onClick={() => setIsReportOpen(true)}
+                  className="bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold flex items-center gap-3 hover:bg-blue-50 transition-all shadow-xl shadow-blue-900/20"
+                >
+                  <FileText size={24} /> Sfoglia Relazione
+                </button>
+                <button 
+                  onClick={() => setIsReportOpen(true)}
+                  className="bg-slate-800 text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-3 hover:bg-slate-700 transition-all border border-slate-700"
+                >
+                  <Download size={24} /> Scarica PDF
+                </button>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              {galleryImages.map((img, i) => (
-                <motion.div 
-                  key={i}
-                  whileHover={{ scale: 1.05 }}
-                  className="aspect-square rounded-3xl overflow-hidden shadow-lg cursor-pointer bg-slate-50 border border-slate-100"
-                  onClick={() => setSelectedImage(img)}
-                >
-                  {img.type === 'image' ? (
-                    <img src={img.url} alt={img.caption} className="w-full h-full object-cover" />
-                  ) : (
-                    img.thumbnail
-                  )}
-                </motion.div>
-              ))}
+            
+            <div 
+              onClick={() => setIsReportOpen(true)}
+              className="w-full md:w-80 aspect-[3/4] bg-white rounded-2xl shadow-2xl cursor-pointer group relative overflow-hidden border-8 border-slate-800"
+            >
+              <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-all z-10"></div>
+              <div className="p-8 h-full flex flex-col items-center justify-center text-center space-y-6 text-slate-900">
+                <div className="w-16 h-1 bg-blue-600"></div>
+                <h3 className="text-2xl font-black uppercase tracking-tighter">Report<br/>Finale</h3>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Riccardo Giuliani</p>
+                <div className="pt-10">
+                   <FileText size={48} className="text-blue-600 animate-pulse" />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Documents Section */}
-        <div className="space-y-8">
-          <h2 className="text-3xl font-bold text-slate-800 flex items-center gap-3">
-            <FileText className="text-blue-600" /> Documentazione
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {documents.map((doc) => (
-              <div 
-                key={doc.id}
-                className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition-all group"
+        {/* Galleria Attività */}
+        <section className="space-y-12">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-6">
+            <div className="space-y-4">
+              <h2 className="text-4xl font-bold text-slate-900">Momenti e Attività</h2>
+              <p className="text-slate-500 text-lg">Una selezione visiva dei reparti e delle tecnologie utilizzate.</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { 
+                url: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", 
+                caption: "Infrastruttura di Rete", 
+                desc: "Analisi dei server e della gestione sistemistica aziendale.",
+                type: 'image'
+              },
+              { 
+                url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", 
+                caption: "Business Intelligence", 
+                desc: "Utilizzo di Power BI per l'analisi e la visualizzazione dei dati.",
+                type: 'image'
+              },
+              { 
+                url: "graphic", 
+                caption: "Settori Aziendali", 
+                desc: "I 12 settori principali in cui opera Apra S.p.a.",
+                type: 'component',
+                component: <SectorsGraphic isThumbnail={false} />
+              }
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                whileHover={{ y: -10 }}
+                onClick={() => setSelectedImage(item)}
+                className="bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all cursor-pointer group"
               >
-                <div className="flex justify-between items-start mb-6">
-                  <div className="p-4 bg-blue-50 text-blue-600 rounded-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                    <FileText size={24} />
+                <div className="aspect-video overflow-hidden relative bg-slate-50">
+                  {item.type === 'image' ? (
+                    <img src={item.url} alt={item.caption} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  ) : (
+                    <div className="w-full h-full group-hover:scale-105 transition-transform duration-700">
+                      <SectorsGraphic isThumbnail={true} />
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/10 transition-colors"></div>
+                  <div className="absolute bottom-4 right-4 p-3 bg-white/90 backdrop-blur-md rounded-2xl text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ImageIcon size={20} />
                   </div>
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">{doc.date}</span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-2">{doc.title}</h3>
-                <p className="text-slate-500 text-sm mb-6 leading-relaxed">{doc.description}</p>
-                <div className="flex gap-3">
-                  <button 
-                    onClick={() => handleDocumentClick(doc.id)}
-                    className="flex-1 bg-slate-900 text-white py-3 rounded-xl font-bold text-sm hover:bg-blue-600 transition-colors"
-                  >
-                    Visualizza
-                  </button>
-                  <button 
-                    onClick={() => handleDownload(doc.id)}
-                    className="p-3 bg-slate-100 text-slate-600 rounded-xl hover:bg-slate-200 transition-colors"
-                  >
-                    <Download size={20} />
-                  </button>
+                <div className="p-8">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">{item.caption}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Image Modal */}
+        {/* Modal Immagine */}
         <AnimatePresence>
           {selectedImage && (
             <motion.div 
@@ -376,19 +366,9 @@ const Pcto: React.FC = () => {
                   </button>
                 </div>
 
-                <div id="printable-report" className="space-y-0 bg-white shadow-2xl rounded-xl h-[90vh] overflow-hidden mt-4">
-                  {/* Visualizzatore PDF Reale per PCTO */}
-                  <iframe 
-                    src="/documents/relazione-pcto.pdf#view=FitH&toolbar=0" 
-                    className="w-full h-full border-none"
-                    title="Relazione PCTO"
-                    onError={(e) => {
-                      console.log("PDF non trovato, uso fallback");
-                    }}
-                  />
-                  
-                  {/* Fallback nascosto per la stampa o se il PDF non carica */}
-                  <div className="hidden">
+                <div id="printable-report" className="space-y-0 bg-white shadow-2xl rounded-xl h-[90vh] overflow-y-auto mt-4">
+                  {/* Visualizzatore Relazione PCTO - Fallback integrato per massima compatibilità */}
+                  <div className="bg-white">
                   {PDF_PAGES.map((page, i) => (
                     <div key={i} className="page-break min-h-[297mm] p-16 md:p-24 flex flex-col relative overflow-hidden">
                       {page.type === 'cover' ? (

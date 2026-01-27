@@ -22,7 +22,7 @@ const Umanistica: React.FC = () => {
       id: 'storia',
       title: 'La Guerra dei 7 Anni',
       tag: 'Storia Moderna',
-      image: '/foto-progetti/area-umanistica/storia-01.webp',
+      image: '/foto-progetti/area-umanistica/storia-01.jpg',
       description: "Considerata la vera prima guerra mondiale, questo conflitto ha ridefinito gli equilibri globali, sancendo l'egemonia britannica e preparando il terreno per le rivoluzioni del Settecento.",
       pdfUrl: '/documents/guerra7anni.pdf',
       pages: []
