@@ -346,8 +346,12 @@ const Pcto: React.FC = () => {
                     <button onClick={handlePrint} className="flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-500 transition-colors">
                       <Printer size={20} /> Stampa / PDF
                     </button>
-                    <button onClick={() => setIsReportOpen(false)} className="p-2 text-white hover:bg-white/10 rounded-full transition-colors">
-                      <X size={24} />
+                    <button 
+                      onClick={() => setIsReportOpen(false)} 
+                      className="p-3 bg-white/10 text-white hover:bg-red-500 transition-all duration-300 rounded-xl flex items-center justify-center shadow-lg border border-white/20"
+                      title="Chiudi"
+                    >
+                      <X size={28} />
                     </button>
                   </div>
                 </div>
@@ -366,7 +370,7 @@ const Pcto: React.FC = () => {
                             <p className="text-2xl font-serif italic">Presentata da:</p>
                             <p className="text-4xl font-bold text-slate-900">{page.student}</p>
                           </div>
-                          <p className="text-lg font-medium text-slate-400 uppercase tracking-widest pt-20">{page.city}, 2025</p>
+                          <p className="text-lg font-medium text-slate-400 uppercase tracking-widest pt-20">Jesi, 2025</p>
                         </div>
                       ) : (
                         <div className="space-y-12">
