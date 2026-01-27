@@ -19,21 +19,21 @@ const Umanistica: React.FC = () => {
   // Dati dei documenti ottimizzati con immagini locali
   const docs: Document[] = [
     {
-      id: 'italiano',
-      title: 'Giacomo Leopardi',
-      tag: 'Letteratura Italiana',
-      image: '/foto-progetti/area-umanistica/italiano-01.webp',
-      description: "Un'analisi profonda del pensiero leopardiano, dal pessimismo storico a quello cosmico. La riflessione sulla natura 'matrigna' e la ricerca della felicità attraverso l'immaginazione.",
-      pdfUrl: '/documents/leopardi.pdf',
-      pages: []
-    },
-    {
       id: 'storia',
       title: 'La Guerra dei 7 Anni',
       tag: 'Storia Moderna',
       image: '/foto-progetti/area-umanistica/storia-01.webp',
       description: "Considerata la vera prima guerra mondiale, questo conflitto ha ridefinito gli equilibri globali, sancendo l'egemonia britannica e preparando il terreno per le rivoluzioni del Settecento.",
       pdfUrl: '/documents/guerra7anni.pdf',
+      pages: []
+    },
+    {
+      id: 'italiano',
+      title: 'Giacomo Leopardi',
+      tag: 'Letteratura Italiana',
+      image: '/foto-progetti/area-umanistica/italiano-01.webp',
+      description: "Un'analisi profonda del pensiero leopardiano, dal pessimismo storico a quello cosmico. La riflessione sulla natura 'matrigna' e la ricerca della felicità attraverso l'immaginazione.",
+      pdfUrl: '/documents/leopardi.pdf',
       pages: []
     }
   ];
