@@ -20,7 +20,7 @@ const Umanistica: React.FC = () => {
       id: 'leopardi',
       title: 'Giacomo Leopardi',
       tag: 'Letteratura Italiana',
-      image: 'https://images.unsplash.com/photo-1516414447565-b14be0adf13e?auto=format&fit=crop&w=800&q=80',
+      image: '/foto-progetti/area-umanistica/italiano-01.webp',
       description: "Un'analisi profonda del pensiero leopardiano, dal pessimismo storico a quello cosmico. La riflessione sulla natura 'matrigna' e la ricerca della felicità attraverso l'immaginazione e il ricordo.",
       pages: [
         { type: 'cover', title: 'GIACOMO LEOPARDI', subtitle: 'Scheda Riassuntiva', author: 'Riccardo Giuliani' },
@@ -31,7 +31,7 @@ const Umanistica: React.FC = () => {
       id: 'storia',
       title: 'La Guerra dei 7 Anni',
       tag: 'Storia Moderna',
-      image: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80',
+      image: '/foto-progetti/area-umanistica/storia-01.webp',
       description: "Considerata la vera prima guerra mondiale, questo conflitto ha ridefinito gli equilibri globali, sancendo l'egemonia britannica e preparando il terreno per le rivoluzioni del Settecento.",
       pages: [
         { type: 'cover', title: 'LA GUERRA DEI 7 ANNI', subtitle: 'Il Primo Conflitto Globale', author: 'Riccardo Giuliani' },
@@ -86,7 +86,7 @@ const Umanistica: React.FC = () => {
               className="bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all group"
             >
               <div className="aspect-[16/9] overflow-hidden relative">
-                <img src={doc.image} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src={doc.image} alt={doc.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-rose-600 uppercase tracking-widest shadow-sm">
                   {doc.tag}
                 </div>

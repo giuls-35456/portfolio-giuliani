@@ -76,8 +76,9 @@ const Home: React.FC = () => {
         {/* Cornice Foto Quadrata 1:1 */}
         <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[420px] rounded-[3rem] overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.2)] border-8 border-white bg-slate-100">
           <img 
-            src="https://raw.githubusercontent.com/ai-studio-images/profile-pic/main/riccardo.jpg" 
+            src="/foto-progetti/home/profilo-home.webp" 
             alt="Riccardo Giuliani" 
+            loading="eager"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             style={{ objectPosition: 'center 20%' }}
           />
