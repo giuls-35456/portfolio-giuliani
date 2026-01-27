@@ -376,10 +376,10 @@ const Pcto: React.FC = () => {
                   </button>
                 </div>
 
-                <div id="printable-report" className="space-y-0 bg-white shadow-2xl rounded-sm h-[80vh] overflow-hidden">
+                <div id="printable-report" className="space-y-0 bg-white shadow-2xl rounded-xl h-[90vh] overflow-hidden mt-4">
                   {/* Visualizzatore PDF Reale per PCTO */}
                   <iframe 
-                    src="/documents/relazione-pcto.pdf#toolbar=0" 
+                    src="/documents/relazione-pcto.pdf#view=FitH&toolbar=0" 
                     className="w-full h-full border-none"
                     title="Relazione PCTO"
                     onError={(e) => {

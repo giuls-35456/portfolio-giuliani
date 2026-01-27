@@ -33,10 +33,8 @@ const Umanistica: React.FC = () => {
       tag: 'Storia Moderna',
       image: '/foto-progetti/area-umanistica/storia-01.webp',
       description: "Considerata la vera prima guerra mondiale, questo conflitto ha ridefinito gli equilibri globali, sancendo l'egemonia britannica e preparando il terreno per le rivoluzioni del Settecento.",
-      pages: [
-        { type: 'cover', title: 'LA GUERRA DEI 7 ANNI', subtitle: 'Il Primo Conflitto Globale', author: 'Riccardo Giuliani' },
-        { type: 'text', title: 'Analisi', content: "Il conflitto (1756-1763) vide contrapposte le principali potenze europee. La vittoria della Gran Bretagna portò al controllo quasi totale delle colonie nordamericane e indiane." }
-      ]
+      pdfUrl: '/documents/guerra7anni.pdf',
+      pages: []
     }
   ];
 
@@ -94,43 +92,45 @@ const Umanistica: React.FC = () => {
           Approfondimenti e Documenti
         </h3>
         
-        <div className="grid md:grid-cols-2 gap-10">
-          {docs.map((doc) => (
+        <div className="space-y-16">
+          {docs.map((doc, index) => (
             <motion.article 
               key={doc.id}
-              whileHover={{ y: -12 }}
-              className="bg-white rounded-[3rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 group"
+              whileHover={{ y: -5 }}
+              className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-10 bg-white rounded-[3rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 group p-6 md:p-10`}
             >
-              <div className="aspect-[16/10] overflow-hidden relative">
+              {/* Immagine Progetto */}
+              <div className="md:w-1/2 aspect-[16/10] overflow-hidden relative rounded-[2rem]">
                 <img 
                   src={doc.image} 
                   alt={`Copertina progetto ${doc.title}`}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 brightness-[1.02] contrast-[1.02]" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                 />
                 <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-5 py-2 rounded-full text-xs font-bold text-rose-600 uppercase tracking-widest shadow-sm">
                   {doc.tag}
                 </div>
               </div>
               
-              <div className="p-10 space-y-6">
-                <h4 className="text-3xl font-bold text-slate-900">{doc.title}</h4>
-                <p className="text-slate-500 leading-relaxed text-lg font-light">{doc.description}</p>
+              {/* Testo Progetto */}
+              <div className="md:w-1/2 flex flex-col justify-center space-y-6">
+                <h4 className="text-4xl font-bold text-slate-900">{doc.title}</h4>
+                <p className="text-slate-500 leading-relaxed text-xl font-light">{doc.description}</p>
                 
-                <div className="pt-6 flex items-center justify-between">
+                <div className="pt-6 flex items-center gap-6">
                   <button 
                     onClick={() => setOpenPdf(doc)}
-                    className="inline-flex items-center gap-2 text-rose-600 font-bold hover:gap-4 transition-all group/btn text-lg"
+                    className="flex-1 bg-rose-600 text-white py-4 px-8 rounded-2xl font-bold hover:bg-rose-700 transition-all shadow-lg shadow-rose-200 flex items-center justify-center gap-3 text-lg"
                   >
                     Visualizza Documento 
-                    <ChevronRight size={22} className="group-hover/btn:translate-x-1 transition-transform" />
+                    <ChevronRight size={22} />
                   </button>
                   <button 
                     onClick={() => setOpenPdf(doc)}
                     aria-label="Scarica documento"
-                    className="p-4 bg-rose-50 text-rose-600 rounded-2xl hover:bg-rose-600 hover:text-white transition-all duration-300"
+                    className="p-4 bg-rose-50 text-rose-600 rounded-2xl hover:bg-rose-600 hover:text-white transition-all duration-300 border-2 border-rose-100"
                   >
-                    <Download size={24} />
+                    <Download size={28} />
                   </button>
                 </div>
               </div>
@@ -148,16 +148,16 @@ const Umanistica: React.FC = () => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[9999] bg-slate-900/95 backdrop-blur-xl overflow-y-auto p-4 md:p-10"
           >
-            <div className="max-w-4xl mx-auto relative z-[10000]">
-              {/* Pulsanti di controllo galleggianti */}
-              <div className="fixed top-4 right-4 md:top-8 md:right-8 z-[10001] flex flex-col gap-4 no-print">
+            <div className="w-full h-full relative z-[10000] flex flex-col">
+              {/* Pulsanti di controllo galleggianti - Posizionati per non coprire il PDF */}
+              <div className="fixed top-6 right-6 z-[10001] flex flex-col gap-4 no-print">
                 <button 
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
                     setOpenPdf(null);
                   }} 
-                  className="p-4 md:p-5 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-2xl border-4 border-white hover:scale-110 active:scale-95 cursor-pointer"
+                  className="p-5 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(0,0,0,0.5)] border-4 border-white hover:scale-110 active:scale-95 cursor-pointer"
                   style={{ pointerEvents: 'auto' }}
                   title="Chiudi"
                 >
@@ -172,10 +172,10 @@ const Umanistica: React.FC = () => {
                 </button>
               </div>
               
-              <div id="printable-pdf" className="bg-white shadow-2xl rounded-sm h-[80vh] overflow-hidden">
+              <div id="printable-pdf" className="bg-white shadow-2xl rounded-xl w-full h-[90vh] overflow-hidden mt-4">
                 {openPdf.pdfUrl ? (
                   <iframe 
-                    src={`${openPdf.pdfUrl}#toolbar=0`} 
+                    src={`${openPdf.pdfUrl}#view=FitH&toolbar=0`} 
                     className="w-full h-full border-none"
                     title={openPdf.title}
                   />
