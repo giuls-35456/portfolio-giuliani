@@ -76,7 +76,7 @@ const Contatti: React.FC = () => {
               icon: MapPin, 
               label: "Posizione", 
               val: "Jesi (AN), Italia", 
-              link: "#",
+              link: "https://www.google.com/maps/place/Jesi,+Ancona/@43.2247,-12.2693,13z",
               description: "Disponibile per incontri locali"
             }
           ].map((item, i) => (
@@ -110,7 +110,7 @@ const Contatti: React.FC = () => {
                   whileHover={{ x: 4 }}
                   className="inline-flex items-center gap-2 text-slate-700 font-bold group-hover:text-slate-900 transition-colors"
                 >
-                  Contattami <ArrowRight size={18} />
+                  {item.label === "Posizione" ? "Visualizza" : "Contattami"} <ArrowRight size={18} />
                 </motion.div>
               </div>
             </motion.a>
