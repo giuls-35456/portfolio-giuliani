@@ -21,7 +21,7 @@ const Civica: React.FC = () => {
     id: 'human-rights',
     title: 'Human Rights & Digital Ethics',
     tag: 'Diritti Umani Digitali',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop',
     description: "Un'esplorazione dei diritti umani fondamentali applicati all'era digitale. Analisi dell'etica informatica, della protezione dei dati e della libertà di espressione nel cyberspazio.",
     pdfUrl: '/documents/HumanRights.pdf',
     pages: []
@@ -107,7 +107,7 @@ const Civica: React.FC = () => {
           >
             <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
             <img 
-              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" 
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" 
               alt="Digital Human Rights" 
               className="relative z-10 rounded-3xl shadow-2xl border-2 border-white/10 transform -rotate-2 hover:rotate-0 transition-transform duration-700"
             />
