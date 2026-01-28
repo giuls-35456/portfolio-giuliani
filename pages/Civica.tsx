@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Printer, X, Scale, ChevronRight, Globe, Heart, Leaf
+  Printer, X, Heart, ChevronRight
 } from 'lucide-react';
 import { Document } from '../types';
 
 /**
- * Educazione Civica - Design Esclusivo e Distintivo
- * Una sezione dedicata ai progetti di cittadinanza e consapevolezza globale.
+ * Educazione Civica - Design Esclusivo
+ * Sezione dedicata al documento originale di Human Rights.
  */
 const Civica: React.FC = () => {
   const [openPdf, setOpenPdf] = useState<Document | null>(null);
@@ -16,36 +16,16 @@ const Civica: React.FC = () => {
     window.print();
   };
 
-  // Dati dei documenti con i PDF originali
-  const docs: Document[] = [
-    {
-      id: 'digital-education',
-      title: 'Digital Education',
-      tag: 'Cittadinanza Digitale',
-      image: '/foto-progetti/civica/digital-citizenship.jpg',
-      description: "Un'esplorazione completa dell'educazione digitale e della cittadinanza consapevole nel mondo online. Analisi dei diritti, delle responsabilità e delle competenze necessarie per navigare l'era digitale.",
-      pdfUrl: '/documents/DigitalEducation.pdf',
-      pages: []
-    },
-    {
-      id: 'human-rights',
-      title: 'Human Rights',
-      tag: 'Diritti Umani',
-      image: '/foto-progetti/civica/human-rights.jpg',
-      description: "A comprehensive exploration of human rights, freedom, and global dignity. Understanding the universal principles that protect every individual and the importance of collective action for justice.",
-      pdfUrl: '/documents/HumanRights.pdf',
-      pages: []
-    },
-    {
-      id: 'sustainability',
-      title: 'Sustainability & Environment',
-      tag: 'Sostenibilità',
-      image: '/foto-progetti/civica/sustainability.jpg',
-      description: "Un'analisi della sostenibilità ambientale e della responsabilità verso il nostro pianeta. Scopri come le scelte individuali e collettive possono creare un futuro più verde e consapevole.",
-      pdfUrl: '/documents/Sustainability.pdf',
-      pages: []
-    }
-  ];
+  // Documento originale
+  const doc: Document = {
+    id: 'human-rights',
+    title: 'Human Rights',
+    tag: 'Diritti Umani',
+    image: '/foto-progetti/civica/human-rights.jpg',
+    description: "A comprehensive exploration of human rights, freedom, and global dignity. Understanding the universal principles that protect every individual and the importance of collective action for justice and equality.",
+    pdfUrl: '/documents/HumanRights.pdf',
+    pages: []
+  };
 
   return (
     <motion.div
@@ -62,11 +42,11 @@ const Civica: React.FC = () => {
         }
       `}</style>
 
-      {/* Hero Section Unico */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 p-12 md:p-20 text-white">
-        {/* Sfondo animato */}
+      {/* Hero Section Unico - Nuova Palette di Colori */}
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-500 via-orange-500 to-red-600 p-12 md:p-20 text-white">
+        {/* Sfondo animato con pattern */}
         <motion.div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-15"
           animate={{
             backgroundPosition: ['0% 0%', '100% 100%'],
           }}
@@ -76,7 +56,7 @@ const Civica: React.FC = () => {
           }}
         ></motion.div>
 
-        <div className="relative z-10 space-y-6 max-w-2xl">
+        <div className="relative z-10 space-y-6 max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -84,9 +64,9 @@ const Civica: React.FC = () => {
             className="flex items-center gap-3"
           >
             <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-              <Scale size={24} />
+              <Heart size={24} />
             </div>
-            <span className="text-sm font-bold uppercase tracking-widest text-blue-100">Consapevolezza Globale</span>
+            <span className="text-sm font-bold uppercase tracking-widest text-orange-100">Diritti Universali</span>
           </motion.div>
 
           <motion.h1
@@ -95,22 +75,22 @@ const Civica: React.FC = () => {
             transition={{ delay: 0.3 }}
             className="text-5xl md:text-6xl font-black leading-tight"
           >
-            Educazione Civica
+            Human Rights
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-blue-100 leading-relaxed"
+            className="text-lg md:text-xl text-orange-100 leading-relaxed"
           >
-            Cittadinanza responsabile, diritti universali e sostenibilità. Un percorso di consapevolezza verso un mondo più giusto e consapevole.
+            Un'esplorazione profonda dei diritti umani fondamentali, della libertà e della dignità globale. Comprendere i principi universali che proteggono ogni individuo e l'importanza dell'azione collettiva per la giustizia.
           </motion.p>
         </div>
 
-        {/* Elementi decorativi */}
+        {/* Elementi decorativi animati */}
         <motion.div
-          className="absolute top-10 right-10 w-20 h-20 bg-white/10 rounded-full blur-2xl"
+          className="absolute top-10 right-10 w-24 h-24 bg-white/10 rounded-full blur-2xl"
           animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 4, repeat: Infinity }}
         />
@@ -121,83 +101,67 @@ const Civica: React.FC = () => {
         />
       </section>
 
-      {/* Griglia di Progetti - Layout Diverso */}
+      {/* Sezione Documento Principale */}
       <section className="space-y-12">
         <motion.h2
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           className="text-4xl font-bold text-slate-900 flex items-center gap-4"
         >
-          <div className="w-2 h-10 bg-gradient-to-b from-blue-600 to-purple-600 rounded-full"></div>
-          Progetti e Approfondimenti
+          <div className="w-2 h-10 bg-gradient-to-b from-orange-500 to-red-600 rounded-full"></div>
+          Documento Originale
         </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {docs.map((doc, index) => {
-            const icons = [<Globe size={32} />, <Heart size={32} />, <Leaf size={32} />];
-            const colors = [
-              'from-blue-500 to-cyan-500',
-              'from-rose-500 to-pink-500',
-              'from-green-500 to-emerald-500'
-            ];
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          whileHover={{ y: -10, boxShadow: '0 30px 60px rgba(0,0,0,0.15)' }}
+          className="group cursor-pointer"
+        >
+          {/* Card Container */}
+          <div className="relative h-full rounded-3xl overflow-hidden bg-white border-2 border-slate-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+            {/* Immagine */}
+            <div className="relative h-64 md:h-80 overflow-hidden bg-gradient-to-br from-orange-100 to-red-100">
+              <img
+                src={doc.image}
+                alt={doc.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+              
+              {/* Tag sovrapposto */}
+              <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-md px-6 py-2 rounded-full text-sm font-bold text-orange-600 uppercase tracking-widest shadow-lg">
+                {doc.tag}
+              </div>
+            </div>
 
-            return (
-              <motion.div
-                key={doc.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
-                className="group cursor-pointer"
+            {/* Contenuto */}
+            <div className="p-8 md:p-12 space-y-8">
+              {/* Titolo */}
+              <div className="space-y-4">
+                <h3 className="text-5xl font-black text-slate-900">{doc.title}</h3>
+                <div className="w-24 h-1.5 bg-gradient-to-r from-orange-500 to-red-600 rounded-full"></div>
+              </div>
+
+              {/* Descrizione */}
+              <p className="text-slate-600 text-lg leading-relaxed font-light">
+                {doc.description}
+              </p>
+
+              {/* Pulsante CTA */}
+              <motion.button
+                onClick={() => setOpenPdf(doc)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full md:w-auto bg-gradient-to-r from-orange-500 to-red-600 text-white py-5 px-10 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:shadow-2xl transition-all shadow-lg"
               >
-                {/* Card Container */}
-                <div className="relative h-full rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300">
-                  {/* Immagine */}
-                  <div className="relative h-48 overflow-hidden bg-slate-100">
-                    <img
-                      src={doc.image}
-                      alt={doc.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                  </div>
-
-                  {/* Contenuto */}
-                  <div className="p-6 space-y-4">
-                    {/* Icon e Tag */}
-                    <div className="flex items-start justify-between">
-                      <div className={`w-12 h-12 bg-gradient-to-br ${colors[index]} text-white rounded-xl flex items-center justify-center shadow-lg`}>
-                        {icons[index]}
-                      </div>
-                      <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full">
-                        {doc.tag}
-                      </span>
-                    </div>
-
-                    {/* Titolo */}
-                    <h3 className="text-2xl font-bold text-slate-900">{doc.title}</h3>
-
-                    {/* Descrizione */}
-                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">
-                      {doc.description}
-                    </p>
-
-                    {/* Pulsante */}
-                    <motion.button
-                      onClick={() => setOpenPdf(doc)}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`w-full mt-4 bg-gradient-to-r ${colors[index]} text-white py-3 px-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg transition-all`}
-                    >
-                      Visualizza
-                      <ChevronRight size={18} />
-                    </motion.button>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+                Visualizza Documento
+                <ChevronRight size={24} />
+              </motion.button>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Modal PDF Viewer */}
@@ -230,7 +194,7 @@ const Civica: React.FC = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handlePrint}
-                  className="p-4 bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-xl border-4 border-white hover:scale-110 active:scale-95"
+                  className="p-4 bg-orange-600 text-white hover:bg-orange-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-xl border-4 border-white hover:scale-110 active:scale-95"
                   title="Stampa / PDF"
                 >
                   <Printer size={24} />
@@ -238,16 +202,17 @@ const Civica: React.FC = () => {
               </div>
 
               {/* PDF Viewer */}
-              <div id="printable-pdf" className="bg-white shadow-2xl rounded-xl w-full h-[90vh] overflow-hidden mt-4">
+              <div id="printable-pdf" className="bg-white shadow-2xl rounded-2xl w-full h-[90vh] overflow-hidden mt-4 border-4 border-slate-200">
                 {openPdf.pdfUrl ? (
                   <iframe
-                    src={`${openPdf.pdfUrl}#view=FitH&toolbar=0`}
+                    src={`${openPdf.pdfUrl}#toolbar=0&navpanes=0&scrollbar=1`}
                     className="w-full h-full border-none"
                     title={openPdf.title}
+                    allowFullScreen
                   />
                 ) : (
-                  <div className="flex items-center justify-center h-full text-slate-400">
-                    Documento in fase di caricamento...
+                  <div className="flex items-center justify-center h-full text-slate-400 text-xl">
+                    Caricamento documento...
                   </div>
                 )}
               </div>
