@@ -31,7 +31,7 @@ const Umanistica: React.FC = () => {
       id: 'italiano',
       title: 'Giacomo Leopardi',
       tag: 'Letteratura Italiana',
-      image: '/foto-progetti/area-umanistica/italiano-01.webp',
+      image: '/foto-progetti/area-umanistica/leopardi-ritratto.jpg',
       description: "Un'analisi profonda del pensiero leopardiano, dal pessimismo storico a quello cosmico. La riflessione sulla natura 'matrigna' e la ricerca della felicità attraverso l'immaginazione.",
       pdfUrl: '/documents/leopardi.pdf',
       pages: []

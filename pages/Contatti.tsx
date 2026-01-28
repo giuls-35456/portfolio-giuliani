@@ -17,7 +17,7 @@ const Contatti: React.FC = () => {
 
       <div className="grid md:grid-cols-3 gap-8">
         {[
-          { icon: Mail, label: "Email", val: INFO.email, link: `mailto:${INFO.email}` },
+          { icon: Mail, label: "Email", val: INFO.email, link: `https://mail.google.com/mail/?view=cm&fs=1&to=${INFO.email}` },
           { icon: Phone, label: "Telefono", val: INFO.telefono, link: `tel:${INFO.telefono}` },
           { icon: MapPin, label: "Posizione", val: "Jesi (AN), Italia", link: "#" }
         ].map((item, i) => (
