@@ -21,7 +21,7 @@ const Civica: React.FC = () => {
     id: 'human-rights',
     title: 'Human Rights & Digital Ethics',
     tag: 'Diritti Umani Digitali',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop',
+    image: '/foto-progetti/civica/human-rights.jpg',
     description: "Un'esplorazione dei diritti umani fondamentali applicati all'era digitale. Analisi dell'etica informatica, della protezione dei dati e della libertà di espressione nel cyberspazio.",
     pdfUrl: '/documents/HumanRights.pdf',
     pages: []
@@ -45,15 +45,15 @@ const Civica: React.FC = () => {
       `}</style>
 
       {/* Hero Section Moderna con Focus Digitale */}
-      <section className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-slate-900 via-indigo-900 to-blue-900 p-12 md:p-20 text-white shadow-2xl">
+      <section className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-12 md:p-20 text-white shadow-2xl">
         <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 backdrop-blur-md rounded-full text-sm font-bold uppercase tracking-widest border border-blue-400/30"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-sm font-bold uppercase tracking-widest border border-white/20"
             >
-              <Cpu size={16} className="text-blue-400" />
+              <Cpu size={16} className="text-slate-300" />
               <span>Civica Digitale</span>
             </motion.div>
 
@@ -64,7 +64,7 @@ const Civica: React.FC = () => {
               className="text-5xl md:text-7xl font-black leading-tight tracking-tighter"
             >
               Diritti & <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+              <span className="text-slate-300">
                 Tecnologia
               </span>
             </motion.h1>
@@ -73,7 +73,7 @@ const Civica: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg md:text-xl text-blue-100 leading-relaxed font-light"
+              className="text-lg md:text-xl text-slate-400 leading-relaxed font-light"
             >
               L'educazione civica oggi non può prescindere dall'informatica. Abbiamo esplorato come i principi universali di libertà e dignità si traducano in <strong>Cittadinanza Digitale</strong>, etica degli algoritmi e responsabilità nel web.
             </motion.p>
@@ -82,18 +82,18 @@ const Civica: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-3"
             >
-              <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl backdrop-blur-sm border border-white/10">
-                <Lock size={18} className="text-emerald-400" />
+              <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/10">
+                <Lock size={16} className="text-slate-400" />
                 <span className="text-sm font-medium">Privacy</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl backdrop-blur-sm border border-white/10">
-                <Eye size={18} className="text-blue-400" />
+              <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/10">
+                <Eye size={16} className="text-slate-400" />
                 <span className="text-sm font-medium">Etica AI</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl backdrop-blur-sm border border-white/10">
-                <Users size={18} className="text-purple-400" />
+              <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/10">
+                <Users size={16} className="text-slate-400" />
                 <span className="text-sm font-medium">Inclusione</span>
               </div>
             </motion.div>
@@ -105,11 +105,11 @@ const Civica: React.FC = () => {
             transition={{ delay: 0.4, type: "spring" }}
             className="hidden md:block relative"
           >
-            <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute inset-0 bg-slate-700/20 rounded-full blur-3xl animate-pulse"></div>
             <img 
               src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" 
               alt="Digital Human Rights" 
-              className="relative z-10 rounded-3xl shadow-2xl border-2 border-white/10 transform -rotate-2 hover:rotate-0 transition-transform duration-700"
+              className="relative z-10 rounded-3xl shadow-2xl border border-slate-700"
             />
           </motion.div>
         </div>
@@ -124,10 +124,10 @@ const Civica: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               className="text-4xl font-bold text-slate-900 flex items-center gap-4"
             >
-              <div className="w-2 h-10 bg-gradient-to-b from-blue-600 to-indigo-700 rounded-full"></div>
+              <div className="w-2 h-10 bg-slate-800 rounded-full"></div>
               Cittadinanza Digitale
             </motion.h2>
-            <p className="text-slate-500 max-w-2xl">
+            <p className="text-slate-600 max-w-2xl font-light">
               L'integrazione tra informatica ed educazione civica ci permette di comprendere le sfide del futuro: dalla protezione dei dati personali alla lotta contro la disinformazione.
             </p>
           </div>
@@ -137,11 +137,11 @@ const Civica: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          whileHover={{ y: -10 }}
+          whileHover={{ y: -8 }}
           className="group cursor-pointer"
           onClick={() => setOpenPdf(doc)}
         >
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-white border border-slate-100 shadow-xl group-hover:shadow-2xl transition-all duration-500">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 shadow-lg group-hover:shadow-xl transition-all duration-500">
             <div className="grid md:grid-cols-2">
               <div className="relative h-80 md:h-auto overflow-hidden">
                 <img
@@ -149,9 +149,9 @@ const Civica: React.FC = () => {
                   alt={doc.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-900/20 to-transparent"></div>
                 <div className="absolute top-8 left-8">
-                  <span className="bg-blue-600 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-[0.2em] shadow-lg">
+                  <span className="bg-slate-800 text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
                     {doc.tag}
                   </span>
                 </div>
@@ -162,20 +162,20 @@ const Civica: React.FC = () => {
                   <h3 className="text-4xl font-black text-slate-900 tracking-tight">
                     {doc.title}
                   </h3>
-                  <div className="w-20 h-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"></div>
+                  <div className="w-20 h-1 bg-slate-800 rounded-full"></div>
                 </div>
 
-                <p className="text-slate-600 text-xl leading-relaxed font-light italic">
-                  "{doc.description}"
+                <p className="text-slate-700 text-lg leading-relaxed font-light">
+                  {doc.description}
                 </p>
 
                 <div className="pt-4">
                   <motion.div
-                    whileHover={{ x: 10 }}
-                    className="inline-flex items-center gap-4 text-blue-600 font-bold text-lg"
+                    whileHover={{ x: 8 }}
+                    className="inline-flex items-center gap-4 text-slate-800 font-bold text-lg"
                   >
                     Visualizza Approfondimento
-                    <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                    <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-slate-800 group-hover:text-white transition-colors duration-300">
                       <ChevronRight size={24} />
                     </div>
                   </motion.div>
@@ -209,7 +209,7 @@ const Civica: React.FC = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handlePrint}
-                  className="p-4 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-xl border-4 border-white"
+                  className="p-4 bg-slate-700 text-white rounded-full flex items-center justify-center shadow-xl border-4 border-white"
                 >
                   <Printer size={24} />
                 </motion.button>
