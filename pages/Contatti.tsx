@@ -24,6 +24,8 @@ const Contatti: React.FC = () => {
           <a 
             key={i} 
             href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all text-center group"
           >
             <div className="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-teal-500 group-hover:text-white transition-colors">
