@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Printer, Download, X, Bookmark, ChevronRight, BookOpen, History, PenTool
+  Printer, Download, X, Bookmark, ChevronRight, BookOpen, History, PenTool, Quote
 } from 'lucide-react';
 import { Document } from '../types';
 
@@ -62,6 +62,33 @@ const Umanistica: React.FC = () => {
         }
       `}</style>
 
+      {/* Introduzione Breve e Moderna */}
+      <section className="max-w-4xl mx-auto text-center space-y-8">
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="inline-flex items-center justify-center p-4 bg-rose-50 text-rose-600 rounded-full mb-4"
+        >
+          <Quote size={32} />
+        </motion.div>
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-5xl md:text-6xl font-black text-slate-900 tracking-tight"
+        >
+          Area <span className="text-rose-600">Umanistica</span>
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-xl text-slate-600 leading-relaxed font-light"
+        >
+          Un viaggio attraverso la letteratura e la storia per comprendere le radici del pensiero moderno. 
+          Dalla profondità filosofica di Leopardi alle dinamiche geopolitiche della Guerra dei Sette Anni.
+        </motion.p>
+      </section>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-rose-600 via-pink-600 to-orange-600 p-12 md:p-20 text-white shadow-2xl">
         <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
@@ -75,7 +102,7 @@ const Umanistica: React.FC = () => {
               <span>Pensiero Critico</span>
             </motion.div>
 
-            <motion.h1
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -85,7 +112,7 @@ const Umanistica: React.FC = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-200 to-orange-200">
                 Pensiero Moderno
               </span>
-            </motion.h1>
+            </motion.h2>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}

@@ -21,7 +21,7 @@ const Civica: React.FC = () => {
     id: 'human-rights',
     title: 'Human Rights & Digital Ethics',
     tag: 'Diritti Umani Digitali',
-    image: '/foto-progetti/civica/digital-human-rights.jpg',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop',
     description: "Un'esplorazione dei diritti umani fondamentali applicati all'era digitale. Analisi dell'etica informatica, della protezione dei dati e della libertà di espressione nel cyberspazio.",
     pdfUrl: '/documents/HumanRights.pdf',
     pages: []
@@ -29,8 +29,10 @@ const Civica: React.FC = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -20 }}
+      transition={{ duration: 0.5 }}
       className="space-y-24 py-10"
     >
       <style>{`
@@ -43,19 +45,7 @@ const Civica: React.FC = () => {
       `}</style>
 
       {/* Hero Section Moderna con Focus Digitale */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-900 to-blue-900 p-12 md:p-20 text-white shadow-2xl">
-        {/* Sfondo animato con pattern tecnologico */}
-        <motion.div
-          className="absolute inset-0 opacity-20"
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-          }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          style={{
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M30 30m-25 0a25 25 0 1 0 50 0a25 25 0 1 0 -50 0" stroke="%23ffffff" fill="none" stroke-width="0.5"/%3E%3C/svg%3E")',
-          }}
-        ></motion.div>
-
+      <section className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-slate-900 via-indigo-900 to-blue-900 p-12 md:p-20 text-white shadow-2xl">
         <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <motion.div
@@ -117,7 +107,7 @@ const Civica: React.FC = () => {
           >
             <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
             <img 
-              src="/foto-progetti/civica/digital-human-rights.jpg" 
+              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" 
               alt="Digital Human Rights" 
               className="relative z-10 rounded-3xl shadow-2xl border-2 border-white/10 transform -rotate-2 hover:rotate-0 transition-transform duration-700"
             />
