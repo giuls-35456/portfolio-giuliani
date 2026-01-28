@@ -35,6 +35,14 @@ const Umanistica: React.FC = () => {
       description: "Un'analisi profonda del pensiero leopardiano, dal pessimismo storico a quello cosmico. La riflessione sulla natura 'matrigna' e la ricerca della felicità attraverso l'immaginazione.",
       pdfUrl: '/documents/leopardi.pdf',
       pages: []
+    },
+    {
+      id: 'escape-room',
+      title: 'Escape Room - Umanesimo e Rinascimento',
+      tag: 'Progetto Interattivo',
+      image: '/foto-progetti/area-umanistica/umanesimo-rinascimento.jpg',
+      description: "Un'esperienza interattiva immersiva nel Quattrocento. Risolvi enigmi affascinanti sul Concilio di Trento, l'Umanesimo, le grandi opere del Rinascimento e il significato storico di questo straordinario periodo. Mettiti alla prova come viaggiatore del tempo intrappolato nel 1400!",
+      pages: []
     }
   ];
 
@@ -119,20 +127,34 @@ const Umanistica: React.FC = () => {
                 <p className="text-slate-500 leading-relaxed text-xl font-light">{doc.description}</p>
                 
                 <div className="pt-6 flex items-center gap-6">
-                  <button 
-                    onClick={() => setOpenPdf(doc)}
-                    className="flex-1 bg-rose-600 text-white py-4 px-8 rounded-2xl font-bold hover:bg-rose-700 transition-all shadow-lg shadow-rose-200 flex items-center justify-center gap-3 text-lg"
-                  >
-                    Visualizza Documento 
-                    <ChevronRight size={22} />
-                  </button>
-                  <button 
-                    onClick={() => setOpenPdf(doc)}
-                    aria-label="Scarica documento"
-                    className="p-4 bg-rose-50 text-rose-600 rounded-2xl hover:bg-rose-600 hover:text-white transition-all duration-300 border-2 border-rose-100"
-                  >
-                    <Download size={28} />
-                  </button>
+                  {doc.id === 'escape-room' ? (
+                    <a 
+                      href="https://view.genially.com/664754a0fc6f5c00154dcad9/interactive-content-escape-room-umanesimo-e-rinascimento"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-rose-600 text-white py-4 px-8 rounded-2xl font-bold hover:bg-rose-700 transition-all shadow-lg shadow-rose-200 flex items-center justify-center gap-3 text-lg"
+                    >
+                      Accedi all'Escape Room 
+                      <ChevronRight size={22} />
+                    </a>
+                  ) : (
+                    <button 
+                      onClick={() => setOpenPdf(doc)}
+                      className="flex-1 bg-rose-600 text-white py-4 px-8 rounded-2xl font-bold hover:bg-rose-700 transition-all shadow-lg shadow-rose-200 flex items-center justify-center gap-3 text-lg"
+                    >
+                      Visualizza Documento 
+                      <ChevronRight size={22} />
+                    </button>
+                  )}
+                  {doc.id !== 'escape-room' && (
+                    <button 
+                      onClick={() => setOpenPdf(doc)}
+                      aria-label="Scarica documento"
+                      className="p-4 bg-rose-50 text-rose-600 rounded-2xl hover:bg-rose-600 hover:text-white transition-all duration-300 border-2 border-rose-100"
+                    >
+                      <Download size={28} />
+                    </button>
+                  )}
                 </div>
               </div>
             </motion.article>
