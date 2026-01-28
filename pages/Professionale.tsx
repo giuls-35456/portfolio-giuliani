@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Cpu, Code2, Database, Network, Brain, Calculator, 
-  ChevronRight, X, Printer, FileText
+  ChevronRight, X, Printer, FileText, ShieldCheck, BarChart3, Terminal
 } from 'lucide-react';
 import { Document } from '../types';
 
@@ -29,27 +29,32 @@ const Professionale: React.FC = () => {
     { 
       icon: Code2, 
       title: "Informatica", 
-      desc: "Sviluppo software, algoritmi e programmazione ad oggetti." 
+      desc: "Sviluppo in PHP e C#, gestione Database relazionali (SQL) e programmazione orientata agli oggetti.",
+      details: ["PHP & C#", "Database SQL", "OOP Design"]
     },
     { 
       icon: Network, 
       title: "Sistemi e Reti", 
-      desc: "Configurazione infrastrutture, protocolli TCP/IP e sicurezza." 
+      desc: "Sicurezza delle reti, protocolli TCP/IP e utilizzo pratico di Cisco Packet Tracer per simulazioni.",
+      details: ["Cisco Packet Tracer", "Network Security", "TCP/IP Protocols"]
+    },
+    { 
+      icon: BarChart3, 
+      title: "TPSIT", 
+      desc: "Analisi della concorrenza, progettazione di sistemi e gestione dei processi aziendali.",
+      details: ["Analisi Concorrenza", "Progettazione Sistemi", "Process Management"]
     },
     { 
       icon: Calculator, 
       title: "Matematica", 
-      desc: "Analisi, geometria analitica e calcolo statistico." 
-    },
-    { 
-      icon: Database, 
-      title: "TPSIT", 
-      desc: "Tecnologie e Progettazione di Sistemi Informatici e di Telecomunicazioni." 
+      desc: "Analisi matematica, geometria analitica e calcolo delle probabilità applicato.",
+      details: ["Geometria Analitica", "Analisi", "Statistica"]
     },
     { 
       icon: Brain, 
       title: "Intelligenza Artificiale", 
-      desc: "Fondamenti di Machine Learning e logica computazionale." 
+      desc: "Fondamenti di Machine Learning, reti neurali e logica computazionale moderna.",
+      details: ["Machine Learning", "Neural Networks", "Logic"]
     }
   ];
 
@@ -77,33 +82,42 @@ const Professionale: React.FC = () => {
           animate={{ scale: 1, opacity: 1 }}
           className="inline-flex items-center justify-center p-4 bg-indigo-600 text-white rounded-3xl shadow-xl mb-4"
         >
-          <Cpu size={40} />
+          <Terminal size={40} />
         </motion.div>
         <h1 className="text-5xl md:text-6xl font-black text-slate-900 tracking-tight">
           Area <span className="text-indigo-600">Scientifica</span>
         </h1>
         <p className="text-xl text-slate-500 leading-relaxed">
-          Un ecosistema di competenze che spazia dall'informatica pura alla logica matematica, 
-          passando per l'architettura dei sistemi e le nuove frontiere dell'IA.
+          Un ecosistema di competenze tecniche avanzate, dalla programmazione backend alla 
+          sicurezza delle infrastrutture di rete.
         </p>
       </div>
 
       {/* Tech Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {techAreas.map((item, idx) => (
           <motion.div 
             key={idx}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1 }}
-            whileHover={{ y: -5, backgroundColor: '#f8fafc' }}
-            className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center space-y-4 transition-all"
+            whileHover={{ y: -10, backgroundColor: '#f8fafc' }}
+            className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm flex flex-col items-center text-center space-y-6 transition-all"
           >
-            <div className="p-3 bg-indigo-50 text-indigo-600 rounded-2xl">
-              <item.icon size={28} />
+            <div className="p-4 bg-indigo-50 text-indigo-600 rounded-2xl">
+              <item.icon size={32} />
             </div>
-            <h3 className="font-bold text-slate-800">{item.title}</h3>
-            <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
+            <div className="space-y-2">
+              <h3 className="font-bold text-slate-800 text-lg">{item.title}</h3>
+              <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-2 pt-2">
+              {item.details.map((detail, dIdx) => (
+                <span key={dIdx} className="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2 py-1 rounded-md">
+                  {detail}
+                </span>
+              ))}
+            </div>
           </motion.div>
         ))}
       </div>
@@ -120,74 +134,81 @@ const Professionale: React.FC = () => {
             <motion.div
               key={doc.id}
               whileHover={{ y: -8 }}
-              className="group bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500"
+              className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-56 overflow-hidden">
                 <img src={doc.image} alt={doc.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-                <div className="absolute bottom-4 left-6">
-                  <span className="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent"></div>
+                <div className="absolute bottom-6 left-8">
+                  <span className="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
                     {doc.tag}
                   </span>
                 </div>
               </div>
-              <div className="p-8 space-y-4">
-                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+              <div className="p-10 space-y-6">
+                <h3 className="text-3xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
                   {doc.title}
                 </h3>
-                <p className="text-slate-500 text-sm leading-relaxed line-clamp-3">
+                <p className="text-slate-500 text-lg leading-relaxed line-clamp-3 font-light">
                   {doc.description}
                 </p>
                 <button
                   onClick={() => setOpenPdf(doc)}
-                  className="flex items-center gap-2 text-indigo-600 font-bold hover:gap-4 transition-all"
+                  className="flex items-center gap-3 text-indigo-600 font-bold text-lg hover:gap-5 transition-all"
                 >
-                  Visualizza Documento <ChevronRight size={20} />
+                  Esplora Documento <ChevronRight size={24} />
                 </button>
               </div>
             </motion.div>
           ))}
 
           {/* Placeholder for other subjects */}
-          <div className="bg-slate-50 rounded-[2rem] border-2 border-dashed border-slate-200 p-8 flex flex-col items-center justify-center text-center space-y-4 opacity-60">
-            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm">
-              <FileText className="text-slate-400" size={32} />
+          <div className="bg-slate-50 rounded-[2.5rem] border-2 border-dashed border-slate-200 p-10 flex flex-col items-center justify-center text-center space-y-6 opacity-70">
+            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-md">
+              <ShieldCheck className="text-indigo-400" size={40} />
             </div>
             <div>
-              <h3 className="font-bold text-slate-800">Altri Progetti in Arrivo</h3>
-              <p className="text-slate-500 text-sm">Sistemi, Informatica e IA</p>
+              <h3 className="text-xl font-bold text-slate-800">Prossimi Caricamenti</h3>
+              <p className="text-slate-500">Laboratori di Sistemi e Progetti PHP/C#</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Connection Section */}
-      <div className="relative overflow-hidden rounded-[3rem] bg-slate-900 p-10 md:p-16 text-white">
-        <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-indigo-400">Teoria e Pratica</h3>
-            <p className="text-slate-300 text-lg leading-relaxed">
-              Le materie scientifiche non sono solo concetti astratti. Nel mio percorso, 
-              la logica matematica e la progettazione dei sistemi si fondono per creare 
-              soluzioni reali, applicate durante le esperienze di PCTO e nei laboratori scolastici.
+      <div className="relative overflow-hidden rounded-[3.5rem] bg-slate-900 p-12 md:p-20 text-white shadow-2xl">
+        <div className="relative z-10 grid md:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8">
+            <h3 className="text-4xl font-bold text-indigo-400 tracking-tight">Dalla Teoria al Codice</h3>
+            <p className="text-slate-300 text-xl leading-relaxed font-light">
+              Il mio approccio unisce il rigore della <strong>matematica</strong> alla praticità dello 
+              <strong>sviluppo software</strong>. Che si tratti di configurare una rete sicura su 
+              Packet Tracer o di analizzare la concorrenza in TPSIT, l'obiettivo è sempre l'eccellenza tecnica.
             </p>
-          </div>
-          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 font-mono text-sm text-indigo-300">
-            <div className="flex gap-2 mb-4">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-amber-500"></div>
-              <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+            <div className="flex gap-4">
+              <div className="px-4 py-2 bg-white/10 rounded-xl border border-white/10 text-sm font-mono">#Cisco</div>
+              <div className="px-4 py-2 bg-white/10 rounded-xl border border-white/10 text-sm font-mono">#FullStack</div>
+              <div className="px-4 py-2 bg-white/10 rounded-xl border border-white/10 text-sm font-mono">#CyberSec</div>
             </div>
-            <p className="mb-2">// Area Scientifica Init</p>
-            <p className="mb-2"><span className="text-purple-400">const</span> skills = [</p>
-            <p className="ml-4">"Matematica", "Informatica",</p>
-            <p className="ml-4">"Sistemi", "TPSIT", "IA"</p>
-            <p className="mb-2">];</p>
-            <p><span className="text-purple-400">function</span> <span className="text-blue-400">evolve</span>() &#123; ... &#125;</p>
+          </div>
+          <div className="bg-slate-800/50 backdrop-blur-2xl rounded-[2rem] p-10 border border-white/10 font-mono text-sm text-indigo-300 shadow-inner">
+            <div className="flex gap-2 mb-6">
+              <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+              <div className="w-3 h-3 rounded-full bg-amber-500/50"></div>
+              <div className="w-3 h-3 rounded-full bg-emerald-500/50"></div>
+            </div>
+            <p className="mb-2 text-slate-500">// Skillset Evolution</p>
+            <p className="mb-2"><span className="text-purple-400">class</span> <span className="text-yellow-400">RiccardoGiuliani</span> &#123;</p>
+            <p className="ml-4 mb-1"><span className="text-blue-400">languages</span> = ["PHP", "C#", "SQL"];</p>
+            <p className="ml-4 mb-1"><span className="text-blue-400">tools</span> = ["PacketTracer", "VSCode"];</p>
+            <p className="ml-4 mb-1"><span className="text-blue-400">focus</span> = "Security & Design";</p>
+            <p className="mb-2">&#125;</p>
+            <p className="text-emerald-400 mt-4">// Ready for deployment...</p>
           </div>
         </div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-600/20 blur-[120px] -mr-48 -mt-48"></div>
-      </div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/20 blur-[150px] -mr-64 -mt-64"></div>
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-600/10 blur-[100px] -ml-32 -mb-32"></div>
+      </section>
 
       {/* Modal PDF Viewer */}
       <AnimatePresence>
