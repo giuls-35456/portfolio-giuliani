@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Printer, X, Heart, ChevronRight
+  Printer, X, Heart, ChevronRight, Globe, Shield, Users
 } from 'lucide-react';
 import { Document } from '../types';
 
 /**
- * Educazione Civica - Design Esclusivo
- * Sezione dedicata al documento originale di Human Rights.
+ * Educazione Civica - Design Moderno e Dinamico
+ * Sezione dedicata ai Diritti Umani e alla cittadinanza globale.
  */
 const Civica: React.FC = () => {
   const [openPdf, setOpenPdf] = useState<Document | null>(null);
@@ -16,13 +16,13 @@ const Civica: React.FC = () => {
     window.print();
   };
 
-  // Documento originale
+  // Documento sui Diritti Umani
   const doc: Document = {
     id: 'human-rights',
     title: 'Human Rights',
     tag: 'Diritti Umani',
     image: '/foto-progetti/civica/human-rights.jpg',
-    description: "A comprehensive exploration of human rights, freedom, and global dignity. Understanding the universal principles that protect every individual and the importance of collective action for justice and equality.",
+    description: "Un'esplorazione profonda dei diritti umani fondamentali, della libertà e della dignità globale. Comprendere i principi universali che proteggono ogni individuo e l'importanza dell'azione collettiva per la giustizia.",
     pdfUrl: '/documents/HumanRights.pdf',
     pages: []
   };
@@ -42,123 +42,159 @@ const Civica: React.FC = () => {
         }
       `}</style>
 
-      {/* Hero Section Unico - Nuova Palette di Colori */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-500 via-orange-500 to-red-600 p-12 md:p-20 text-white">
-        {/* Sfondo animato con pattern */}
+      {/* Hero Section Moderna */}
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 p-12 md:p-20 text-white shadow-2xl">
+        {/* Sfondo animato con pattern geometrico */}
         <motion.div
-          className="absolute inset-0 opacity-15"
+          className="absolute inset-0 opacity-10"
           animate={{
             backgroundPosition: ['0% 0%', '100% 100%'],
           }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
           style={{
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm66-3c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-46-43c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm20 0c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="%23ffffff" fill-opacity="0.4" fill-rule="evenodd"/%3E%3C/svg%3E")',
           }}
         ></motion.div>
 
-        <div className="relative z-10 space-y-6 max-w-3xl">
+        <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-sm font-bold uppercase tracking-widest"
+            >
+              <Heart size={16} className="text-pink-300" />
+              <span>Educazione Civica</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-7xl font-black leading-tight tracking-tighter"
+            >
+              Diritti <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 to-indigo-200">
+                Universali
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-lg md:text-xl text-indigo-100 leading-relaxed font-light"
+            >
+              Non solo leggi, ma il fondamento della nostra dignità. In un mondo interconnesso, 
+              comprendere i diritti umani significa costruire ponti verso una giustizia globale 
+              e un'azione collettiva consapevole.
+            </motion.p>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap gap-4"
+            >
+              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-xl backdrop-blur-sm border border-white/10">
+                <Globe size={18} className="text-indigo-300" />
+                <span className="text-sm font-medium">Globalità</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-xl backdrop-blur-sm border border-white/10">
+                <Shield size={18} className="text-pink-300" />
+                <span className="text-sm font-medium">Protezione</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-xl backdrop-blur-sm border border-white/10">
+                <Users size={18} className="text-purple-300" />
+                <span className="text-sm font-medium">Collettività</span>
+              </div>
+            </motion.div>
+          </div>
+
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="flex items-center gap-3"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, type: "spring" }}
+            className="hidden md:block relative"
           >
-            <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-              <Heart size={24} />
-            </div>
-            <span className="text-sm font-bold uppercase tracking-widest text-orange-100">Diritti Universali</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+            <img 
+              src="/foto-progetti/civica/human-rights.jpg" 
+              alt="Human Rights Illustration" 
+              className="relative z-10 rounded-3xl shadow-2xl border-4 border-white/20 transform rotate-3 hover:rotate-0 transition-transform duration-500"
+            />
           </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-5xl md:text-6xl font-black leading-tight"
-          >
-            Human Rights
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-orange-100 leading-relaxed"
-          >
-            Un'esplorazione profonda dei diritti umani fondamentali, della libertà e della dignità globale. Comprendere i principi universali che proteggono ogni individuo e l'importanza dell'azione collettiva per la giustizia.
-          </motion.p>
         </div>
-
-        {/* Elementi decorativi animati */}
-        <motion.div
-          className="absolute top-10 right-10 w-24 h-24 bg-white/10 rounded-full blur-2xl"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 4, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-10 left-10 w-32 h-32 bg-white/5 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-        />
       </section>
 
       {/* Sezione Documento Principale */}
       <section className="space-y-12">
-        <motion.h2
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="text-4xl font-bold text-slate-900 flex items-center gap-4"
-        >
-          <div className="w-2 h-10 bg-gradient-to-b from-orange-500 to-red-600 rounded-full"></div>
-          Documento Originale
-        </motion.h2>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="space-y-4">
+            <motion.h2
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="text-4xl font-bold text-slate-900 flex items-center gap-4"
+            >
+              <div className="w-2 h-10 bg-gradient-to-b from-indigo-500 to-purple-600 rounded-full"></div>
+              Approfondimento
+            </motion.h2>
+            <p className="text-slate-500 max-w-xl">
+              Analisi dettagliata dei principi universali e del loro impatto nella società moderna.
+            </p>
+          </div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          whileHover={{ y: -10, boxShadow: '0 30px 60px rgba(0,0,0,0.15)' }}
+          whileHover={{ y: -10 }}
           className="group cursor-pointer"
+          onClick={() => setOpenPdf(doc)}
         >
-          {/* Card Container */}
-          <div className="relative h-full rounded-3xl overflow-hidden bg-white border-2 border-slate-100 shadow-xl hover:shadow-2xl transition-all duration-300">
-            {/* Immagine */}
-            <div className="relative h-64 md:h-80 overflow-hidden bg-gradient-to-br from-orange-100 to-red-100">
-              <img
-                src={doc.image}
-                alt={doc.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              
-              {/* Tag sovrapposto */}
-              <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-md px-6 py-2 rounded-full text-sm font-bold text-orange-600 uppercase tracking-widest shadow-lg">
-                {doc.tag}
-              </div>
-            </div>
-
-            {/* Contenuto */}
-            <div className="p-8 md:p-12 space-y-8">
-              {/* Titolo */}
-              <div className="space-y-4">
-                <h3 className="text-5xl font-black text-slate-900">{doc.title}</h3>
-                <div className="w-24 h-1.5 bg-gradient-to-r from-orange-500 to-red-600 rounded-full"></div>
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-white border border-slate-100 shadow-xl group-hover:shadow-2xl transition-all duration-500">
+            <div className="grid md:grid-cols-2">
+              {/* Immagine */}
+              <div className="relative h-80 md:h-auto overflow-hidden">
+                <img
+                  src={doc.image}
+                  alt={doc.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+                <div className="absolute top-8 left-8">
+                  <span className="bg-white/90 backdrop-blur-md px-6 py-2 rounded-full text-xs font-black text-indigo-600 uppercase tracking-[0.2em] shadow-lg">
+                    {doc.tag}
+                  </span>
+                </div>
               </div>
 
-              {/* Descrizione */}
-              <p className="text-slate-600 text-lg leading-relaxed font-light">
-                {doc.description}
-              </p>
+              {/* Contenuto */}
+              <div className="p-10 md:p-16 flex flex-col justify-center space-y-8">
+                <div className="space-y-4">
+                  <h3 className="text-5xl font-black text-slate-900 tracking-tight leading-none">
+                    {doc.title}
+                  </h3>
+                  <div className="w-20 h-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full"></div>
+                </div>
 
-              {/* Pulsante CTA */}
-              <motion.button
-                onClick={() => setOpenPdf(doc)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full md:w-auto bg-gradient-to-r from-orange-500 to-red-600 text-white py-5 px-10 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:shadow-2xl transition-all shadow-lg"
-              >
-                Visualizza Documento
-                <ChevronRight size={24} />
-              </motion.button>
+                <p className="text-slate-600 text-xl leading-relaxed font-light italic">
+                  "{doc.description}"
+                </p>
+
+                <div className="pt-4">
+                  <motion.div
+                    whileHover={{ x: 10 }}
+                    className="inline-flex items-center gap-4 text-indigo-600 font-bold text-lg"
+                  >
+                    Esplora il documento
+                    <div className="w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                      <ChevronRight size={24} />
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -194,7 +230,7 @@ const Civica: React.FC = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handlePrint}
-                  className="p-4 bg-orange-600 text-white hover:bg-orange-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-xl border-4 border-white hover:scale-110 active:scale-95"
+                  className="p-4 bg-indigo-600 text-white hover:bg-indigo-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-xl border-4 border-white hover:scale-110 active:scale-95"
                   title="Stampa / PDF"
                 >
                   <Printer size={24} />

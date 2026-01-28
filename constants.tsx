@@ -30,7 +30,7 @@ export const ROUTES: RouteConfig[] = [
   { path: '/', label: 'Home', icon: User, color: 'text-teal-500' },
   { path: '/pcto', label: 'PCTO', icon: Briefcase, color: 'text-blue-500' },
   { path: '/umanistica', label: 'Area Umanistica', icon: BookOpen, color: 'text-rose-500' },
-  { path: '/professionale', label: 'Area Professionale', icon: Cpu, color: 'text-indigo-500' },
+  { path: '/professionale', label: 'Area Scientifica', icon: Cpu, color: 'text-indigo-500' },
   { path: '/civica', label: 'Ed. Civica', icon: Scale, color: 'text-emerald-500' },
   { path: '/contatti', label: 'Contatti', icon: Mail, color: 'text-slate-600' },
 ];
@@ -41,7 +41,7 @@ export const ROUTES: RouteConfig[] = [
 export const NEXT_PAGE_TEXTS: Record<string, string> = {
   '/': 'Scopri il mio percorso PCTO',
   '/pcto': 'Passa all\'Area Umanistica',
-  '/umanistica': 'Guarda l\'Area Professionale',
+  '/umanistica': 'Guarda l\'Area Scientifica',
   '/professionale': 'Educazione Civica',
   '/civica': 'Contattami',
 };
