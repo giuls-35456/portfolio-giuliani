@@ -31,12 +31,12 @@ const Professionale: React.FC = () => {
       title: "Informatica", 
       color: "from-blue-500 to-cyan-500",
       details: [
-        "PHP: Backend development, MVC framework",
-        "C#: .NET applications, desktop & web",
-        "HTML & JavaScript: Frontend moderno",
-        "SQL: Query optimization, normalization",
-        "OOP: Design patterns, architecture",
-        "Full-Stack: Complete web solutions"
+        "• PHP: Sviluppo backend e framework MVC",
+        "• C#: Applicazioni .NET desktop e web",
+        "• HTML & JavaScript: Frontend moderno",
+        "• SQL: Query ottimizzate e normalizzazione",
+        "• OOP: Ereditarietà, polimorfismo, pattern",
+        "• Full-Stack: Architetture complete"
       ]
     },
     { 
@@ -44,12 +44,12 @@ const Professionale: React.FC = () => {
       title: "Sistemi e Reti", 
       color: "from-emerald-500 to-teal-500",
       details: [
-        "Cisco Packet Tracer: Network simulation",
-        "TCP/IP Protocols: Configuration & analysis",
-        "Router & Switch: Advanced setup",
-        "Firewall & VPN: Security policies",
-        "Network Architecture: Infrastructure design",
-        "Traffic Monitoring: Diagnostics"
+        "• Cisco Packet Tracer: Simulazioni di rete",
+        "• Protocolli TCP/IP: Configurazione",
+        "• Router e Switch: Gestione avanzata",
+        "• Firewall & VPN: Politiche di sicurezza",
+        "• Sicurezza: Prevenzione minacce",
+        "• Analisi traffico: Monitoraggio"
       ]
     },
     { 
@@ -57,12 +57,11 @@ const Professionale: React.FC = () => {
       title: "TPSIT", 
       color: "from-purple-500 to-pink-500",
       details: [
-        "Analisi della Concorrenza: Market research",
-        "Macchine Virtuali: Virtualization & deployment",
-        "Programmazione Java: Latest projects",
-        "Progettazione Sistemi: Scalable architecture",
-        "Process Management: Workflow automation",
-        "System Integration: Modern solutions"
+        "• Analisi della concorrenza: Mercato IT",
+        "• Macchine virtuali: Virtualizzazione",
+        "• Programmazione Java: Progetti avanzati",
+        "• Progettazione sistemi: Architetture",
+        "• Automazione: Workflow e processi"
       ]
     },
     { 
@@ -70,12 +69,12 @@ const Professionale: React.FC = () => {
       title: "Matematica", 
       color: "from-orange-500 to-red-500",
       details: [
-        "Derivate: Differentiation rules & applications",
-        "Integrali: Definite, indefinite, by parts",
-        "Calcolo Combinatorio: Permutations & combinations",
-        "Geometria Analitica: Conics, vectors, transformations",
-        "Statistica: Data analysis & probability",
-        "Limiti: Continuity & fundamental theorems"
+        "• Derivate: Regole e applicazioni",
+        "• Integrali: Definiti, indefiniti, per parti",
+        "• Calcolo combinatorio: Permutazioni",
+        "• Geometria analitica: Coniche, vettori",
+        "• Statistica: Analisi dati e probabilità",
+        "• Limiti e continuità: Teoremi"
       ]
     },
     { 
@@ -83,12 +82,12 @@ const Professionale: React.FC = () => {
       title: "Intelligenza Artificiale", 
       color: "from-indigo-500 to-blue-500",
       details: [
-        "Machine Learning: Supervised & unsupervised",
-        "Reti Neurali: Architecture & training",
-        "Deep Learning: CNN & RNN networks",
-        "Algoritmi: Search, optimization, clustering",
-        "Logica Computazionale: Advanced problem solving",
-        "AI Ethics: Responsibility & bias mitigation"
+        "• Machine Learning: Supervised/Unsupervised",
+        "• Reti Neurali: Architetture e training",
+        "• Deep Learning: CNN e RNN",
+        "• Algoritmi: Ricerca e ottimizzazione",
+        "• Logica computazionale: Problem solving",
+        "• Etica AI: Responsabilità algoritmica"
       ]
     }
   ];
@@ -128,43 +127,43 @@ const Professionale: React.FC = () => {
         </p>
       </div>
 
-      {/* Tech Grid - Modern Glassmorphism Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+      {/* Tech Grid - Modern Glassmorphism Cards - Compatto */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
         {techAreas.map((item, idx) => (
           <motion.div 
             key={idx}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.08 }}
-            whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
+            whileHover={{ y: -6, boxShadow: "0 15px 35px rgba(0,0,0,0.1)" }}
             className="group relative"
           >
             {/* Glassmorphism Card */}
-            <div className="relative h-full bg-white/40 backdrop-blur-xl rounded-[2rem] border border-white/60 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+            <div className="relative h-full bg-white/40 backdrop-blur-xl rounded-[1.75rem] border border-white/60 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
               {/* Gradient Background Accent */}
-              <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${item.color} opacity-10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:opacity-20 transition-opacity duration-300`}></div>
+              <div className={`absolute top-0 right-0 w-28 h-28 bg-gradient-to-br ${item.color} opacity-10 rounded-full blur-2xl -mr-12 -mt-12 group-hover:opacity-20 transition-opacity duration-300`}></div>
               
               {/* Content */}
-              <div className="relative z-10 p-6 h-full flex flex-col">
+              <div className="relative z-10 p-5 h-full flex flex-col">
                 {/* Icon & Title */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div className={`p-3 bg-gradient-to-br ${item.color} text-white rounded-xl shadow-lg`}>
-                    <item.icon size={28} />
+                <div className="flex items-center gap-2 mb-4">
+                  <div className={`p-2.5 bg-gradient-to-br ${item.color} text-white rounded-lg shadow-lg`}>
+                    <item.icon size={22} />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
+                  <h3 className="text-lg font-bold text-slate-900">{item.title}</h3>
                 </div>
 
                 {/* Details List */}
-                <div className="space-y-2.5 flex-1">
+                <div className="space-y-1.5 flex-1">
                   {item.details.map((detail, dIdx) => (
                     <motion.div
                       key={dIdx}
-                      initial={{ opacity: 0, x: -10 }}
+                      initial={{ opacity: 0, x: -8 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.08 + dIdx * 0.05 }}
-                      className="text-slate-700 text-sm leading-relaxed font-medium"
+                      transition={{ delay: idx * 0.08 + dIdx * 0.04 }}
+                      className="text-slate-700 text-xs leading-relaxed font-medium"
                     >
-                      <span className={`inline-block w-1.5 h-1.5 rounded-full bg-gradient-to-r ${item.color} mr-2.5 align-middle`}></span>
+                      <span className={`inline-block w-1 h-1 rounded-full bg-gradient-to-r ${item.color} mr-2 align-middle`}></span>
                       {detail}
                     </motion.div>
                   ))}
@@ -235,7 +234,7 @@ const Professionale: React.FC = () => {
             <h3 className="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-blue-400 bg-clip-text text-transparent tracking-tight">
               Dalla Teoria al Codice
             </h3>
-            <p className="text-slate-300 text-xl leading-relaxed font-light">
+            <p className="text-slate-300 text-lg leading-relaxed font-light">
               Il mio approccio unisce il rigore della <strong>matematica avanzata</strong> alla praticità dello 
               <strong>sviluppo software</strong>. Che si tratti di configurare una rete sicura su 
               Cisco Packet Tracer, sviluppare in PHP e C# o implementare algoritmi complessi, 
