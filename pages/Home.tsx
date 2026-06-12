@@ -1,163 +1,137 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { INFO } from '../constants';
-import { ArrowRight, Code, Zap, Lightbulb } from 'lucide-react';
+import { ArrowRight, Code, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 /**
- * Home Page - Bento Grid Design Unico
- * Palette Deep Aurora: Verde Smeraldo + Viola Profondo
+ * Home Page - Design Futuristico Neon
+ * Immagine profilo gigante, palette Cyan/Pink/Purple
  */
 const Home: React.FC = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.4 }}
-      className="min-h-screen py-20 px-4"
+      transition={{ duration: 0.5 }}
+      className="min-h-screen flex flex-col items-center justify-center py-20 px-4 relative overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto">
-        {/* Bento Grid Layout */}
+      {/* Effetti di sfondo animati */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
+
+      <div className="max-w-5xl w-full space-y-12">
+        {/* Foto Profilo - GIGANTE */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-max"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1, duration: 0.8, type: "spring" }}
+          className="flex justify-center"
         >
-          {/* Card 1: Foto Profilo - Grande */}
-          <motion.div
-            variants={itemVariants}
-            className="md:col-span-1 md:row-span-2 bento-card flex flex-col items-center justify-center"
-          >
-            <div className="w-48 h-48 md:w-full md:h-80 rounded-2xl overflow-hidden border border-green-400/30 shadow-glow">
+          <div className="relative group">
+            {/* Bordo Neon Animato */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-pink-500 to-purple-500 rounded-3xl blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300 animate-pulse-neon"></div>
+            
+            {/* Contenitore Foto */}
+            <div className="relative w-80 h-80 sm:w-96 sm:h-96 md:w-[450px] md:h-[450px] rounded-3xl overflow-hidden border-2 border-cyan-400 bg-slate-900 shadow-2xl">
               <img
                 src="/foto-progetti/home/profilo-home.webp"
                 alt={`${INFO.nome} ${INFO.cognome}`}
                 loading="eager"
                 fetchPriority="high"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
+              {/* Overlay Neon */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
             </div>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          {/* Card 2: Titolo e Sottotitolo */}
-          <motion.div
-            variants={itemVariants}
-            className="md:col-span-2 bento-card space-y-4"
-          >
-            <h1 className="text-4xl md:text-5xl font-black tracking-tight">
-              {INFO.nome} <br />
-              <span className="gradient-text">{INFO.cognome}</span>
-            </h1>
-            <p className="text-slate-400 text-lg leading-relaxed">
-              Studente appassionato di tecnologia e innovazione digitale
-            </p>
-          </motion.div>
+        {/* Titolo Futuristico */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="text-center space-y-6"
+        >
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter leading-tight">
+            <span className="block text-white">{INFO.nome}</span>
+            <span className="gradient-text-neon block text-6xl sm:text-7xl md:text-8xl">
+              {INFO.cognome}
+            </span>
+          </h1>
 
-          {/* Card 3: Descrizione */}
-          <motion.div
-            variants={itemVariants}
-            className="md:col-span-2 bento-card"
-          >
-            <p className="text-slate-300 leading-relaxed text-base">
-              {INFO.descrizione}
-            </p>
-          </motion.div>
+          <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            {INFO.descrizione}
+          </p>
+        </motion.div>
 
-          {/* Card 4: CTA Primario */}
-          <motion.div
-            variants={itemVariants}
-            className="md:col-span-1 bento-card flex flex-col justify-center"
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+        >
+          <Link
+            to="/pcto"
+            className="group relative px-10 py-5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-slate-900 rounded-xl font-bold text-lg hover:neon-glow-cyan transition-all duration-300 active:scale-95 overflow-hidden flex items-center gap-3 shadow-xl"
           >
-            <Link
-              to="/pcto"
-              className="w-full group relative px-6 py-4 bg-gradient-to-r from-green-400 to-green-500 text-slate-900 rounded-xl font-bold text-center hover:shadow-glow transition-all duration-300 active:scale-95 overflow-hidden flex items-center justify-center gap-2"
-            >
-              <span className="relative z-10">Scopri i Progetti</span>
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </motion.div>
+            <span className="relative z-10">Scopri i Progetti</span>
+            <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform" />
+          </Link>
 
-          {/* Card 5: Competenze */}
-          <motion.div
-            variants={itemVariants}
-            className="md:col-span-1 bento-card space-y-3"
+          <Link
+            to="/contatti"
+            className="px-10 py-5 border-2 border-cyan-400 text-cyan-400 rounded-xl font-bold text-lg hover:bg-cyan-400/10 hover:neon-glow-cyan transition-all duration-300 active:scale-95"
           >
-            <div className="flex items-center gap-3">
-              <Code size={24} className="text-green-400" />
+            Contattami
+          </Link>
+        </motion.div>
+
+        {/* Info Cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-16"
+        >
+          {/* Card 1 */}
+          <div className="p-6 border-2 border-cyan-400/30 rounded-2xl bg-slate-900/50 backdrop-blur-sm hover:border-cyan-400 hover:bg-slate-900/80 transition-all duration-300 group cursor-pointer">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-lg group-hover:neon-glow-cyan transition-all">
+                <Code size={24} className="text-slate-900" />
+              </div>
               <div>
-                <p className="text-xs text-slate-500 uppercase font-bold">Specialità</p>
-                <p className="text-sm font-semibold">Informatica & TLC</p>
+                <p className="text-xs text-slate-500 uppercase font-bold tracking-wider">Specialità</p>
+                <p className="text-lg font-bold text-cyan-400">Informatica & TLC</p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Card 6: Scuola */}
-          <motion.div
-            variants={itemVariants}
-            className="md:col-span-1 bento-card space-y-3"
-          >
-            <div className="flex items-center gap-3">
-              <Zap size={24} className="text-purple-400" />
+          {/* Card 2 */}
+          <div className="p-6 border-2 border-pink-400/30 rounded-2xl bg-slate-900/50 backdrop-blur-sm hover:border-pink-400 hover:bg-slate-900/80 transition-all duration-300 group cursor-pointer">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-gradient-to-br from-pink-500 to-pink-600 rounded-lg group-hover:neon-glow-pink transition-all">
+                <Zap size={24} className="text-slate-900" />
+              </div>
               <div>
-                <p className="text-xs text-slate-500 uppercase font-bold">Istituto</p>
-                <p className="text-sm font-semibold">IIS Marconi</p>
+                <p className="text-xs text-slate-500 uppercase font-bold tracking-wider">Istituto</p>
+                <p className="text-lg font-bold text-pink-400">IIS Marconi</p>
               </div>
             </div>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          {/* Card 7: CTA Secondario */}
-          <motion.div
-            variants={itemVariants}
-            className="md:col-span-1 bento-card flex flex-col justify-center"
-          >
-            <Link
-              to="/contatti"
-              className="w-full px-6 py-4 border-2 border-green-400/50 text-green-400 rounded-xl font-bold text-center hover:bg-green-400/10 transition-all duration-300 active:scale-95"
-            >
-              Contattami
-            </Link>
-          </motion.div>
-
-          {/* Card 8: Passioni */}
-          <motion.div
-            variants={itemVariants}
-            className="md:col-span-2 bento-card space-y-4"
-          >
-            <div className="flex items-center gap-2">
-              <Lightbulb size={24} className="text-purple-400" />
-              <h3 className="text-lg font-bold">Le Mie Passioni</h3>
-            </div>
-            <p className="text-slate-400 text-sm">
-              Tecnologia, Gaming, Musica e Problem Solving. Scopri di più nella sezione dedicata.
-            </p>
-            <Link
-              to="/passioni"
-              className="inline-block text-green-400 font-semibold hover:text-green-300 transition-colors"
-            >
-              Esplora →
-            </Link>
-          </motion.div>
+        {/* Scroll Indicator */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="flex justify-center mt-12 text-cyan-400/50"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
         </motion.div>
       </div>
     </motion.div>
