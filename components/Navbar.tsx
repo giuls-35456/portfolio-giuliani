@@ -27,16 +27,16 @@ const Navbar: React.FC = () => {
     <>
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 py-4 ${
-          scrolled ? 'bg-slate-900/80 backdrop-blur-md border-b border-cyan-500/20' : 'bg-transparent'
+          scrolled ? 'bg-slate-900/90 backdrop-blur-lg border-b border-pink-500/30 shadow-deep' : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 gradient-blue-mint rounded-lg flex items-center justify-center text-slate-900 font-bold text-lg transition-all">
+            <div className="w-10 h-10 gradient-crimson rounded-lg flex items-center justify-center text-white font-bold text-lg transition-all shadow-glow-crimson">
               RG
             </div>
-            <span className="hidden sm:inline text-cyan-400 font-bold text-lg">Riccardo</span>
+            <span className="hidden sm:inline text-pink-400 font-bold text-lg">Riccardo</span>
           </Link>
 
           {/* Desktop Menu */}
@@ -49,8 +49,8 @@ const Navbar: React.FC = () => {
                   to={route.path}
                   className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${
                     isActive
-                      ? 'gradient-blue-mint text-slate-900'
-                      : 'text-slate-400 hover:text-cyan-400'
+                      ? 'gradient-crimson text-white shadow-glow-crimson'
+                      : 'text-slate-400 hover:text-pink-400'
                   }`}
                 >
                   {route.label}
@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
           {/* Mobile Toggle */}
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-cyan-400 hover:bg-slate-800 rounded-lg transition-colors"
+            className="md:hidden p-2 text-pink-400 hover:bg-slate-800 rounded-lg transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
                     to={route.path}
                   className={`px-4 py-3 rounded-lg font-bold text-lg transition-all ${
                       isActive
-                        ? 'gradient-blue-mint text-slate-900'
+                        ? 'gradient-crimson text-white'
                         : 'text-slate-300 hover:bg-slate-800'
                       }`}
                   >

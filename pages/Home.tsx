@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { INFO } from '../constants';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Code, Zap, Sparkles, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 /**
- * Home Page - Bento Premium Design
- * Palette Blue & Mint, Layout Moderno e Accattivante
+ * Home Page - Rich Bento 2.0 Design
+ * Palette Electric Crimson, Grafica Densa e Moderna
  */
 const Home: React.FC = () => {
   const containerVariants = {
@@ -14,18 +14,18 @@ const Home: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.12,
+        delayChildren: 0.15,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 25 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.7, ease: "easeOut" },
     },
   };
 
@@ -33,108 +33,137 @@ const Home: React.FC = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.4 }}
-      className="min-h-screen py-20 px-4 relative overflow-hidden"
+      transition={{ duration: 0.5 }}
+      className="min-h-screen py-24 px-4 relative overflow-hidden"
     >
-      {/* Effetti di sfondo */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-600/5 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-cyan-500/5 rounded-full blur-3xl -z-10"></div>
+      {/* Effetti di sfondo ricchi */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-crimson-600/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl -z-10 animate-pulse" style={{animationDelay: '1s'}}></div>
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-max"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Colonna Sinistra - Foto Profilo Grande */}
+          {/* Card 1: Foto Profilo - Grande e Imponente */}
           <motion.div
             variants={itemVariants}
-            className="flex justify-center lg:justify-start"
+            className="md:col-span-1 md:row-span-2 bento-card flex flex-col items-center justify-center group shadow-deep"
           >
-            <div className="relative group">
-              {/* Bordo Animato */}
-              <div className="absolute -inset-2 bg-gradient-to-br from-blue-500 via-cyan-500 to-blue-500 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-lg"></div>
-              
-              {/* Contenitore Foto */}
-              <div className="relative w-80 h-96 sm:w-96 sm:h-[480px] rounded-3xl overflow-hidden border-2 border-cyan-500/30 shadow-glow bg-slate-900">
-                <img
-                  src="/foto-progetti/home/profilo-home.webp"
-                  alt={`${INFO.nome} ${INFO.cognome}`}
-                  loading="eager"
-                  fetchPriority="high"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                {/* Overlay Gradiente */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            <div className="relative w-full aspect-square rounded-2xl overflow-hidden border-2 border-pink-500/40 shadow-glow-crimson">
+              <img
+                src="/foto-progetti/home/profilo-home.webp"
+                alt={`${INFO.nome} ${INFO.cognome}`}
+                loading="eager"
+                fetchPriority="high"
+                className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+              {/* Decorazione angolo */}
+              <div className="absolute top-4 right-4 w-12 h-12 border-2 border-pink-500/40 rounded-full"></div>
+            </div>
+          </motion.div>
+
+          {/* Card 2: Titolo Principale */}
+          <motion.div
+            variants={itemVariants}
+            className="md:col-span-2 bento-card shadow-deep space-y-6"
+          >
+            <div className="flex items-center gap-2">
+              <Star size={20} className="text-pink-500" />
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-400">Portfolio 2024</span>
+            </div>
+            
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter leading-tight">
+              <span className="block text-white">{INFO.nome}</span>
+              <span className="gradient-text-crimson block">{INFO.cognome}</span>
+            </h1>
+
+            <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
+              {INFO.descrizione}
+            </p>
+          </motion.div>
+
+          {/* Card 3: CTA Primario */}
+          <motion.div
+            variants={itemVariants}
+            className="md:col-span-1 bento-card shadow-deep flex flex-col justify-center"
+          >
+            <Link
+              to="/pcto"
+              className="group w-full px-6 py-5 gradient-crimson text-white rounded-xl font-bold text-center hover:shadow-glow-crimson transition-all duration-300 active:scale-95 flex items-center justify-center gap-2 overflow-hidden relative"
+            >
+              <span className="relative z-10">Scopri i Progetti</span>
+              <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
+            </Link>
+          </motion.div>
+
+          {/* Card 4: Specialità */}
+          <motion.div
+            variants={itemVariants}
+            className="md:col-span-1 bento-card shadow-deep space-y-4 group"
+          >
+            <div className="flex items-center gap-3">
+              <div className="p-3 gradient-crimson rounded-lg group-hover:shadow-glow-crimson transition-all">
+                <Code size={24} className="text-white" />
+              </div>
+              <div>
+                <p className="text-xs text-slate-500 uppercase font-bold tracking-wider">Specialità</p>
+                <p className="text-lg font-bold text-pink-400">Informatica & TLC</p>
               </div>
             </div>
           </motion.div>
 
-          {/* Colonna Destra - Contenuti */}
+          {/* Card 5: Istituto */}
           <motion.div
             variants={itemVariants}
-            className="space-y-8"
+            className="md:col-span-1 bento-card shadow-deep space-y-4 group"
           >
-            {/* Badge */}
-            <motion.div
-              variants={itemVariants}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold"
-            >
-              <Sparkles size={16} />
-              Portfolio 2024
-            </motion.div>
-
-            {/* Titolo */}
-            <motion.div
-              variants={itemVariants}
-              className="space-y-4"
-            >
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight">
-                <span className="block text-white">{INFO.nome}</span>
-                <span className="gradient-text block">{INFO.cognome}</span>
-              </h1>
-              
-              <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
-                {INFO.descrizione}
-              </p>
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
-            >
-              <Link
-                to="/pcto"
-                className="group px-8 py-4 gradient-primary text-slate-900 rounded-xl font-bold text-base hover:shadow-glow transition-all duration-300 active:scale-95 flex items-center justify-center gap-2"
-              >
-                Scopri i Progetti
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-
-              <Link
-                to="/contatti"
-                className="px-8 py-4 border-2 border-cyan-500/50 text-cyan-400 rounded-xl font-bold text-base hover:border-cyan-400 hover:bg-cyan-500/10 transition-all duration-300 active:scale-95"
-              >
-                Contattami
-              </Link>
-            </motion.div>
-
-            {/* Info Cards */}
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-2 gap-4 pt-8 border-t border-slate-700"
-            >
-              <div className="space-y-2">
-                <p className="text-xs text-slate-500 uppercase font-bold tracking-wider">Specialità</p>
-                <p className="text-lg font-bold text-cyan-400">Informatica & TLC</p>
+            <div className="flex items-center gap-3">
+              <div className="p-3 gradient-crimson rounded-lg group-hover:shadow-glow-crimson transition-all">
+                <Zap size={24} className="text-white" />
               </div>
-              <div className="space-y-2">
+              <div>
                 <p className="text-xs text-slate-500 uppercase font-bold tracking-wider">Istituto</p>
-                <p className="text-lg font-bold text-blue-400">IIS Marconi</p>
+                <p className="text-lg font-bold text-pink-400">IIS Marconi</p>
               </div>
-            </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Card 6: CTA Secondario */}
+          <motion.div
+            variants={itemVariants}
+            className="md:col-span-1 bento-card shadow-deep flex flex-col justify-center"
+          >
+            <Link
+              to="/contatti"
+              className="w-full px-6 py-5 border-2 border-pink-500/50 text-pink-400 rounded-xl font-bold text-center hover:border-pink-400 hover:bg-pink-500/10 hover:shadow-glow-crimson transition-all duration-300 active:scale-95"
+            >
+              Contattami
+            </Link>
+          </motion.div>
+
+          {/* Card 7: Passioni */}
+          <motion.div
+            variants={itemVariants}
+            className="md:col-span-2 bento-card shadow-deep space-y-4"
+          >
+            <div className="flex items-center gap-2">
+              <Sparkles size={20} className="text-pink-500" />
+              <h3 className="text-xl font-bold">Le Mie Passioni</h3>
+            </div>
+            <p className="text-slate-300 leading-relaxed">
+              Tecnologia, Gaming, Musica e Problem Solving. Scopri di più nella sezione dedicata.
+            </p>
+            <Link
+              to="/passioni"
+              className="inline-flex items-center gap-2 text-pink-400 font-bold hover:text-pink-300 transition-colors group"
+            >
+              Esplora
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
           </motion.div>
         </motion.div>
       </div>
