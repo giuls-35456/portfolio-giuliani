@@ -1,4 +1,4 @@
-import { User, Briefcase, BookOpen, Cpu, Scale, Mail } from 'lucide-react';
+import { User, Briefcase, BookOpen, Cpu, Scale, Mail, Globe, Heart } from 'lucide-react';
 import { PersonalInfo, RouteConfig } from './types';
 
 /**
@@ -32,6 +32,8 @@ export const ROUTES: RouteConfig[] = [
   { path: '/umanistica', label: 'Area Umanistica', icon: BookOpen, color: 'text-rose-500' },
   { path: '/professionale', label: 'Area Scientifica', icon: Cpu, color: 'text-indigo-500' },
   { path: '/civica', label: 'Ed. Civica', icon: Scale, color: 'text-emerald-500' },
+  { path: '/inglese', label: 'Inglese', icon: Globe, color: 'text-blue-600' },
+  { path: '/passioni', label: 'Passioni', icon: Heart, color: 'text-purple-600' },
   { path: '/contatti', label: 'Contatti', icon: Mail, color: 'text-slate-600' },
 ];
 
@@ -43,5 +45,7 @@ export const NEXT_PAGE_TEXTS: Record<string, string> = {
   '/pcto': 'Passa all\'Area Umanistica',
   '/umanistica': 'Guarda l\'Area Scientifica',
   '/professionale': 'Educazione Civica',
-  '/civica': 'Contattami',
+  '/civica': 'Scopri i miei progetti in Inglese',
+  '/inglese': 'Conosci le mie Passioni',
+  '/passioni': 'Contattami',
 };
