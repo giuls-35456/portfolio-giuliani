@@ -1,78 +1,141 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { INFO } from '../constants';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 /**
- * Home Page - Minimalist Tech Luxury
- * Design elegante e professionale con palette Blu Reale/Grafite
+ * Home Page - Bento Premium Design
+ * Palette Blue & Mint, Layout Moderno e Accattivante
  */
 const Home: React.FC = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen flex flex-col items-center justify-center py-20 px-4"
+      transition={{ duration: 0.4 }}
+      className="min-h-screen py-20 px-4 relative overflow-hidden"
     >
-      <div className="max-w-3xl w-full space-y-12">
-        {/* Foto Profilo - Grande e Elegante */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="flex justify-center"
-        >
-          <div className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden border border-slate-700 shadow-medium bg-slate-900">
-            <img
-              src="/foto-progetti/home/profilo-home.webp"
-              alt={`${INFO.nome} ${INFO.cognome}`}
-              loading="eager"
-              fetchPriority="high"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-        </motion.div>
+      {/* Effetti di sfondo */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-600/5 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-20 right-10 w-72 h-72 bg-cyan-500/5 rounded-full blur-3xl -z-10"></div>
 
-        {/* Titolo e Sottotitolo */}
+      <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-center space-y-6"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-tight">
-            <span className="block text-white">{INFO.nome}</span>
-            <span className="gradient-text block">{INFO.cognome}</span>
-          </h1>
-
-          <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            {INFO.descrizione}
-          </p>
-        </motion.div>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
-          <Link
-            to="/pcto"
-            className="group px-8 py-4 gradient-primary text-white rounded-lg font-bold text-base hover:shadow-medium transition-all duration-300 active:scale-95 flex items-center gap-2"
+          {/* Colonna Sinistra - Foto Profilo Grande */}
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-center lg:justify-start"
           >
-            Scopri i Progetti
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+            <div className="relative group">
+              {/* Bordo Animato */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-blue-500 via-cyan-500 to-blue-500 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-lg"></div>
+              
+              {/* Contenitore Foto */}
+              <div className="relative w-80 h-96 sm:w-96 sm:h-[480px] rounded-3xl overflow-hidden border-2 border-cyan-500/30 shadow-glow bg-slate-900">
+                <img
+                  src="/foto-progetti/home/profilo-home.webp"
+                  alt={`${INFO.nome} ${INFO.cognome}`}
+                  loading="eager"
+                  fetchPriority="high"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                {/* Overlay Gradiente */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+              </div>
+            </div>
+          </motion.div>
 
-          <Link
-            to="/contatti"
-            className="px-8 py-4 border border-slate-600 text-slate-300 rounded-lg font-bold text-base hover:border-slate-400 hover:text-slate-100 transition-all duration-300 active:scale-95"
+          {/* Colonna Destra - Contenuti */}
+          <motion.div
+            variants={itemVariants}
+            className="space-y-8"
           >
-            Contattami
-          </Link>
+            {/* Badge */}
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold"
+            >
+              <Sparkles size={16} />
+              Portfolio 2024
+            </motion.div>
+
+            {/* Titolo */}
+            <motion.div
+              variants={itemVariants}
+              className="space-y-4"
+            >
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight">
+                <span className="block text-white">{INFO.nome}</span>
+                <span className="gradient-text block">{INFO.cognome}</span>
+              </h1>
+              
+              <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
+                {INFO.descrizione}
+              </p>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4 pt-4"
+            >
+              <Link
+                to="/pcto"
+                className="group px-8 py-4 gradient-primary text-slate-900 rounded-xl font-bold text-base hover:shadow-glow transition-all duration-300 active:scale-95 flex items-center justify-center gap-2"
+              >
+                Scopri i Progetti
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <Link
+                to="/contatti"
+                className="px-8 py-4 border-2 border-cyan-500/50 text-cyan-400 rounded-xl font-bold text-base hover:border-cyan-400 hover:bg-cyan-500/10 transition-all duration-300 active:scale-95"
+              >
+                Contattami
+              </Link>
+            </motion.div>
+
+            {/* Info Cards */}
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-2 gap-4 pt-8 border-t border-slate-700"
+            >
+              <div className="space-y-2">
+                <p className="text-xs text-slate-500 uppercase font-bold tracking-wider">Specialità</p>
+                <p className="text-lg font-bold text-cyan-400">Informatica & TLC</p>
+              </div>
+              <div className="space-y-2">
+                <p className="text-xs text-slate-500 uppercase font-bold tracking-wider">Istituto</p>
+                <p className="text-lg font-bold text-blue-400">IIS Marconi</p>
+              </div>
+            </motion.div>
+          </motion.div>
         </motion.div>
       </div>
     </motion.div>
