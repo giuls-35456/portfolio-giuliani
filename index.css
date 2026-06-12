@@ -1,20 +1,21 @@
 @import "tailwindcss";
 
-/* Palette Ultra-Moderna */
+/* Palette Deep Aurora - Unica e Sofisticata */
 :root {
-  --primary: #00d9ff;
-  --primary-dark: #0099cc;
-  --accent: #ff006e;
-  --accent-light: #ff4d8f;
-  --bg-dark: #0a0e27;
-  --bg-secondary: #1a1f3a;
+  --primary: #00ff88;
+  --primary-dark: #00cc6a;
+  --accent: #7c3aed;
+  --accent-light: #a78bfa;
+  --bg-dark: #0d0d1a;
+  --bg-secondary: #1a1a2e;
   --text-light: #f0f4f8;
+  --border-glow: rgba(0, 255, 136, 0.2);
 }
 
 body {
   margin: 0;
   overflow-x: hidden;
-  background: linear-gradient(135deg, #0a0e27 0%, #16213e 50%, #0f3460 100%);
+  background: linear-gradient(135deg, #0d0d1a 0%, #1a0033 50%, #0d0d1a 100%);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: #f0f4f8;
 }
@@ -25,48 +26,77 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1f3a;
+  background: #1a1a2e;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00d9ff 0%, #ff006e 100%);
+  background: linear-gradient(180deg, #00ff88 0%, #7c3aed 100%);
   border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #00b8d4 0%, #e60052 100%);
+  background: linear-gradient(180deg, #00cc6a 0%, #6d28d9 100%);
 }
 
-/* Transizioni leggere */
+/* Transizioni */
 * {
-  transition-property: background-color, border-color, color, fill, stroke;
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-/* Gradienti Moderni */
+/* Gradienti */
 .gradient-primary {
-  background: linear-gradient(135deg, #00d9ff 0%, #00b8d4 100%);
+  background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
 }
 
 .gradient-accent {
-  background: linear-gradient(135deg, #ff006e 0%, #ff4d8f 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #00d9ff 0%, #ff006e 100%);
+  background: linear-gradient(135deg, #00ff88 0%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Ombre */
+/* Stile Bento - Frosted Glass */
+.bento-card {
+  background: rgba(26, 26, 46, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 136, 0.15);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.bento-card:hover {
+  border-color: rgba(0, 255, 136, 0.4);
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.15), inset 0 0 20px rgba(0, 255, 136, 0.05);
+  transform: translateY(-5px);
+}
+
+/* Ombre Glow */
 .shadow-glow {
-  box-shadow: 0 0 30px rgba(0, 217, 255, 0.2);
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
 }
 
 .shadow-accent {
-  box-shadow: 0 0 30px rgba(255, 0, 110, 0.2);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
 }
 
 /* Hover */
@@ -81,14 +111,14 @@ a {
 /* Focus */
 button:focus,
 a:focus {
-  outline: 2px solid #00d9ff;
+  outline: 2px solid #00ff88;
   outline-offset: 2px;
 }
 
 /* Selezione */
 ::selection {
-  background-color: #00d9ff;
-  color: #0a0e27;
+  background-color: #00ff88;
+  color: #0d0d1a;
 }
 
 /* Smooth scroll */

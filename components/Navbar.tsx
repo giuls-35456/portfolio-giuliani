@@ -33,10 +33,10 @@ const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-cyan-500 rounded-lg flex items-center justify-center text-slate-900 font-bold text-lg group-hover:shadow-glow transition-all">
+            <div className="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center text-slate-900 font-bold text-lg group-hover:shadow-glow transition-all">
               RG
             </div>
-            <span className="hidden sm:inline text-white font-bold text-lg">Riccardo</span>
+            <span className="hidden sm:inline text-green-400 font-bold text-lg">Riccardo</span>
           </Link>
 
           {/* Desktop Menu */}
@@ -49,8 +49,8 @@ const Navbar: React.FC = () => {
                   to={route.path}
                   className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${
                     isActive
-                      ? 'bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-900 shadow-glow'
-                      : 'text-slate-300 hover:text-cyan-400'
+                      ? 'gradient-primary text-slate-900 shadow-glow'
+                      : 'text-slate-300 hover:text-green-400'
                   }`}
                 >
                   {route.label}
@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
           {/* Mobile Toggle */}
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-cyan-400 hover:bg-slate-800 rounded-lg transition-colors"
+            className="md:hidden p-2 text-green-400 hover:bg-slate-800 rounded-lg transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -85,11 +85,11 @@ const Navbar: React.FC = () => {
                   <Link
                     key={route.path}
                     to={route.path}
-                    className={`px-4 py-3 rounded-lg font-bold text-lg transition-all ${
+                  className={`px-4 py-3 rounded-lg font-bold text-lg transition-all ${
                       isActive
-                        ? 'bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-900'
+                        ? 'gradient-primary text-slate-900'
                         : 'text-slate-300 hover:bg-slate-800'
-                    }`}
+                      }`}
                   >
                     {route.label}
                   </Link>
