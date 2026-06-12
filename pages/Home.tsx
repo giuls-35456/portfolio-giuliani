@@ -1,89 +1,93 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { INFO } from '../constants';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 /**
- * Home Page - Portfolio Professionale
- * Design minimalista, veloce e moderno con sfondo scuro.
+ * Home Page - Nuovo Design Ultra-Moderno
+ * Hero centrato, palette Cyan/Magenta, design minimalista e veloce.
  */
 const Home: React.FC = () => {
   return (
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24 min-h-[80vh] py-10"
+      transition={{ duration: 0.4 }}
+      className="flex flex-col items-center justify-center min-h-screen text-center space-y-12 py-20"
     >
-      {/* Sezione Testo - Sinistra */}
-      <motion.div 
-        className="flex-1 space-y-8 order-2 lg:order-1 text-center lg:text-left"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1, duration: 0.6 }}
-      >
-        {/* Titolo Principale */}
-        <div className="space-y-4">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] tracking-tight">
-            {INFO.nome} <br />
-            <span className="gradient-text">
-              {INFO.cognome}
-            </span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-slate-300 max-w-lg leading-relaxed mx-auto lg:mx-0 font-light">
-            {INFO.descrizione}
-          </p>
-        </div>
-        
-        {/* Pulsanti di Azione */}
-        <motion.div 
-          className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-4"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
-          <Link 
-            to="/pcto" 
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 gradient-primary text-white px-8 py-4 rounded-xl hover:shadow-glow transition-all duration-300 active:scale-95 font-bold text-base shadow-soft"
-          >
-            Esplora il mio PCTO
-            <ArrowRight size={20} />
-          </Link>
-          <Link 
-            to="/contatti" 
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-slate-800 border border-slate-700 text-white px-8 py-4 rounded-xl hover:bg-slate-700 transition-all duration-300 active:scale-95 font-bold text-base"
-          >
-            Contattami
-            <ChevronRight size={20} />
-          </Link>
-        </motion.div>
-      </motion.div>
-
-      {/* Sezione Foto Profilo - Destra */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.9 }}
+      {/* Foto Profilo - Centrata in Alto */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        className="relative group order-1 lg:order-2 w-full lg:w-auto flex justify-center"
+        transition={{ delay: 0.1, duration: 0.6 }}
+        className="relative"
       >
-        {/* Contenitore Foto - Minimalista */}
-        <div className="relative w-72 h-96 sm:w-96 sm:h-[480px] lg:w-[400px] lg:h-[520px] rounded-2xl overflow-hidden shadow-medium border-[8px] border-slate-800 bg-slate-900">
+        <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden border-2 border-cyan-400/50 shadow-glow">
           <img 
             src="/foto-progetti/home/profilo-home.webp" 
-            alt={`Ritratto professionale di ${INFO.nome} ${INFO.cognome}`} 
+            alt={`${INFO.nome} ${INFO.cognome}`}
             loading="eager"
             fetchPriority="high"
-            className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-cover"
           />
-          
-          {/* Overlay Sottile */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
         </div>
+        {/* Accento decorativo */}
+        <div className="absolute -bottom-4 -right-4 w-20 h-20 border-2 border-cyan-400/30 rounded-full"></div>
+        <div className="absolute -top-4 -left-4 w-20 h-20 border-2 border-pink-500/30 rounded-full"></div>
+      </motion.div>
 
-        {/* Accento Decorativo Semplice */}
-        <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-full blur-2xl -z-10"></div>
+      {/* Titolo e Sottotitolo */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        className="space-y-6 max-w-2xl px-4"
+      >
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight">
+          {INFO.nome} <br />
+          <span className="gradient-text">{INFO.cognome}</span>
+        </h1>
+        
+        <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-light">
+          {INFO.descrizione}
+        </p>
+      </motion.div>
+
+      {/* CTA Buttons */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.6 }}
+        className="flex flex-col sm:flex-row gap-4 justify-center px-4"
+      >
+        <Link 
+          to="/pcto"
+          className="group relative px-8 py-4 bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-900 rounded-lg font-bold text-lg hover:shadow-glow transition-all duration-300 active:scale-95 overflow-hidden"
+        >
+          <span className="relative z-10 flex items-center justify-center gap-2">
+            Scopri i Miei Progetti
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          </span>
+        </Link>
+        
+        <Link 
+          to="/contatti"
+          className="px-8 py-4 border-2 border-cyan-400/50 text-cyan-400 rounded-lg font-bold text-lg hover:bg-cyan-400/10 transition-all duration-300 active:scale-95"
+        >
+          Contattami
+        </Link>
+      </motion.div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="mt-16 text-cyan-400/50"
+      >
+        <svg className="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
       </motion.div>
     </motion.div>
   );
