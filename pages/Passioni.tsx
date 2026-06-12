@@ -134,12 +134,12 @@ const Passioni: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
-        className="mt-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-[3rem] p-12 md:p-16 text-white text-center space-y-6 shadow-2xl"
+        className="mt-20 gradient-primary rounded-[3rem] p-12 md:p-16 text-white text-center space-y-6 shadow-large"
       >
         <p className="text-2xl md:text-3xl font-light italic leading-relaxed">
           "La passione è il carburante che alimenta l'innovazione. Quando ami quello che fai, il lavoro non è mai una fatica."
         </p>
-        <p className="text-purple-100 font-semibold">— Riccardo Giuliani</p>
+        <p className="text-indigo-100 font-semibold">— Riccardo Giuliani</p>
       </motion.section>
 
       {/* Sezione Call to Action */}
@@ -157,7 +157,7 @@ const Passioni: React.FC = () => {
         </p>
         <a 
           href="/#/contatti"
-          className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-10 py-5 rounded-2xl font-bold hover:shadow-2xl transition-all duration-300 active:scale-95"
+          className="inline-flex items-center gap-3 gradient-primary text-white px-10 py-5 rounded-2xl font-bold hover:shadow-glow transition-all duration-300 active:scale-95"
         >
           Contattami
           <span className="text-xl">→</span>

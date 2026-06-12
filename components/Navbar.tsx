@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
             <div className="relative group">
               <Link to="/" className="text-lg font-bold text-slate-800 tracking-tight flex items-center gap-3 py-2">
                 <motion.span 
-                  className="w-9 h-9 bg-gradient-to-br from-teal-600 to-blue-700 rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-lg"
+                  className="w-9 h-9 gradient-primary rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-lg"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -58,18 +58,18 @@ const Navbar: React.FC = () => {
                 
                 <div className="space-y-5 relative z-10">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-600 to-blue-700 flex items-center justify-center text-white font-bold text-lg shadow-inner">
+                    <div className="w-12 h-12 rounded-2xl gradient-primary flex items-center justify-center text-white font-bold text-lg shadow-inner">
                       RG
                     </div>
                     <div>
                       <p className="font-bold text-slate-900 leading-tight">Riccardo Giuliani</p>
-                      <p className="text-xs text-teal-700 font-semibold uppercase tracking-wider">Informatica & TLC</p>
+                      <p className="text-xs text-indigo-700 font-semibold uppercase tracking-wider">Informatica & TLC</p>
                     </div>
                   </div>
 
                   <div className="space-y-4 pt-2 border-t border-slate-50">
                     <div className="flex items-center gap-3 text-sm text-slate-600">
-                      <Calendar size={18} className="text-teal-600" />
+                      <Calendar size={18} className="text-indigo-600" />
                       <div>
                         <p className="text-[10px] text-slate-400 uppercase font-bold">Nascita</p>
                         <p className="font-medium">9 Maggio 2007</p>
@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
                     </div>
                     
                     <div className="flex items-center gap-3 text-sm text-slate-600">
-                      <School size={18} className="text-teal-600" />
+                      <School size={18} className="text-indigo-600" />
                       <div>
                         <p className="text-[10px] text-slate-400 uppercase font-bold">Istituto</p>
                         <p className="font-medium">IIS Marconi Pieralski</p>
@@ -102,7 +102,7 @@ const Navbar: React.FC = () => {
                     {isActive && (
                       <motion.div
                         layoutId="nav-pill"
-                        className="absolute inset-0 bg-gradient-to-r from-teal-600 to-blue-700 rounded-xl"
+                        className="absolute inset-0 gradient-primary rounded-xl"
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
                     )}
@@ -150,7 +150,7 @@ const Navbar: React.FC = () => {
                       to={route.path}
                       className={`flex items-center gap-5 p-5 rounded-2xl text-xl font-bold transition-all ${
                         isActive
-                          ? 'bg-gradient-to-r from-teal-600 to-blue-700 text-white shadow-lg'
+                          ? 'gradient-primary text-white shadow-lg'
                           : 'text-slate-600 hover:bg-slate-50'
                       }`}
                     >
