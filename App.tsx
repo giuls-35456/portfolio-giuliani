@@ -11,7 +11,6 @@ const Contatti = lazy(() => import('./pages/Contatti'));
 const Umanistica = lazy(() => import('./pages/Umanistica'));
 const Professionale = lazy(() => import('./pages/Professionale'));
 const Civica = lazy(() => import('./pages/Civica'));
-const Inglese = lazy(() => import('./pages/Inglese'));
 const Passioni = lazy(() => import('./pages/Passioni'));
 
 /**
@@ -38,7 +37,6 @@ const RotteAnimate: React.FC = () => {
           <Route path="/umanistica" element={<Umanistica />} />
           <Route path="/professionale" element={<Professionale />} />
           <Route path="/civica" element={<Civica />} />
-          <Route path="/inglese" element={<Inglese />} />
           <Route path="/passioni" element={<Passioni />} />
           <Route path="/contatti" element={<Contatti />} />
         </Routes>

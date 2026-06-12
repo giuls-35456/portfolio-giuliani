@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Printer, Download, X, Bookmark, ChevronRight
+  Printer, Download, X, Bookmark, ChevronRight, BookOpen, Globe
 } from 'lucide-react';
 import { Document } from '../types';
 
 /**
  * Area Umanistica.
- * Presenta i progetti di Italiano e Storia con un layout pulito e professionale.
+ * Presenta i progetti di Italiano, Storia e Inglese con un layout pulito e professionale.
+ * Utilizza tab per navigare tra le diverse materie.
  */
 const Umanistica: React.FC = () => {
   const [openPdf, setOpenPdf] = useState<Document | null>(null);
+  const [activeTab, setActiveTab] = useState<'italiano-storia' | 'inglese'>('italiano-storia');
 
   const handlePrint = () => {
     window.print();
   };
 
-  // Dati dei documenti ottimizzati con immagini locali
-  const docs: Document[] = [
+  // Dati dei documenti per Italiano e Storia
+  const docsItalianoStoria: Document[] = [
     {
       id: 'storia',
       title: 'La Guerra dei 7 Anni',
@@ -45,6 +47,11 @@ const Umanistica: React.FC = () => {
       pages: []
     }
   ];
+
+  // Dati dei documenti per Inglese (vuoti per ora)
+  const docsInglese: Document[] = [];
+
+  const docs = activeTab === 'italiano-storia' ? docsItalianoStoria : docsInglese;
 
   return (
     <motion.div
@@ -94,72 +101,129 @@ const Umanistica: React.FC = () => {
         </div>
       </header>
 
+      {/* Tab Navigation */}
+      <section className="flex gap-4 border-b-2 border-slate-200">
+        <motion.button
+          onClick={() => setActiveTab('italiano-storia')}
+          className={`flex items-center gap-2 px-6 py-4 font-bold text-lg transition-all ${
+            activeTab === 'italiano-storia'
+              ? 'text-rose-600 border-b-4 border-rose-600'
+              : 'text-slate-600 hover:text-slate-900'
+          }`}
+          whileHover={{ y: -2 }}
+          whileTap={{ y: 0 }}
+        >
+          <BookOpen size={24} />
+          Italiano & Storia
+        </motion.button>
+        
+        <motion.button
+          onClick={() => setActiveTab('inglese')}
+          className={`flex items-center gap-2 px-6 py-4 font-bold text-lg transition-all ${
+            activeTab === 'inglese'
+              ? 'text-blue-600 border-b-4 border-blue-600'
+              : 'text-slate-600 hover:text-slate-900'
+          }`}
+          whileHover={{ y: -2 }}
+          whileTap={{ y: 0 }}
+        >
+          <Globe size={24} />
+          English
+        </motion.button>
+      </section>
+
       {/* Griglia Progetti */}
       <section className="space-y-10">
         <h3 className="text-3xl font-bold text-slate-800 flex items-center gap-4">
-          <Bookmark className="text-rose-500" size={32} /> 
-          Approfondimenti e Documenti
+          <Bookmark className={activeTab === 'italiano-storia' ? 'text-rose-500' : 'text-blue-500'} size={32} /> 
+          {activeTab === 'italiano-storia' ? 'Approfondimenti e Documenti' : 'Progetti e Documenti in Inglese'}
         </h3>
         
-        <div className="space-y-16">
-          {docs.map((doc, index) => (
-            <motion.article 
-              key={doc.id}
-              whileHover={{ y: -5 }}
-              className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-10 bg-white rounded-[3rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 group p-6 md:p-10`}
+        <AnimatePresence mode="wait">
+          {docs.length > 0 ? (
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="space-y-16"
             >
-              {/* Immagine Progetto */}
-              <div className="md:w-1/2 aspect-[16/10] overflow-hidden relative rounded-[2rem]">
-                <img 
-                  src={doc.image} 
-                  alt={`Copertina progetto ${doc.title}`}
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                />
-                <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-5 py-2 rounded-full text-xs font-bold text-rose-600 uppercase tracking-widest shadow-sm">
-                  {doc.tag}
-                </div>
-              </div>
-              
-              {/* Testo Progetto */}
-              <div className="md:w-1/2 flex flex-col justify-center space-y-6">
-                <h4 className="text-4xl font-bold text-slate-900">{doc.title}</h4>
-                <p className="text-slate-500 leading-relaxed text-xl font-light">{doc.description}</p>
-                
-                <div className="pt-6 flex items-center gap-6">
-                  {doc.id === 'escape-room' ? (
-                    <a 
-                      href="https://view.genially.com/664754a0fc6f5c00154dcad9/interactive-content-escape-room-umanesimo-e-rinascimento"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 bg-rose-600 text-white py-4 px-8 rounded-2xl font-bold hover:bg-rose-700 transition-all shadow-lg shadow-rose-200 flex items-center justify-center gap-3 text-lg"
-                    >
-                      Accedi all'Escape Room 
-                      <ChevronRight size={22} />
-                    </a>
-                  ) : (
-                    <button 
-                      onClick={() => setOpenPdf(doc)}
-                      className="flex-1 bg-rose-600 text-white py-4 px-8 rounded-2xl font-bold hover:bg-rose-700 transition-all shadow-lg shadow-rose-200 flex items-center justify-center gap-3 text-lg"
-                    >
-                      Visualizza Documento 
-                      <ChevronRight size={22} />
-                    </button>
-                  )}
-                  {doc.id !== 'escape-room' && (
-                    <button 
-                      onClick={() => setOpenPdf(doc)}
-                      aria-label="Scarica documento"
-                      className="p-4 bg-rose-50 text-rose-600 rounded-2xl hover:bg-rose-600 hover:text-white transition-all duration-300 border-2 border-rose-100"
-                    >
-                      <Download size={28} />
-                    </button>
-                  )}
-                </div>
-              </div>
-            </motion.article>
-          ))}
-        </div>
+              {docs.map((doc, index) => (
+                <motion.article 
+                  key={doc.id}
+                  whileHover={{ y: -5 }}
+                  className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-10 bg-white rounded-[3rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 group p-6 md:p-10`}
+                >
+                  {/* Immagine Progetto */}
+                  <div className="md:w-1/2 aspect-[16/10] overflow-hidden relative rounded-[2rem]">
+                    <img 
+                      src={doc.image} 
+                      alt={`Copertina progetto ${doc.title}`}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                    />
+                    <div className={`absolute top-6 left-6 bg-white/90 backdrop-blur-md px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm ${
+                      activeTab === 'italiano-storia' ? 'text-rose-600' : 'text-blue-600'
+                    }`}>
+                      {doc.tag}
+                    </div>
+                  </div>
+                  
+                  {/* Testo Progetto */}
+                  <div className="md:w-1/2 flex flex-col justify-center space-y-6">
+                    <h4 className="text-4xl font-bold text-slate-900">{doc.title}</h4>
+                    <p className="text-slate-500 leading-relaxed text-xl font-light">{doc.description}</p>
+                    
+                    <div className="pt-6 flex items-center gap-6">
+                      {doc.id === 'escape-room' ? (
+                        <a 
+                          href="https://view.genially.com/664754a0fc6f5c00154dcad9/interactive-content-escape-room-umanesimo-e-rinascimento"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 bg-rose-600 text-white py-4 px-8 rounded-2xl font-bold hover:bg-rose-700 transition-all shadow-lg shadow-rose-200 flex items-center justify-center gap-3 text-lg"
+                        >
+                          Accedi all'Escape Room 
+                          <ChevronRight size={22} />
+                        </a>
+                      ) : (
+                        <button 
+                          onClick={() => setOpenPdf(doc)}
+                          className="flex-1 bg-rose-600 text-white py-4 px-8 rounded-2xl font-bold hover:bg-rose-700 transition-all shadow-lg shadow-rose-200 flex items-center justify-center gap-3 text-lg"
+                        >
+                          Visualizza Documento 
+                          <ChevronRight size={22} />
+                        </button>
+                      )}
+                      {doc.id !== 'escape-room' && (
+                        <button 
+                          onClick={() => setOpenPdf(doc)}
+                          aria-label="Scarica documento"
+                          className="p-4 bg-rose-50 text-rose-600 rounded-2xl hover:bg-rose-600 hover:text-white transition-all duration-300 border-2 border-rose-100"
+                        >
+                          <Download size={28} />
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </motion.article>
+              ))}
+            </motion.div>
+          ) : (
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="flex flex-col items-center justify-center py-20 bg-gradient-to-br from-blue-50 to-blue-100 rounded-[3rem] border-2 border-dashed border-blue-300"
+            >
+              <Globe size={64} className="text-blue-400 mb-6" />
+              <h4 className="text-2xl font-bold text-slate-900 mb-3">Sezione in Costruzione</h4>
+              <p className="text-slate-600 text-lg text-center max-w-md">
+                Carica qui i tuoi progetti, i tuoi saggi e i tuoi lavori svolti in lingua inglese. Questa sezione è pronta ad accogliere i tuoi contenuti!
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
 
       {/* Modal PDF Viewer */}
