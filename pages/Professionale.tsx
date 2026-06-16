@@ -13,32 +13,28 @@ const Professionale: React.FC = () => {
     window.print();
   };
 
-  const scientificDocuments: Document[] = [
+  const scientificDocuments = [
     {
       id: 'informatica-helpdesk',
       title: 'Sistema Helpdesk',
       tag: 'Informatica',
       image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
       description: "Piattaforma di assistenza tecnica realizzata in 5° superiore. Include gestione ticket, chat in tempo reale e integrazione con Google Workspace.",
-      pdfUrl: 'https://helpdesk.sviluppo.host/login.php',
+      links: [
+        { label: 'Apri Progetto', url: 'https://helpdesk.sviluppo.host/login.php', type: 'external' }
+      ],
       pages: []
     },
     {
-      id: 'sistemi-nat-pat',
-      title: 'Configurazione NAT e PAT',
+      id: 'sistemi-laboratorio',
+      title: 'Laboratorio Sistemi e Reti',
       tag: 'Sistemi e Reti',
-      image: '/foto-progetti/sistemi/packet-tracer.jpg',
-      description: "Esercitazione pratica su Cisco Packet Tracer riguardante la configurazione di Network Address Translation e Port Address Translation.",
-      pdfUrl: '/documents/esercitazionenatpat.giuliani.pkt',
-      pages: []
-    },
-    {
-      id: 'sistemi-bikesharing',
-      title: 'Progetto Bike Sharing',
-      tag: 'Sistemi e Reti',
-      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop',
-      description: "Svolgimento di una prova d'esame incentrata sulla progettazione di un sistema di Bike Sharing, con analisi dei requisiti e infrastruttura di rete.",
-      pdfUrl: '/documents/Relazione_BikeSharing_Giuliani_5BM.pdf',
+      image: '/foto-progetti/sistemi/bike-sharing.jpg',
+      description: "Raccolta di progetti tecnici: configurazione NAT/PAT su Cisco Packet Tracer e progettazione di un sistema di Bike Sharing per la prova d'esame.",
+      links: [
+        { label: 'Scarica NAT/PAT (PKT)', url: '/documents/esercitazionenatpat.giuliani.pkt', type: 'download' },
+        { label: 'Relazione Bike Sharing', url: '/documents/Relazione_BikeSharing_Giuliani_5BM.pdf', type: 'pdf' }
+      ],
       pages: []
     },
     {
@@ -47,7 +43,9 @@ const Professionale: React.FC = () => {
       tag: 'Matematica',
       image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop',
       description: "Studio approfondito delle sezioni coniche: parabola, ellisse e iperbole. Analisi delle proprietà geometriche e applicazioni algebriche.",
-      pdfUrl: '/documents/GeometriaAnalitica_Coniche.pdf',
+      links: [
+        { label: 'Esplora Documento', url: '/documents/GeometriaAnalitica_Coniche.pdf', type: 'pdf' }
+      ],
       pages: []
     }
   ];
@@ -231,23 +229,29 @@ const Professionale: React.FC = () => {
                 <p className="text-slate-500 text-lg leading-relaxed line-clamp-3 font-light">
                   {doc.description}
                 </p>
-                {doc.pdfUrl?.startsWith('http') || doc.pdfUrl?.endsWith('.pkt') ? (
-                  <a
-                    href={doc.pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-indigo-600 font-bold text-lg hover:gap-5 transition-all"
-                  >
-                    {doc.pdfUrl?.endsWith('.pkt') ? 'Scarica File PKT' : 'Apri Progetto'} <ChevronRight size={24} />
-                  </a>
-                ) : (
-                  <button
-                    onClick={() => setOpenPdf(doc)}
-                    className="flex items-center gap-3 text-indigo-600 font-bold text-lg hover:gap-5 transition-all"
-                  >
-                    Esplora Documento <ChevronRight size={24} />
-                  </button>
-                )}
+                <div className="flex flex-col gap-3">
+                  {doc.links.map((link, lIdx) => (
+                    link.type === 'pdf' ? (
+                      <button
+                        key={lIdx}
+                        onClick={() => setOpenPdf({ ...doc, pdfUrl: link.url } as Document)}
+                        className="flex items-center gap-3 text-indigo-600 font-bold text-lg hover:gap-5 transition-all w-fit"
+                      >
+                        {link.label} <ChevronRight size={24} />
+                      </button>
+                    ) : (
+                      <a
+                        key={lIdx}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 text-indigo-600 font-bold text-lg hover:gap-5 transition-all w-fit"
+                      >
+                        {link.label} <ChevronRight size={24} />
+                      </a>
+                    )
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
