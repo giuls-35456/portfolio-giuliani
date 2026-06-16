@@ -15,6 +15,15 @@ const Professionale: React.FC = () => {
 
   const scientificDocuments: Document[] = [
     {
+      id: 'informatica-helpdesk',
+      title: 'Sistema Helpdesk',
+      tag: 'Informatica',
+      image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
+      description: "Piattaforma di assistenza tecnica realizzata in 5° superiore. Include gestione ticket, chat in tempo reale e integrazione con Google Workspace.",
+      pdfUrl: 'https://helpdesk.sviluppo.host/login.php',
+      pages: []
+    },
+    {
       id: 'matematica-coniche',
       title: 'Geometria Analitica: Le Coniche',
       tag: 'Matematica',
@@ -204,12 +213,23 @@ const Professionale: React.FC = () => {
                 <p className="text-slate-500 text-lg leading-relaxed line-clamp-3 font-light">
                   {doc.description}
                 </p>
-                <button
-                  onClick={() => setOpenPdf(doc)}
-                  className="flex items-center gap-3 text-indigo-600 font-bold text-lg hover:gap-5 transition-all"
-                >
-                  Esplora Documento <ChevronRight size={24} />
-                </button>
+                {doc.pdfUrl?.startsWith('http') ? (
+                  <a
+                    href={doc.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-indigo-600 font-bold text-lg hover:gap-5 transition-all"
+                  >
+                    Apri Progetto <ChevronRight size={24} />
+                  </a>
+                ) : (
+                  <button
+                    onClick={() => setOpenPdf(doc)}
+                    className="flex items-center gap-3 text-indigo-600 font-bold text-lg hover:gap-5 transition-all"
+                  >
+                    Esplora Documento <ChevronRight size={24} />
+                  </button>
+                )}
               </div>
             </motion.div>
           ))}
