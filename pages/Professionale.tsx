@@ -24,6 +24,24 @@ const Professionale: React.FC = () => {
       pages: []
     },
     {
+      id: 'sistemi-nat-pat',
+      title: 'Configurazione NAT e PAT',
+      tag: 'Sistemi e Reti',
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=2070&auto=format&fit=crop',
+      description: "Esercitazione pratica su Cisco Packet Tracer riguardante la configurazione di Network Address Translation e Port Address Translation.",
+      pdfUrl: '/documents/esercitazionenatpat.giuliani.pkt',
+      pages: []
+    },
+    {
+      id: 'sistemi-bikesharing',
+      title: 'Progetto Bike Sharing',
+      tag: 'Sistemi e Reti',
+      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop',
+      description: "Svolgimento di una prova d'esame incentrata sulla progettazione di un sistema di Bike Sharing, con analisi dei requisiti e infrastruttura di rete.",
+      pdfUrl: '/documents/Relazione_BikeSharing_Giuliani_5BM.pdf',
+      pages: []
+    },
+    {
       id: 'matematica-coniche',
       title: 'Geometria Analitica: Le Coniche',
       tag: 'Matematica',
@@ -213,14 +231,14 @@ const Professionale: React.FC = () => {
                 <p className="text-slate-500 text-lg leading-relaxed line-clamp-3 font-light">
                   {doc.description}
                 </p>
-                {doc.pdfUrl?.startsWith('http') ? (
+                {doc.pdfUrl?.startsWith('http') || doc.pdfUrl?.endsWith('.pkt') ? (
                   <a
                     href={doc.pdfUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 text-indigo-600 font-bold text-lg hover:gap-5 transition-all"
                   >
-                    Apri Progetto <ChevronRight size={24} />
+                    {doc.pdfUrl?.endsWith('.pkt') ? 'Scarica File PKT' : 'Apri Progetto'} <ChevronRight size={24} />
                   </a>
                 ) : (
                   <button
