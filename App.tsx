@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
-import Sfondo from './components/Sfondo';
+import AnimatedBackground from './components/AnimatedBackground';
 
 // Caricamento dinamico delle pagine per ottimizzare il bundle size iniziale
 const Home = lazy(() => import('./pages/Home'));
@@ -52,7 +52,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="min-h-screen bg-white text-slate-800 selection:bg-teal-200 antialiased">
-        <Sfondo />
+        <AnimatedBackground />
         <Navbar />
         
         <main id="main-content" className="container mx-auto px-6 pt-32 pb-20 max-w-6xl relative z-10">

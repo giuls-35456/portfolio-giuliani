@@ -210,34 +210,40 @@ const Professionale: React.FC = () => {
           {scientificDocuments.map((doc) => (
             <motion.div
               key={doc.id}
-              whileHover={{ y: -8 }}
-              className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500"
+              whileHover={{ y: -12, scale: 1.02 }}
+              className="group bg-white/70 backdrop-blur-md rounded-[3rem] overflow-hidden border border-white/80 shadow-xl hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-500"
             >
-              <div className="relative h-56 overflow-hidden">
-                <img src={doc.image} alt={doc.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent"></div>
+              <div className="relative h-64 overflow-hidden">
+                <img src={doc.image} alt={doc.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+                <div className="absolute top-6 right-6">
+                   <div className="bg-white/90 backdrop-blur-md p-3 rounded-2xl shadow-lg">
+                      <FileText className="text-indigo-600" size={24} />
+                   </div>
+                </div>
                 <div className="absolute bottom-6 left-8">
-                  <span className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
+                  <span className="bg-indigo-600 text-white px-5 py-1.5 rounded-xl text-xs font-black uppercase tracking-widest shadow-lg">
                     {doc.tag}
                   </span>
                 </div>
               </div>
-              <div className="p-10 space-y-6">
-                <h3 className="text-3xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+              <div className="p-8 md:p-10 space-y-6">
+                <h3 className="text-3xl font-black text-slate-900 leading-tight">
                   {doc.title}
                 </h3>
-                <p className="text-slate-500 text-lg leading-relaxed line-clamp-3 font-light">
+                <p className="text-slate-600 text-lg leading-relaxed font-medium opacity-80">
                   {doc.description}
                 </p>
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-wrap gap-4 pt-4">
                   {doc.links.map((link, lIdx) => (
                     link.type === 'pdf' ? (
                       <button
                         key={lIdx}
                         onClick={() => setOpenPdf({ ...doc, pdfUrl: link.url } as Document)}
-                        className="flex items-center gap-3 text-indigo-600 font-bold text-lg hover:gap-5 transition-all w-fit"
+                        className="flex-1 bg-slate-900 text-white py-4 px-6 rounded-2xl font-bold hover:bg-indigo-600 transition-all shadow-lg flex items-center justify-center gap-2 group/btn"
                       >
-                        {link.label} <ChevronRight size={24} />
+                        {link.label}
+                        <ChevronRight size={20} className="group-hover/btn:translate-x-1 transition-transform" />
                       </button>
                     ) : (
                       <a
@@ -245,9 +251,10 @@ const Professionale: React.FC = () => {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-indigo-600 font-bold text-lg hover:gap-5 transition-all w-fit"
+                        className="flex-1 bg-indigo-600 text-white py-4 px-6 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg flex items-center justify-center gap-2 group/btn"
                       >
-                        {link.label} <ChevronRight size={24} />
+                        {link.label}
+                        <ChevronRight size={20} className="group-hover/btn:translate-x-1 transition-transform" />
                       </a>
                     )
                   ))}
