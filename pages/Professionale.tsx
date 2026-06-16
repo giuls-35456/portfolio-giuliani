@@ -27,10 +27,10 @@ const Professionale: React.FC = () => {
     },
     {
       id: 'sistemi-laboratorio',
-      title: 'Infrastrutture e Sistemi Complessi',
+      title: 'Networking Avanzato e Smart Mobility',
       tag: 'Sistemi e Reti',
       image: '/foto-progetti/sistemi/split-sistemi.jpg',
-      description: "Analisi e implementazione di architetture di rete avanzate. Dalla configurazione pratica di protocolli NAT/PAT su apparati Cisco, alla progettazione sistemistica di un ecosistema di Bike Sharing. Un approccio che coniuga rigore tecnico e visione strategica nella gestione delle risorse digitali.",
+      description: "Progetto integrato che comprende l'analisi tecnica e la progettazione di sistemi moderni. Include un'esercitazione pratica su configurazione NAT/PAT (Cisco Packet Tracer) e una relazione dettagliata sulla progettazione di un'infrastruttura di Bike Sharing per la prova d'esame.",
       links: [
         { label: 'Analisi NAT/PAT (Cisco PKT)', url: '/documents/esercitazionenatpat.giuliani.pkt', type: 'download' },
         { label: 'Progetto Bike Sharing (PDF)', url: '/documents/Relazione_BikeSharing_Giuliani_5BM.pdf', type: 'pdf' }

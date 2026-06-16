@@ -20,10 +20,10 @@ const Inglese: React.FC = () => {
   const docs: Document[] = [
     {
       id: 'english-pcto',
-      title: 'School-Work Experience Report',
-      tag: 'PCTO',
+      title: 'Professional Work Experience Report',
+      tag: 'English & PCTO',
       image: 'https://images.unsplash.com/photo-1454165833767-027ffea9e77b?q=80&w=2070&auto=format&fit=crop',
-      description: 'A comprehensive report detailing my work experience internship. This document outlines the skills acquired, the tasks performed, and the professional growth achieved during the PCTO program.',
+      description: 'An in-depth analysis and reflection on my professional internship conducted in English. This report covers the technical skills developed, the professional environment experienced, and the final outcomes of my PCTO journey.',
       pdfUrl: '/documents/School-workexperience-GIULIANI.pdf',
       pages: []
     }
