@@ -27,13 +27,13 @@ const Professionale: React.FC = () => {
     },
     {
       id: 'sistemi-laboratorio',
-      title: 'Laboratorio Sistemi e Reti',
+      title: 'Infrastrutture e Sistemi Complessi',
       tag: 'Sistemi e Reti',
-      image: '/foto-progetti/sistemi/bike-sharing.jpg',
-      description: "Raccolta di progetti tecnici: configurazione NAT/PAT su Cisco Packet Tracer e progettazione di un sistema di Bike Sharing per la prova d'esame.",
+      image: '/foto-progetti/sistemi/split-sistemi.jpg',
+      description: "Analisi e implementazione di architetture di rete avanzate. Dalla configurazione pratica di protocolli NAT/PAT su apparati Cisco, alla progettazione sistemistica di un ecosistema di Bike Sharing. Un approccio che coniuga rigore tecnico e visione strategica nella gestione delle risorse digitali.",
       links: [
-        { label: 'Scarica NAT/PAT (PKT)', url: '/documents/esercitazionenatpat.giuliani.pkt', type: 'download' },
-        { label: 'Relazione Bike Sharing', url: '/documents/Relazione_BikeSharing_Giuliani_5BM.pdf', type: 'pdf' }
+        { label: 'Analisi NAT/PAT (Cisco PKT)', url: '/documents/esercitazionenatpat.giuliani.pkt', type: 'download' },
+        { label: 'Progetto Bike Sharing (PDF)', url: '/documents/Relazione_BikeSharing_Giuliani_5BM.pdf', type: 'pdf' }
       ],
       pages: []
     },
