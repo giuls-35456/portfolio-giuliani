@@ -27,7 +27,7 @@ const Professionale: React.FC = () => {
       id: 'sistemi-nat-pat',
       title: 'Configurazione NAT e PAT',
       tag: 'Sistemi e Reti',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=2070&auto=format&fit=crop',
+      image: '/foto-progetti/sistemi/packet-tracer.jpg',
       description: "Esercitazione pratica su Cisco Packet Tracer riguardante la configurazione di Network Address Translation e Port Address Translation.",
       pdfUrl: '/documents/esercitazionenatpat.giuliani.pkt',
       pages: []
