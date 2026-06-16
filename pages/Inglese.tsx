@@ -18,7 +18,15 @@ const Inglese: React.FC = () => {
 
   // Dati dei documenti per la sezione inglese
   const docs: Document[] = [
-    // Placeholder per i futuri contenuti dell'utente
+    {
+      id: 'english-pcto',
+      title: 'School-Work Experience Report',
+      tag: 'PCTO',
+      image: 'https://images.unsplash.com/photo-1454165833767-027ffea9e77b?q=80&w=2070&auto=format&fit=crop',
+      description: 'A comprehensive report detailing my work experience internship. This document outlines the skills acquired, the tasks performed, and the professional growth achieved during the PCTO program.',
+      pdfUrl: '/documents/School-workexperience-GIULIANI.pdf',
+      pages: []
+    }
   ];
 
   return (
