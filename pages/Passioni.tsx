@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Zap, Gamepad2, Music, Code, Lightbulb } from 'lucide-react';
+import { Heart, Zap, Gamepad2, Music, Code, Lightbulb, Trophy } from 'lucide-react';
 
 /**
  * Sezione Passioni.
@@ -26,11 +26,19 @@ const Passioni: React.FC = () => {
     },
     {
       id: 'music',
-      title: 'Musica e Produzione Audio',
-      description: 'Amante della musica in tutte le sue forme. Interessato alla produzione audio, alla sound design e all\'ascolto consapevole di generi musicali diversi.',
+      title: 'Musica',
+      description: 'Amo ascoltare la musica in ogni momento della giornata. È la mia colonna sonora mentre studio, lavoro o mi rilasso, aiutandomi a mantenere la concentrazione e la creatività.',
       icon: Music,
       color: 'from-cyan-500 to-blue-600',
       lightColor: 'bg-cyan-50'
+    },
+    {
+      id: 'sport',
+      title: 'Sport',
+      description: 'Appassionato del mondo dello sport. Credo fermamente nei valori della disciplina, del lavoro di squadra e del superamento dei propri limiti, sia in campo che nella vita.',
+      icon: Trophy,
+      color: 'from-orange-500 to-red-600',
+      lightColor: 'bg-orange-50'
     },
     {
       id: 'problem-solving',
