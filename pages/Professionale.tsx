@@ -27,7 +27,7 @@ const Professionale: React.FC = () => {
     },
     {
       id: 'sistemi-laboratorio',
-      title: 'Networking Avanzato e Smart Mobility',
+      title: 'Progetti di Sistemi e Reti',
       tag: 'Sistemi e Reti',
       image: '/foto-progetti/sistemi/split-sistemi.jpg',
       description: "Progetto integrato che comprende l'analisi tecnica e la progettazione di sistemi moderni. Include un'esercitazione pratica su configurazione NAT/PAT (Cisco Packet Tracer) e una relazione dettagliata sulla progettazione di un'infrastruttura di Bike Sharing per la prova d'esame.",

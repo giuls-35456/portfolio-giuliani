@@ -48,8 +48,18 @@ const Umanistica: React.FC = () => {
     }
   ];
 
-  // Dati dei documenti per Inglese (vuoti per ora)
-  const docsInglese: Document[] = [];
+  // Dati dei documenti per Inglese
+  const docsInglese: Document[] = [
+    {
+      id: 'english-pcto',
+      title: 'Professional Work Experience Report',
+      tag: 'English & PCTO',
+      image: 'https://images.unsplash.com/photo-1454165833767-027ffea9e77b?q=80&w=2070&auto=format&fit=crop',
+      description: 'An in-depth analysis and reflection on my professional internship conducted in English. This report covers the technical skills developed, the professional environment experienced, and the final outcomes of my PCTO journey.',
+      pdfUrl: '/documents/School-workexperience-GIULIANI.pdf',
+      pages: []
+    }
+  ];
 
   const docs = activeTab === 'italiano-storia' ? docsItalianoStoria : docsInglese;
 
