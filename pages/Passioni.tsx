@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Zap, Gamepad2, Music, Code, Lightbulb, Trophy, Soccer } from 'lucide-react';
+import { Heart, Zap, Gamepad2, Music, Code, Lightbulb, Trophy, Soccer, Hammer } from 'lucide-react';
 
 /**
  * Sezione Passioni.
@@ -10,16 +10,40 @@ const Passioni: React.FC = () => {
   const passioni = [
     {
       id: 'calcio',
-      title: 'Calcio - La Mia Passione Principale',
-      description: 'Il calcio è la mia più grande passione! Amo questo sport per i valori che rappresenta: spirito di squadra, dedizione, tattica e il brivido della competizione. Seguo le partite con entusiasmo e apprezzo sia il gioco che l\'analisi tattica dietro ogni movimento.',
+      title: 'Calcio - Una Passione di Famiglia',
+      description: 'Il calcio è la mia più grande passione, un amore trasmesso da mio nonno e mio padre. Amo questo sport per i valori che rappresenta: spirito di squadra, dedizione e il brivido della competizione. Seguo le partite con entusiasmo e apprezzo sia il gioco che l\'analisi tattica.',
       icon: Soccer,
       color: 'from-green-500 to-emerald-600',
       lightColor: 'bg-green-50'
     },
     {
+      id: 'sport',
+      title: 'Lo Sport a 360°',
+      description: 'Amo molto lo sport in tutte le sue facce. Credo fermamente nei valori della disciplina, del lavoro di squadra e del superamento dei propri limiti. Ogni disciplina sportiva ha qualcosa di unico da insegnare, sia in campo che nella vita quotidiana.',
+      icon: Trophy,
+      color: 'from-orange-500 to-red-600',
+      lightColor: 'bg-orange-50'
+    },
+    {
+      id: 'music',
+      title: 'Musica',
+      description: 'Ascoltare la musica è una delle mie passioni fondamentali. Mi accompagna in ogni momento della giornata, aiutandomi a mantenere la concentrazione durante lo studio o offrendomi il giusto relax nei momenti di pausa.',
+      icon: Music,
+      color: 'from-cyan-500 to-blue-600',
+      lightColor: 'bg-cyan-50'
+    },
+    {
+      id: 'fai-da-te',
+      title: 'Fai da te e Lavoretti',
+      description: 'Mi piace molto dedicarmi a piccoli lavori manuali e lavoretti in casa. È un modo per mettere alla prova la mia manualità, risolvere problemi pratici e prendermi cura del mio ambiente in modo creativo e costruttivo.',
+      icon: Hammer,
+      color: 'from-amber-500 to-orange-600',
+      lightColor: 'bg-amber-50'
+    },
+    {
       id: 'tech',
       title: 'Tecnologia e Innovazione',
-      description: 'Appassionato di nuove tecnologie, programmazione e innovazione digitale. Amo esplorare framework moderni e sviluppare soluzioni creative.',
+      description: 'Appassionato di nuove tecnologie, programmazione e innovazione digitale. Amo esplorare framework moderni e sviluppare soluzioni creative per problemi complessi.',
       icon: Code,
       color: 'from-indigo-500 to-purple-600',
       lightColor: 'bg-indigo-50'
@@ -27,47 +51,23 @@ const Passioni: React.FC = () => {
     {
       id: 'gaming',
       title: 'Gaming e Esports',
-      description: 'Gamer appassionato con interesse per gli esports e il game design. Mi piace sia giocare che analizzare la strategia dietro i videogiochi.',
+      description: 'Gamer appassionato con interesse per gli esports e il game design. Mi piace sia giocare che analizzare la strategia e le dinamiche dietro i videogiochi moderni.',
       icon: Gamepad2,
       color: 'from-pink-500 to-rose-600',
       lightColor: 'bg-pink-50'
     },
     {
-      id: 'music',
-      title: 'Musica',
-      description: 'Amo ascoltare la musica in ogni momento della giornata. È la mia colonna sonora mentre studio, lavoro o mi rilasso, aiutandomi a mantenere la concentrazione e la creatività.',
-      icon: Music,
-      color: 'from-cyan-500 to-blue-600',
-      lightColor: 'bg-cyan-50'
-    },
-    {
-      id: 'sport',
-      title: 'Tutti gli Sport',
-      description: 'Oltre al calcio, sono appassionato di tutti gli sport. Credo fermamente nei valori della disciplina, del lavoro di squadra e del superamento dei propri limiti. Ogni sport ha qualcosa di unico da insegnare, sia in campo che nella vita.',
-      icon: Trophy,
-      color: 'from-orange-500 to-red-600',
-      lightColor: 'bg-orange-50'
-    },
-    {
       id: 'problem-solving',
       title: 'Problem Solving',
-      description: 'Mi piace affrontare sfide complesse e trovare soluzioni innovative. Amo i puzzle, gli enigmi e le competizioni di programmazione.',
+      description: 'Mi piace affrontare sfide complesse e trovare soluzioni innovative. Amo i puzzle, gli enigmi e le competizioni di programmazione che stimolano il pensiero critico.',
       icon: Lightbulb,
       color: 'from-yellow-500 to-orange-600',
       lightColor: 'bg-yellow-50'
     },
     {
-      id: 'networking',
-      title: 'Networking e Comunità',
-      description: 'Appassionato di conoscere persone, condividere idee e collaborare su progetti interessanti. Credo nel potere della comunità tech.',
-      icon: Zap,
-      color: 'from-green-500 to-emerald-600',
-      lightColor: 'bg-green-50'
-    },
-    {
       id: 'learning',
       title: 'Apprendimento Continuo',
-      description: 'Sempre alla ricerca di nuove conoscenze e competenze. Seguo corsi online, leggo articoli tecnici e partecipo a workshop e seminari.',
+      description: 'Sempre alla ricerca di nuove conoscenze e competenze. Seguo corsi online, leggo articoli tecnici e partecipo a workshop per restare sempre aggiornato.',
       icon: Heart,
       color: 'from-red-500 to-pink-600',
       lightColor: 'bg-red-50'
