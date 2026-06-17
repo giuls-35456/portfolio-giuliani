@@ -28,7 +28,7 @@ const Home: React.FC = () => {
             className="text-6xl md:text-8xl font-bold text-slate-900 leading-[1.1] tracking-tight"
           >
             {INFO.nome} <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-pulse">
               {INFO.cognome}
             </span>
           </motion.h1>
@@ -37,7 +37,7 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-xl md:text-2xl text-slate-600 max-w-xl leading-relaxed mx-auto lg:mx-0 font-light"
+            className="text-lg md:text-2xl text-slate-600 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-light"
           >
             {INFO.descrizione}
           </motion.p>
@@ -52,14 +52,14 @@ const Home: React.FC = () => {
         >
           <Link 
             to="/pcto" 
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-blue-600 text-white px-10 py-5 rounded-2xl hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 font-medium"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl hover:shadow-2xl transition-all duration-300 shadow-lg active:scale-95 font-bold"
           >
             Esplora il mio PCTO
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </Link>
           <Link 
             to="/contatti" 
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white border-2 border-blue-200 text-blue-600 px-10 py-5 rounded-2xl hover:border-blue-400 hover:bg-blue-50 transition-all duration-300 active:scale-95 font-medium"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white border-2 border-purple-300 text-purple-600 px-10 py-5 rounded-2xl hover:border-purple-500 hover:bg-purple-50 transition-all duration-300 active:scale-95 font-bold"
           >
             Contattami
             <ChevronRight size={20} />
@@ -75,10 +75,10 @@ const Home: React.FC = () => {
         className="relative group order-1 lg:order-2"
       >
         {/* Sfondo Decorativo Dinamico */}
-        <div className="absolute -inset-6 bg-gradient-to-br from-blue-200/30 to-cyan-200/20 rounded-[3.5rem] blur-3xl group-hover:opacity-40 transition-opacity duration-700"></div>
+        <div className="absolute -inset-6 bg-gradient-to-br from-blue-300/40 via-purple-300/30 to-pink-300/20 rounded-[3.5rem] blur-3xl group-hover:opacity-60 transition-opacity duration-700"></div>
         
         {/* Contenitore Foto con Bordo Moderno */}
-        <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[480px] lg:h-[480px] rounded-[3.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)] border-[12px] border-white bg-slate-100">
+        <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[480px] lg:h-[480px] rounded-[3.5rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.15)] border-[12px] border-white bg-slate-100 ring-2 ring-purple-200/50">
           <img 
             src="/foto-progetti/home/profilo-home.webp" 
             alt={`Ritratto professionale di ${INFO.nome} ${INFO.cognome}`} 

@@ -12,7 +12,7 @@ const Contatti: React.FC = () => {
       className="space-y-20 py-10"
     >
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-[3.5rem] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-12 md:p-24 text-white shadow-2xl">
+      <section className="relative overflow-hidden rounded-[3.5rem] bg-gradient-to-br from-blue-900 via-purple-900 to-slate-900 p-12 md:p-24 text-white shadow-2xl">
         <div className="relative z-10 max-w-3xl mx-auto text-center space-y-8">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -29,7 +29,7 @@ const Contatti: React.FC = () => {
             className="text-5xl md:text-7xl font-black leading-tight tracking-tighter"
           >
             Resto in <br />
-            <span className="text-slate-300">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-pink-300">
               Contatto
             </span>
           </motion.h1>
@@ -45,8 +45,8 @@ const Contatti: React.FC = () => {
         </div>
 
         {/* Decorative background */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-slate-700/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-700/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl -mr-48 -mt-48"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl -ml-48 -mb-48"></div>
       </section>
 
       {/* Contact Cards Grid */}

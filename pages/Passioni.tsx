@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Zap, Gamepad2, Music, Code, Lightbulb, Trophy } from 'lucide-react';
+import { Heart, Zap, Gamepad2, Music, Code, Lightbulb, Trophy, Soccer } from 'lucide-react';
 
 /**
  * Sezione Passioni.
@@ -8,6 +8,14 @@ import { Heart, Zap, Gamepad2, Music, Code, Lightbulb, Trophy } from 'lucide-rea
  */
 const Passioni: React.FC = () => {
   const passioni = [
+    {
+      id: 'calcio',
+      title: 'Calcio - La Mia Passione Principale',
+      description: 'Il calcio è la mia più grande passione! Amo questo sport per i valori che rappresenta: spirito di squadra, dedizione, tattica e il brivido della competizione. Seguo le partite con entusiasmo e apprezzo sia il gioco che l\'analisi tattica dietro ogni movimento.',
+      icon: Soccer,
+      color: 'from-green-500 to-emerald-600',
+      lightColor: 'bg-green-50'
+    },
     {
       id: 'tech',
       title: 'Tecnologia e Innovazione',
@@ -34,8 +42,8 @@ const Passioni: React.FC = () => {
     },
     {
       id: 'sport',
-      title: 'Sport',
-      description: 'Appassionato del mondo dello sport. Credo fermamente nei valori della disciplina, del lavoro di squadra e del superamento dei propri limiti, sia in campo che nella vita.',
+      title: 'Tutti gli Sport',
+      description: 'Oltre al calcio, sono appassionato di tutti gli sport. Credo fermamente nei valori della disciplina, del lavoro di squadra e del superamento dei propri limiti. Ogni sport ha qualcosa di unico da insegnare, sia in campo che nella vita.',
       icon: Trophy,
       color: 'from-orange-500 to-red-600',
       lightColor: 'bg-orange-50'

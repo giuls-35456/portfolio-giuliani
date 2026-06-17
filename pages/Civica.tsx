@@ -45,7 +45,7 @@ const Civica: React.FC = () => {
       `}</style>
 
       {/* Hero Section Moderna con Focus Digitale */}
-      <section className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-12 md:p-20 text-white shadow-2xl">
+      <section className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-emerald-900 via-teal-800 to-slate-900 p-12 md:p-20 text-white shadow-2xl">
         <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <motion.div
@@ -64,7 +64,7 @@ const Civica: React.FC = () => {
               className="text-5xl md:text-7xl font-black leading-tight tracking-tighter"
             >
               Diritti & <br />
-              <span className="text-slate-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-emerald-300">
                 Tecnologia
               </span>
             </motion.h1>

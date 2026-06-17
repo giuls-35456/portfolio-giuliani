@@ -54,7 +54,7 @@ const Professionale: React.FC = () => {
     { 
       icon: Code2, 
       title: "Informatica", 
-      color: "from-blue-500 to-cyan-500",
+      color: "from-blue-600 to-cyan-600",
       details: [
         "• PHP: Sviluppo backend e framework MVC",
         "• C#: Applicazioni .NET desktop e web",
@@ -67,7 +67,7 @@ const Professionale: React.FC = () => {
     { 
       icon: Network, 
       title: "Sistemi e Reti", 
-      color: "from-emerald-500 to-teal-500",
+      color: "from-emerald-600 to-teal-600",
       details: [
         "• Cisco Packet Tracer: Simulazioni di rete",
         "• Protocolli TCP/IP: Configurazione",
@@ -80,7 +80,7 @@ const Professionale: React.FC = () => {
     { 
       icon: BarChart3, 
       title: "TPSIT", 
-      color: "from-purple-500 to-pink-500",
+      color: "from-purple-600 to-pink-600",
       details: [
         "• Analisi della concorrenza: Mercato IT",
         "• Macchine virtuali: Virtualizzazione",
@@ -92,7 +92,7 @@ const Professionale: React.FC = () => {
     { 
       icon: Calculator, 
       title: "Matematica", 
-      color: "from-orange-500 to-red-500",
+      color: "from-orange-600 to-red-600",
       details: [
         "• Derivate: Regole e applicazioni",
         "• Integrali: Definiti, indefiniti, per parti",

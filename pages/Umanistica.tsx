@@ -93,9 +93,9 @@ const Umanistica: React.FC = () => {
       <header className="flex flex-col lg:flex-row-reverse gap-12 items-center">
         {/* Testo a Destra (grazie a row-reverse) */}
         <div className="lg:w-1/2 space-y-6 border-r-4 border-rose-500 pr-8 text-right order-1">
-          <span className="text-rose-500 font-bold uppercase tracking-widest text-sm">Visione Critica</span>
+          <span className="text-rose-600 font-bold uppercase tracking-widest text-sm">Visione Critica</span>
           <h2 className="text-5xl font-bold text-slate-900 leading-tight">
-            Le radici del <br/><span className="text-rose-600">Pensiero Moderno</span>
+            Le radici del <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600">Pensiero Moderno</span>
           </h2>
           <p className="text-slate-500 italic font-serif text-xl">"La storia è testimone dei tempi, luce della verità, vita della memoria."</p>
           <p className="text-lg text-slate-600 leading-relaxed font-light">
@@ -107,7 +107,7 @@ const Umanistica: React.FC = () => {
         {/* Immagine a Sinistra (grazie a row-reverse) */}
         <div className="lg:w-1/2 order-2">
           <div className="relative">
-            <div className="absolute -inset-4 bg-rose-100 rounded-[3rem] rotate-3 opacity-50"></div>
+            <div className="absolute -inset-4 bg-gradient-to-br from-rose-200 to-pink-200 rounded-[3rem] rotate-3 opacity-60"></div>
             <img 
               src="/foto-progetti/area-umanistica/umanistica-main.webp" 
               alt="Area Umanistica" 
