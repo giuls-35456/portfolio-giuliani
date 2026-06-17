@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Zap, Gamepad2, Music, Code, Lightbulb, Trophy, Soccer, Hammer } from 'lucide-react';
+import { Music, Soccer, Hammer, Trophy } from 'lucide-react';
 
 /**
  * Sezione Passioni.
@@ -11,66 +11,34 @@ const Passioni: React.FC = () => {
     {
       id: 'calcio',
       title: 'Calcio - Una Passione di Famiglia',
-      description: 'Il calcio è la mia più grande passione, un amore trasmesso da mio nonno e mio padre. Amo questo sport per i valori che rappresenta: spirito di squadra, dedizione e il brivido della competizione. Seguo le partite con entusiasmo e apprezzo sia il gioco che l\'analisi tattica.',
+      description: 'Il calcio non è solo uno sport per me, ma un legame profondo con le mie radici. È una passione che mi è stata trasmessa da mio nonno e mio padre, rendendo ogni partita un momento di condivisione familiare. Amo la tattica, l\'adrenalina della competizione e lo spirito di squadra che solo il rettangolo verde sa trasmettere.',
       icon: Soccer,
       color: 'from-green-500 to-emerald-600',
       lightColor: 'bg-green-50'
     },
     {
       id: 'sport',
-      title: 'Lo Sport a 360°',
-      description: 'Amo molto lo sport in tutte le sue facce. Credo fermamente nei valori della disciplina, del lavoro di squadra e del superamento dei propri limiti. Ogni disciplina sportiva ha qualcosa di unico da insegnare, sia in campo che nella vita quotidiana.',
+      title: 'Lo Sport in Tutte le Sue Facce',
+      description: 'Amo lo sport in ogni sua forma e sfaccettatura. Che si tratti di atletica, sport di squadra o discipline individuali, ne apprezzo la capacità di forgiare il carattere. Per me lo sport è sinonimo di disciplina, resilienza e costante ricerca del miglioramento personale, valori che cerco di applicare anche nello studio e nella vita.',
       icon: Trophy,
       color: 'from-orange-500 to-red-600',
       lightColor: 'bg-orange-50'
     },
     {
       id: 'music',
-      title: 'Musica',
-      description: 'Ascoltare la musica è una delle mie passioni fondamentali. Mi accompagna in ogni momento della giornata, aiutandomi a mantenere la concentrazione durante lo studio o offrendomi il giusto relax nei momenti di pausa.',
+      title: 'La Mia Colonna Sonora',
+      description: 'Ascoltare musica è una parte essenziale della mia giornata. Non è solo un passatempo, ma uno strumento che accompagna i miei stati d\'animo: mi aiuta a trovare la massima concentrazione durante le sessioni di studio più intense e mi regala momenti di puro relax e ispirazione quando ne ho più bisogno.',
       icon: Music,
       color: 'from-cyan-500 to-blue-600',
       lightColor: 'bg-cyan-50'
     },
     {
       id: 'fai-da-te',
-      title: 'Fai da te e Lavoretti',
-      description: 'Mi piace molto dedicarmi a piccoli lavori manuali e lavoretti in casa. È un modo per mettere alla prova la mia manualità, risolvere problemi pratici e prendermi cura del mio ambiente in modo creativo e costruttivo.',
+      title: 'Creatività e Fai da Te',
+      description: 'Una delle mie passioni più concrete è dedicarmi ai lavoretti in casa. Amo la sfida di riparare qualcosa o creare piccoli oggetti con le mie mani. Questa passione per il "fai da te" riflette il mio approccio pratico al problem solving: non mi fermo davanti a un guasto, ma cerco di capire come funziona per risolverlo.',
       icon: Hammer,
       color: 'from-amber-500 to-orange-600',
       lightColor: 'bg-amber-50'
-    },
-    {
-      id: 'tech',
-      title: 'Tecnologia e Innovazione',
-      description: 'Appassionato di nuove tecnologie, programmazione e innovazione digitale. Amo esplorare framework moderni e sviluppare soluzioni creative per problemi complessi.',
-      icon: Code,
-      color: 'from-indigo-500 to-purple-600',
-      lightColor: 'bg-indigo-50'
-    },
-    {
-      id: 'gaming',
-      title: 'Gaming e Esports',
-      description: 'Gamer appassionato con interesse per gli esports e il game design. Mi piace sia giocare che analizzare la strategia e le dinamiche dietro i videogiochi moderni.',
-      icon: Gamepad2,
-      color: 'from-pink-500 to-rose-600',
-      lightColor: 'bg-pink-50'
-    },
-    {
-      id: 'problem-solving',
-      title: 'Problem Solving',
-      description: 'Mi piace affrontare sfide complesse e trovare soluzioni innovative. Amo i puzzle, gli enigmi e le competizioni di programmazione che stimolano il pensiero critico.',
-      icon: Lightbulb,
-      color: 'from-yellow-500 to-orange-600',
-      lightColor: 'bg-yellow-50'
-    },
-    {
-      id: 'learning',
-      title: 'Apprendimento Continuo',
-      description: 'Sempre alla ricerca di nuove conoscenze e competenze. Seguo corsi online, leggo articoli tecnici e partecipo a workshop per restare sempre aggiornato.',
-      icon: Heart,
-      color: 'from-red-500 to-pink-600',
-      lightColor: 'bg-red-50'
     }
   ];
 
@@ -93,13 +61,13 @@ const Passioni: React.FC = () => {
             Quello che mi <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Appassiona</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-light">
-            Al di là dello studio, ci sono tante cose che mi appassionano e che guidano la mia crescita personale e professionale. Scopri i miei interessi e le mie passioni.
+            Al di là dello studio e della tecnologia, ci sono interessi che coltivo con dedizione e che definiscono chi sono. Ecco cosa mi appassiona veramente.
           </p>
         </motion.div>
       </header>
 
       {/* Griglia Passioni */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {passioni.map((passione, index) => {
           const Icon = passione.icon;
           return (
@@ -153,7 +121,7 @@ const Passioni: React.FC = () => {
         className="mt-20 gradient-primary rounded-[3rem] p-12 md:p-16 text-white text-center space-y-6 shadow-large"
       >
         <p className="text-2xl md:text-3xl font-light italic leading-relaxed">
-          "La passione è il carburante che alimenta l'innovazione. Quando ami quello che fai, il lavoro non è mai una fatica."
+          "La passione è ciò che rende straordinario l'ordinario. È il motore che mi spinge a imparare e a fare sempre meglio, ogni giorno."
         </p>
         <p className="text-indigo-100 font-semibold">— Riccardo Giuliani</p>
       </motion.section>
@@ -166,16 +134,16 @@ const Passioni: React.FC = () => {
         className="text-center space-y-6 py-10"
       >
         <h3 className="text-3xl font-bold text-slate-900">
-          Condividiamo le stesse passioni?
+          Ti interessano questi argomenti?
         </h3>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-          Se condividi alcuni dei miei interessi, mi piacerebbe conoscerti e collaborare su progetti interessanti.
+          Mi piace sempre confrontarmi con persone che condividono i miei interessi o che hanno passioni diverse da raccontare.
         </p>
         <a 
           href="/#/contatti"
           className="inline-flex items-center gap-3 gradient-primary text-white px-10 py-5 rounded-2xl font-bold hover:shadow-glow transition-all duration-300 active:scale-95"
         >
-          Contattami
+          Parliamone
           <span className="text-xl">→</span>
         </a>
       </motion.section>

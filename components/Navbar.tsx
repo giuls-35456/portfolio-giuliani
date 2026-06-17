@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
                       <School size={18} className="text-blue-600" />
                       <div>
                         <p className="text-[10px] text-slate-400 uppercase font-bold">Istituto</p>
-                        <p className="font-medium">IIS Marconi Pieralski</p>
+                        <p className="font-medium">IIS Marconi Pieralisi</p>
                       </div>
                     </div>
                   </div>
