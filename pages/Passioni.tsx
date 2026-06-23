@@ -42,7 +42,7 @@ const Passioni: React.FC = () => {
       icon: Hammer,
       color: 'from-amber-500 to-orange-600',
       lightColor: 'bg-amber-50',
-      image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?q=80&w=2070&auto=format&fit=crop'
+      image: null
     }
   ];
 
@@ -85,13 +85,19 @@ const Passioni: React.FC = () => {
             >
               {/* Immagine di Sfondo */}
               <div className="absolute inset-0 overflow-hidden">
-                <img 
-                  src={passione.image} 
-                  alt={passione.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  loading="lazy"
-                />
-                <div className={`absolute inset-0 bg-gradient-to-br ${passione.color} opacity-75 group-hover:opacity-60 transition-opacity duration-500`}></div>
+                {passione.image ? (
+                  <>
+                    <img 
+                      src={passione.image} 
+                      alt={passione.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${passione.color} opacity-75 group-hover:opacity-60 transition-opacity duration-500`}></div>
+                  </>
+                ) : (
+                  <div className={`w-full h-full bg-gradient-to-br ${passione.color} opacity-75 group-hover:opacity-60 transition-opacity duration-500`}></div>
+                )}
               </div>
 
               {/* Contenuto Sovrapposto */}
@@ -115,7 +121,9 @@ const Passioni: React.FC = () => {
                   </p>
 
                   {/* Indicatore Hover */}
+                {passione.image && (
                   <div className={`h-1 w-12 bg-white rounded-full group-hover:w-full transition-all duration-500`}></div>
+                )}
                 </div>
               </div>
             </motion.div>
@@ -149,25 +157,23 @@ const Passioni: React.FC = () => {
               </p>
             </div>
           </div>
-          <div className="pt-8 border-t-2 border-emerald-500/30">
-            <p className="text-emerald-300 font-black text-xl">— ALEX ZANARDI</p>
-            <p className="text-slate-400 text-sm mt-3 font-semibold tracking-wide">Campione di vita, ispiratore di passioni e determinazione</p>
+          <div className="pt-8 border-t-2 border-emerald-500/30 flex flex-col items-center gap-4">
+            <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-emerald-400 shadow-lg">
+              <img 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" 
+                alt="Alex Zanardi"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <p className="text-emerald-300 font-black text-xl">— ALEX ZANARDI</p>
+              <p className="text-slate-400 text-sm mt-2 font-semibold tracking-wide">Campione di vita, ispiratore di passioni e determinazione</p>
+            </div>
           </div>
         </div>
       </motion.section>
 
-      {/* Sezione Motivazionale Personale */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7 }}
-        className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-[3rem] p-12 md:p-16 text-center space-y-6 border border-purple-200 shadow-lg"
-      >
-        <p className="text-2xl md:text-3xl font-light italic leading-relaxed text-slate-800">
-          "La passione è ciò che rende straordinario l'ordinario. È il motore che mi spinge a imparare e a fare sempre meglio, ogni giorno."
-        </p>
-        <p className="text-purple-600 font-semibold text-lg">— Riccardo Giuliani</p>
-      </motion.section>
+
 
       {/* Sezione Call to Action */}
       <motion.section
