@@ -153,7 +153,7 @@ const Passioni: React.FC = () => {
                 "Quando pensi di aver dato tutto, tieni duro ancora cinque secondi."
               </p>
               <p className="text-xl md:text-2xl font-light italic leading-relaxed text-emerald-300">
-                "Ci si può anche sedere, ma è per ripartire. Non è che perché sei seduto non puoi fare nient'altro. La vita è sempre un'opportunità, basta saperla cogliere."
+                "La vita è come il caffè: per addolcirla devi girare il cucchiaino."
               </p>
             </div>
           </div>
