@@ -7,7 +7,8 @@ import { Document } from '../types';
 
 /**
  * Sezione Inglese.
- * Presenta i progetti e i lavori svolti in lingua inglese con un layout pulito e professionale.
+ * Presenta i progetti e i lavori scolastici svolti in lingua inglese con un layout pulito e professionale.
+ * NOTA: Questa sezione contiene SOLO progetti scolastici, non il curriculum.
  */
 const Inglese: React.FC = () => {
   const [openPdf, setOpenPdf] = useState<Document | null>(null);
@@ -16,7 +17,7 @@ const Inglese: React.FC = () => {
     window.print();
   };
 
-  // Dati dei documenti per la sezione inglese
+  // Dati dei documenti per la sezione inglese - SOLO PROGETTI SCOLASTICI
   const docs: Document[] = [
     {
       id: 'english-pcto',
@@ -54,11 +55,11 @@ const Inglese: React.FC = () => {
             <Globe size={18} /> Lingua Inglese
           </span>
           <h2 className="text-5xl font-bold text-slate-900 leading-tight">
-            Progetti e Lavori in <br/><span className="text-blue-600">English</span>
+            Progetti Scolastici in <br/><span className="text-blue-600">English</span>
           </h2>
           <p className="text-slate-500 italic font-serif text-xl">"Language is the key to understanding different cultures and perspectives."</p>
           <p className="text-lg text-slate-600 leading-relaxed font-light">
-            Qui raccolgo tutti i progetti, i lavori e gli approfondimenti svolti in lingua inglese. Dai testi di ricerca alle presentazioni, dalle analisi critiche ai progetti collaborativi, questa sezione rappresenta il mio percorso di apprendimento e padronanza della lingua inglese.
+            Qui raccolgo tutti i progetti e i lavori scolastici svolti in lingua inglese. Dai testi di ricerca alle presentazioni, dalle analisi critiche ai progetti collaborativi, questa sezione rappresenta il mio percorso di apprendimento e padronanza della lingua inglese.
           </p>
         </div>
         
@@ -70,7 +71,7 @@ const Inglese: React.FC = () => {
               <div className="text-center space-y-6">
                 <Globe size={120} className="text-white mx-auto opacity-80" />
                 <p className="text-white text-2xl font-bold">Sezione Inglese</p>
-                <p className="text-blue-100 text-lg">I tuoi lavori verranno visualizzati qui</p>
+                <p className="text-blue-100 text-lg">I tuoi lavori scolastici verranno visualizzati qui</p>
               </div>
             </div>
           </div>
@@ -81,7 +82,7 @@ const Inglese: React.FC = () => {
       <section className="space-y-10">
         <h3 className="text-3xl font-bold text-slate-800 flex items-center gap-4">
           <Bookmark className="text-blue-500" size={32} /> 
-          Progetti e Documenti
+          Progetti Scolastici
         </h3>
         
         {docs.length > 0 ? (
@@ -143,7 +144,7 @@ const Inglese: React.FC = () => {
             <Globe size={64} className="text-blue-400 mb-6" />
             <h4 className="text-2xl font-bold text-slate-900 mb-3">Sezione in Costruzione</h4>
             <p className="text-slate-600 text-lg text-center max-w-md">
-              Carica qui i tuoi progetti, i tuoi saggi e i tuoi lavori svolti in lingua inglese. Questa sezione è pronta ad accogliere i tuoi contenuti!
+              Carica qui i tuoi progetti, i tuoi saggi e i tuoi lavori scolastici svolti in lingua inglese. Questa sezione è pronta ad accogliere i tuoi contenuti!
             </p>
           </motion.div>
         )}
