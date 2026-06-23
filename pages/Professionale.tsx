@@ -18,7 +18,7 @@ const Professionale: React.FC = () => {
       id: 'flappy-bird',
       title: 'Flappy Bird Clone',
       tag: 'Informatica & Game Dev',
-      image: '/foto-progetti/area-scientifica/flappy-bird.jpg',
+      image: '/foto-progetti/area-scientifica/flappy-bird.png',
       description: "Sviluppo di un clone del celebre gioco Flappy Bird. Il progetto esplora la logica dei giochi 2D, la gestione delle collisioni, la fisica della gravità e il rendering grafico in tempo reale.",
       links: [
         { label: 'Apri Progetto', url: 'https://giuls-35456.github.io/flappy-bird/', type: 'external' }
