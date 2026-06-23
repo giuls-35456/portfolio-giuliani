@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Music, Soccer, Hammer, Trophy } from 'lucide-react';
+import { Music, Target, Hammer, Trophy } from 'lucide-react';
 
 /**
  * Sezione Passioni.
@@ -12,7 +12,7 @@ const Passioni: React.FC = () => {
       id: 'calcio',
       title: 'Calcio - Una Passione di Famiglia',
       description: 'Il calcio non è solo uno sport per me, ma un legame profondo con le mie radici. È una passione che mi è stata trasmessa da mio nonno e mio padre, rendendo ogni partita un momento di condivisione familiare. Amo la tattica, l\'adrenalina della competizione e lo spirito di squadra che solo il rettangolo verde sa trasmettere.',
-      icon: Soccer,
+      icon: Target,
       color: 'from-green-500 to-emerald-600',
       lightColor: 'bg-green-50'
     },
