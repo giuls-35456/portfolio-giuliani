@@ -15,7 +15,7 @@ const Passioni: React.FC = () => {
       icon: Target,
       color: 'from-green-500 to-emerald-600',
       lightColor: 'bg-green-50',
-      image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=2070&auto=format&fit=crop'
+      image: 'https://images.unsplash.com/photo-1517959852202-953cf4b7e0f9?q=80&w=2070&auto=format&fit=crop'
     },
     {
       id: 'sport',
@@ -42,7 +42,7 @@ const Passioni: React.FC = () => {
       icon: Hammer,
       color: 'from-amber-500 to-orange-600',
       lightColor: 'bg-amber-50',
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop'
+      image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?q=80&w=2070&auto=format&fit=crop'
     }
   ];
 
@@ -125,22 +125,34 @@ const Passioni: React.FC = () => {
 
       {/* Sezione Citazione Motivazionale di Alex Zanardi */}
       <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-        className="mt-20 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-[3rem] p-12 md:p-20 text-white text-center space-y-8 shadow-2xl border border-slate-700"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.6, duration: 0.8 }}
+        className="mt-20 relative"
       >
-        <div className="space-y-6">
-          <p className="text-3xl md:text-4xl font-bold italic leading-relaxed">
-            "La disabilità è una caratteristica, non una sentenza. Quello che conta è come reagisci."
-          </p>
-          <p className="text-2xl md:text-3xl font-light italic leading-relaxed text-slate-300">
-            "Non è importante dove sei partito, ma dove vuoi arrivare."
-          </p>
-        </div>
-        <div className="pt-6 border-t border-slate-600">
-          <p className="text-slate-400 font-semibold text-lg">— Alex Zanardi</p>
-          <p className="text-slate-500 text-sm mt-2">Campione di vita, ispiratore di passioni e determinazione</p>
+        <div className="absolute -inset-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 rounded-[3rem] blur-2xl opacity-30 animate-pulse"></div>
+        <div className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-[3rem] p-12 md:p-20 text-white text-center space-y-8 shadow-2xl border-2 border-emerald-500/50">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <p className="text-sm md:text-base font-bold uppercase tracking-[0.2em] text-emerald-400">Ispirazione</p>
+              <p className="text-3xl md:text-5xl font-black italic leading-tight bg-gradient-to-r from-emerald-300 via-white to-emerald-300 bg-clip-text text-transparent">
+                "La disabilità è una caratteristica, non una sentenza."
+              </p>
+            </div>
+            <div className="h-1 w-20 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full"></div>
+            <div className="space-y-4">
+              <p className="text-2xl md:text-3xl font-bold italic leading-relaxed text-slate-200">
+                "Quello che conta è come reagisci."
+              </p>
+              <p className="text-xl md:text-2xl font-light italic leading-relaxed text-emerald-300">
+                "Non è importante dove sei partito, ma dove vuoi arrivare."
+              </p>
+            </div>
+          </div>
+          <div className="pt-8 border-t-2 border-emerald-500/30">
+            <p className="text-emerald-300 font-black text-xl">— ALEX ZANARDI</p>
+            <p className="text-slate-400 text-sm mt-3 font-semibold tracking-wide">Campione di vita, ispiratore di passioni e determinazione</p>
+          </div>
         </div>
       </motion.section>
 
