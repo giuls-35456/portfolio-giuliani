@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Cpu, Code2, Database, Network, Brain, Calculator, 
-  ChevronRight, X, Printer, FileText, ShieldCheck, BarChart3, Terminal
+  ChevronRight, X, Printer, FileText, ShieldCheck, BarChart3, Terminal, Gamepad2
 } from 'lucide-react';
 import { Document } from '../types';
 
@@ -14,6 +14,17 @@ const Professionale: React.FC = () => {
   };
 
   const scientificDocuments = [
+    {
+      id: 'flappy-bird',
+      title: 'Flappy Bird Clone',
+      tag: 'Informatica & Game Dev',
+      image: '/foto-progetti/area-scientifica/flappy-bird.jpg',
+      description: "Sviluppo di un clone del celebre gioco Flappy Bird. Il progetto esplora la logica dei giochi 2D, la gestione delle collisioni, la fisica della gravità e il rendering grafico in tempo reale.",
+      links: [
+        { label: 'Apri Progetto', url: 'https://giuls-35456.github.io/flappy-bird/', type: 'external' }
+      ],
+      pages: []
+    },
     {
       id: 'informatica-helpdesk',
       title: 'Sistema Helpdesk',
@@ -306,20 +317,16 @@ const Professionale: React.FC = () => {
             <p className="mb-2"><span className="text-purple-400">class</span> <span className="text-yellow-400">RiccardoGiuliani</span> &#123;</p>
             <p className="ml-4 mb-1"><span className="text-blue-400">languages</span> = ["PHP", "C#", "Java", "JavaScript"];</p>
             <p className="ml-4 mb-1"><span className="text-blue-400">tools</span> = ["CiscoPacketTracer", "VSCode"];</p>
-            <p className="ml-4 mb-1"><span className="text-blue-400">expertise</span> = ["Backend", "Networking", "Security"];</p>
-            <p className="ml-4 mb-1"><span className="text-blue-400">math</span> = ["Calculus", "Combinatorics", "Analytics"];</p>
-            <p className="mb-2">&#125;</p>
-            <p className="text-emerald-400 mt-4">// Ready for deployment...</p>
+            <p className="ml-4 mb-1"><span className="text-blue-400">focus</span> = "Security & Innovation";</p>
+            <p className="mb-0">&#125;</p>
           </div>
         </div>
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/10 blur-[150px] -mr-64 -mt-64"></div>
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-600/5 blur-[100px] -ml-32 -mb-32"></div>
       </div>
 
       {/* Modal PDF Viewer */}
       <AnimatePresence>
         {openPdf && (
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -327,27 +334,23 @@ const Professionale: React.FC = () => {
           >
             <div className="w-full h-full relative z-[10000] flex flex-col">
               <div className="fixed top-6 right-6 z-[10001] flex flex-col gap-4 no-print">
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setOpenPdf(null)}
-                  className="p-5 bg-red-600 text-white rounded-full flex items-center justify-center shadow-2xl border-4 border-white cursor-pointer"
+                <button 
+                  onClick={() => setOpenPdf(null)} 
+                  className="p-5 bg-red-600 text-white hover:bg-red-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-2xl border-4 border-white hover:scale-110 active:scale-95"
                 >
                   <X size={32} strokeWidth={4} />
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={handlePrint}
-                  className="p-4 bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-xl border-4 border-white"
+                </button>
+                <button 
+                  onClick={handlePrint} 
+                  className="p-4 bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 rounded-full flex items-center justify-center shadow-xl border-4 border-white hover:scale-110 active:scale-95"
                 >
                   <Printer size={24} />
-                </motion.button>
+                </button>
               </div>
-
-              <div id="printable-pdf" className="bg-white shadow-2xl rounded-2xl w-full h-[90vh] overflow-hidden mt-4 border-4 border-slate-200">
-                <iframe
-                  src={`${openPdf.pdfUrl}#toolbar=0&navpanes=0&scrollbar=1`}
+              
+              <div id="printable-pdf" className="bg-white shadow-2xl rounded-xl w-full h-[90vh] overflow-hidden mt-4">
+                <iframe 
+                  src={`${openPdf.pdfUrl}#view=FitH&toolbar=0`} 
                   className="w-full h-full border-none"
                   title={openPdf.title}
                 />
