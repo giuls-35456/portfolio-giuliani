@@ -15,7 +15,7 @@ const Passioni: React.FC = () => {
       icon: Target,
       color: 'from-green-500 to-emerald-600',
       lightColor: 'bg-green-50',
-      image: 'https://images.unsplash.com/photo-1517959852202-953cf4b7e0f9?q=80&w=2070&auto=format&fit=crop'
+      image: '/foto-progetti/area-scientifica/calcio-campo.jpg'
     },
     {
       id: 'sport',
@@ -140,27 +140,27 @@ const Passioni: React.FC = () => {
       >
         <div className="absolute -inset-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 rounded-[3rem] blur-2xl opacity-30 animate-pulse"></div>
         <div className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-[3rem] p-12 md:p-20 text-white text-center space-y-8 shadow-2xl border-2 border-emerald-500/50">
-          <div className="space-y-8">
+            <div className="space-y-8">
             <div className="space-y-4">
-              <p className="text-sm md:text-base font-bold uppercase tracking-[0.2em] text-emerald-400">Ispirazione</p>
-              <p className="text-3xl md:text-5xl font-black italic leading-tight bg-gradient-to-r from-emerald-300 via-white to-emerald-300 bg-clip-text text-transparent">
-                "La disabilità è una caratteristica, non una sentenza."
+              <p className="text-sm md:text-base font-bold uppercase tracking-[0.2em] text-emerald-400">Ispirazione da Alex Zanardi</p>
+              <p className="text-3xl md:text-4xl font-black italic leading-tight bg-gradient-to-r from-emerald-300 via-white to-emerald-300 bg-clip-text text-transparent">
+                "Quando mi sono svegliato senza gambe, ho guardato la metà che era rimasta, non quella che era andata persa."
               </p>
             </div>
             <div className="h-1 w-20 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full"></div>
             <div className="space-y-4">
               <p className="text-2xl md:text-3xl font-bold italic leading-relaxed text-slate-200">
-                "Quello che conta è come reagisci."
+                "Quando pensi di aver dato tutto, tieni duro ancora cinque secondi."
               </p>
               <p className="text-xl md:text-2xl font-light italic leading-relaxed text-emerald-300">
-                "Non è importante dove sei partito, ma dove vuoi arrivare."
+                "Se non avessi avuto l'incidente, non avrei scoperto di che cosa sono capace."
               </p>
             </div>
           </div>
           <div className="pt-8 border-t-2 border-emerald-500/30 flex flex-col items-center gap-4">
-            <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-emerald-400 shadow-lg">
+            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-emerald-400 shadow-lg">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" 
+                src="/foto-progetti/area-scientifica/alex-zanardi.webp" 
                 alt="Alex Zanardi"
                 className="w-full h-full object-cover"
               />
