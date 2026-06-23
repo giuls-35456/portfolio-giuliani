@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Printer, X, Heart, ChevronRight, Globe, Shield, Users, Cpu, Lock, Eye
+  Printer, X, ChevronRight, Cpu, Lock, Eye, Users
 } from 'lucide-react';
 import { Document } from '../types';
 
 /**
  * Educazione Civica - Design Moderno e Digitale
- * Sezione dedicata ai Diritti Umani e alla Cittadinanza Digitale.
+ * Sezione dedicata alle Reti Neurali e alla Cittadinanza Digitale.
  */
 const Civica: React.FC = () => {
   const [openPdf, setOpenPdf] = useState<Document | null>(null);
@@ -16,14 +16,14 @@ const Civica: React.FC = () => {
     window.print();
   };
 
-  // Documento sui Diritti Umani
+  // Documento sulle Reti Neurali
   const doc: Document = {
-    id: 'human-rights',
-    title: 'Human Rights & Digital Ethics',
-    tag: 'Diritti Umani Digitali',
-    image: '/foto-progetti/civica/human-rights.jpg',
-    description: "Un'esplorazione dei diritti umani fondamentali applicati all'era digitale. Analisi dell'etica informatica, della protezione dei dati e della libertà di espressione nel cyberspazio.",
-    pdfUrl: '/documents/HumanRights.pdf',
+    id: 'reti-neurali',
+    title: 'Le Reti Neurali & Etica Digitale',
+    tag: 'Innovazione & Etica',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop',
+    description: "Un'analisi approfondita delle reti neurali, del loro funzionamento e dell'impatto etico nella società moderna. Esploriamo come l'intelligenza artificiale stia ridefinendo i concetti di responsabilità e cittadinanza.",
+    pdfUrl: '/documents/LERETINEURALI.pdf',
     pages: []
   };
 
@@ -63,9 +63,9 @@ const Civica: React.FC = () => {
               transition={{ delay: 0.1 }}
               className="text-5xl md:text-7xl font-black leading-tight tracking-tighter"
             >
-              Diritti & <br />
+              Reti Neurali & <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-emerald-300">
-                Tecnologia
+                Società
               </span>
             </motion.h1>
 
@@ -75,7 +75,7 @@ const Civica: React.FC = () => {
               transition={{ delay: 0.2 }}
               className="text-lg md:text-xl text-slate-400 leading-relaxed font-light"
             >
-              L'educazione civica oggi non può prescindere dall'informatica. Abbiamo esplorato come i principi universali di libertà e dignità si traducano in <strong>Cittadinanza Digitale</strong>, etica degli algoritmi e responsabilità nel web.
+              L'integrazione tra tecnologia e società civile passa oggi per l'intelligenza artificiale. Abbiamo approfondito il funzionamento delle <strong>Reti Neurali</strong> e le sfide etiche che pongono alla nostra cittadinanza.
             </motion.p>
 
             <motion.div 
@@ -108,7 +108,7 @@ const Civica: React.FC = () => {
             <div className="absolute inset-0 bg-slate-700/20 rounded-full blur-3xl animate-pulse"></div>
             <img 
               src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" 
-              alt="Digital Human Rights" 
+              alt="Digital Ethics and AI" 
               className="relative z-10 rounded-3xl shadow-2xl border border-slate-700"
             />
           </motion.div>
@@ -128,7 +128,7 @@ const Civica: React.FC = () => {
               Cittadinanza Digitale
             </motion.h2>
             <p className="text-slate-600 max-w-2xl font-light">
-              L'integrazione tra informatica ed educazione civica ci permette di comprendere le sfide del futuro: dalla protezione dei dati personali alla lotta contro la disinformazione.
+              Comprendere le basi tecnologiche dell'IA è fondamentale per esercitare una cittadinanza consapevole e critica nel mondo digitale contemporaneo.
             </p>
           </div>
         </div>

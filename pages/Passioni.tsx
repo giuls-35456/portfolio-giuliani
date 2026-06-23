@@ -152,4 +152,3 @@ const Passioni: React.FC = () => {
 };
 
 export default Passioni;
-// trigger
