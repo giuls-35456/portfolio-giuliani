@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { INFO } from '../constants';
-import { Mail, Phone, MapPin, Send, Github, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, ArrowRight, Download } from 'lucide-react';
 
 const Contatti: React.FC = () => {
   return (
@@ -115,6 +115,55 @@ const Contatti: React.FC = () => {
               </div>
             </motion.a>
           ))}
+        </div>
+      </section>
+
+      {/* CV Download Section */}
+      <section className="space-y-12">
+        <div className="flex items-center gap-4">
+          <div className="w-2 h-8 bg-slate-800 rounded-full"></div>
+          <h2 className="text-3xl font-bold text-slate-900">Scarica il Mio Curriculum</h2>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <motion.a
+            href="/documents/CV_Riccardo_Giuliani_ITA.pdf"
+            download="CV_Riccardo_Giuliani_ITA.pdf"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -8 }}
+            className="group flex items-center gap-6 p-10 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-[2.5rem] border border-emerald-200 hover:border-emerald-400 transition-all shadow-lg hover:shadow-xl"
+          >
+            <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-600 text-white rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Download size={40} />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-bold text-emerald-900 text-2xl mb-2">CV Italiano</h3>
+              <p className="text-emerald-700 font-light">Scarica il mio curriculum vitae in italiano</p>
+            </div>
+            <ArrowRight className="text-emerald-600 group-hover:text-emerald-900 transition-colors" size={28} />
+          </motion.a>
+
+          <motion.a
+            href="/documents/CV_Riccardo_Giuliani_ENG.pdf"
+            download="CV_Riccardo_Giuliani_ENG.pdf"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            whileHover={{ y: -8 }}
+            className="group flex items-center gap-6 p-10 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-[2.5rem] border border-blue-200 hover:border-blue-400 transition-all shadow-lg hover:shadow-xl"
+          >
+            <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 text-white rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Download size={40} />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-bold text-blue-900 text-2xl mb-2">CV English</h3>
+              <p className="text-blue-700 font-light">Download my curriculum vitae in English</p>
+            </div>
+            <ArrowRight className="text-blue-600 group-hover:text-blue-900 transition-colors" size={28} />
+          </motion.a>
         </div>
       </section>
 

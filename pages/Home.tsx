@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { INFO } from '../constants';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronRight, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 /**
@@ -64,6 +64,31 @@ const Home: React.FC = () => {
             Contattami
             <ChevronRight size={20} />
           </Link>
+        </motion.div>
+
+        {/* Pulsanti Download CV */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="flex flex-col sm:flex-row items-center gap-5 justify-center lg:justify-start pt-4"
+        >
+          <a 
+            href="/documents/CV_Riccardo_Giuliani_ITA.pdf" 
+            download="CV_Riccardo_Giuliani_ITA.pdf"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-8 py-4 rounded-2xl hover:shadow-xl transition-all duration-300 shadow-md active:scale-95 font-semibold text-sm md:text-base"
+          >
+            <Download size={18} />
+            Scarica CV (ITA)
+          </a>
+          <a 
+            href="/documents/CV_Riccardo_Giuliani_ENG.pdf" 
+            download="CV_Riccardo_Giuliani_ENG.pdf"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white border-2 border-emerald-400 text-emerald-600 px-8 py-4 rounded-2xl hover:border-emerald-600 hover:bg-emerald-50 transition-all duration-300 active:scale-95 font-semibold text-sm md:text-base"
+          >
+            <Download size={18} />
+            Download CV (ENG)
+          </a>
         </motion.div>
       </div>
 
